@@ -9,13 +9,17 @@ namespace BiblioCat.Data
 {
     public class Convention
     {
+        [Key]
         public int ConventionId { get; set; }
 
         [Required]
         public string Name { get; set; }
 
         [Required]
-        public string Location { get; set; }
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }        
 
         [Required]
         public DateTime StartDate { get; set; }
@@ -26,7 +30,9 @@ namespace BiblioCat.Data
         [Required]
         public string Hotel { get; set; }
 
-
         public Author GuestOfHonor { get; set; }
+
+        public List<AuthorConvention> AuthorsAttending { get; set; } = new List<AuthorConvention>();
+
     }
 }

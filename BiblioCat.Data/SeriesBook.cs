@@ -16,6 +16,7 @@ namespace BiblioCat.Data
         public virtual Series Series { get; set; }
 
         [Key, Column(Order = 1)]
+        [ForeignKey(nameof(Book))]
         public int BookId { get; set; }
         public virtual Book Book { get; set; }
     }

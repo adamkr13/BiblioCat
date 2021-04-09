@@ -16,6 +16,7 @@ namespace BiblioCat.Data
         public virtual Author Author { get; set; }
 
         [Key, Column(Order =1)]
+        [ForeignKey(nameof(Convention))]
         public int ConventionId { get; set; }
         public virtual Convention Convention { get; set; }
     }
