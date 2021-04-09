@@ -32,14 +32,18 @@ namespace BiblioCat.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Author> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
-        public DbSet<Series> SeriesPlural { get; set; }
-        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Book> Books { get; set; }
         public DbSet<Convention> Conventions { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Series> SeriesPlural { get; set; }
         public DbSet<AuthorBook> AuthorBooks { get; set; }
         public DbSet<AuthorConvention> AuthorConventions { get; set; }
+        public DbSet<AuthorPublisher> AuthorPublishers { get; set; }
+        public DbSet<BookPublisher> BookPublishers { get; set; }
         public DbSet<SeriesAuthor> SeriesAuthors { get; set; }
+        public DbSet<SeriesBook> SeriesBooks { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -60,14 +60,16 @@
     <Compile Include="Author.cs" />
     <Compile Include="AuthorBook.cs" />
     <Compile Include="AuthorConvention.cs" />
+    <Compile Include="AuthorPublisher.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="BookPublisher.cs" />
     <Compile Include="Convention.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
-    <Compile Include="PublisherAuthors.cs" />
     <Compile Include="Series.cs" />
     <Compile Include="SeriesAuthor.cs" />
+    <Compile Include="SeriesBook.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
