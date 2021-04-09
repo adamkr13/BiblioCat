@@ -11,7 +11,7 @@ namespace BiblioCat.Data
     public class AuthorPublisher
     {
         [Key, Column(Order = 0)]
-        [ForeignKey(nameof(Series))]
+        [ForeignKey(nameof(Author))]
         public int AuthorId { get; set; }
         public virtual Author Author { get; set; }
 
