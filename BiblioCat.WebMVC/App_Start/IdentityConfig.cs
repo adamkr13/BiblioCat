@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using BiblioCat.WebMVC.Models;
+using BiblioCat.Data;
 
 namespace BiblioCat.WebMVC
 {
