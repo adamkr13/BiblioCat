@@ -11,6 +11,8 @@ namespace BiblioCat.Models.Book
 {
     public class BookDetail
     {
+        public int BookId { get; set; }
+
         public string Title { get; set; }
 
         public DateTime PublicationDate { get; set; }

@@ -43,15 +43,6 @@ namespace BiblioCat.Models.Book
         public bool IHaveRead { get; set; }
 
         [DisplayName("I Own It")]
-        public bool IOwn { get; set; }
-
-        [DisplayName("Author(s) of Book")]
-        public List<AuthorBook> AuthorsOfBook { get; set; } = new List<AuthorBook>();
-
-        [DisplayName("Published By")]
-        public List<BookPublisher> PublishersOfBook { get; set; } = new List<BookPublisher>();
-
-        [DisplayName("Part of Series")]
-        public List<SeriesBook> SeriesOfBook { get; set; } = new List<SeriesBook>();
+        public bool IOwn { get; set; }        
     }
 }
