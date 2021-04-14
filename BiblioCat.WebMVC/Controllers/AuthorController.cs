@@ -94,7 +94,7 @@ namespace BiblioCat.WebMVC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "The author could not be added.");
+            ModelState.AddModelError("", "The author could not be updated.");
 
             return View(model);
         }
