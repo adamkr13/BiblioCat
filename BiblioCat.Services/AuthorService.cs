@@ -69,6 +69,7 @@ namespace BiblioCat.Services
                 return
                     new AuthorDetail
                     {
+                        AuthorId = entity.AuthorId,
                         LastName = entity.LastName,
                         FirstName = entity.FirstName,
                         Email = entity.Email,
@@ -77,6 +78,42 @@ namespace BiblioCat.Services
                         GoodreadsPage = entity.GoodreadsPage,
                         TwitterHandle = entity.TwitterHandle
                     };
+            }
+        }
+
+        public bool UpdateAuthor(AuthorEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Authors
+                        .Single(e => e.AuthorId == model.AuthorId);
+
+                entity.LastName = model.LastName;
+                entity.FirstName = model.FirstName;
+                entity.Email = model.Email;
+                entity.OfficialWebsite = model.OfficialWebsite;
+                entity.AmazonPage = model.AmazonPage;
+                entity.GoodreadsPage = model.GoodreadsPage;
+                entity.TwitterHandle = model.TwitterHandle;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteAuthor(int authorId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Authors
+                        .Single(e => e.AuthorId == authorId);
+
+                ctx.Authors.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }
