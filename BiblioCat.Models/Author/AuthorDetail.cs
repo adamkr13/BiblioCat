@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiblioCat.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,22 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Data
+namespace BiblioCat.Models.Author
 {
-    public class Author
+    public class AuthorDetail
     {
-        [Key]        
         public int AuthorId { get; set; }
 
-        [Required]
         [DisplayName("Last Name")]
         public string LastName { get; set; }
 
-        [Required]
         [DisplayName("First Name")]
-        public string FirstName { get; set; }        
+        public string FirstName { get; set; }
 
-        [EmailAddress(ErrorMessage ="Please enter a valid email address")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
 
         [DisplayName("Official Website")]
@@ -40,12 +38,12 @@ namespace BiblioCat.Data
         public virtual List<AuthorBook> BooksByAuthor { get; set; }
 
         [DisplayName("Conventions Attending")]
-        public virtual List<AuthorConvention> ConventionsAttending { get; set; } = new List<AuthorConvention>();
+        public virtual List<AuthorConvention> ConventionsAttending { get; set; }
 
         [DisplayName("Published By")]
-        public virtual List<AuthorPublisher> AuthorPublishedBy { get; set; } = new List<AuthorPublisher>();
+        public virtual List<AuthorPublisher> AuthorPublishedBy { get; set; }
 
         [DisplayName("Series Written")]
-        public virtual List<SeriesAuthor> SeriesWritten { get; set; } = new List<SeriesAuthor>();
+        public virtual List<SeriesAuthor> SeriesWritten { get; set; }
     }
 }

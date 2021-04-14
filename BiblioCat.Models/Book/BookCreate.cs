@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiblioCat.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,13 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Data
+namespace BiblioCat.Models.Book
 {
-    public class Book
+    public class BookCreate
     {
-        [Key]
-        public int BookId { get; set; }
-
         [Required]
         public string Title { get; set; }
 
@@ -55,33 +53,5 @@ namespace BiblioCat.Data
 
         [DisplayName("Part of Series")]
         public List<SeriesBook> SeriesOfBook { get; set; } = new List<SeriesBook>();
-    }
-
-    public enum BookGenre
-    {
-        Action,
-        Crime,
-        Fantasy, 
-        Horror,
-        [Description("Paranormal Romance")]
-        ParanormalRomance,
-        Romance,
-        [Description("Science Fiction")]
-        SciFi,
-        Western,
-        NonFiction
-    }
-
-    public enum BookFormat
-    {        
-        Audio,
-        Chapbook,
-        Hardcover,
-        [Description("Trade Paperback")]
-        TradePaper,
-        [Description("E-book")]
-        Ebook,
-        [Description("Mass Market Paperback")]
-        MassMarketPaperback
     }
 }

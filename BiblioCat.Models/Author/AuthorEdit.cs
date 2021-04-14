@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Data
+namespace BiblioCat.Models.Author
 {
-    public class Author
+    public class AuthorEdit
     {
-        [Key]        
         public int AuthorId { get; set; }
 
         [Required]
@@ -19,9 +18,9 @@ namespace BiblioCat.Data
 
         [Required]
         [DisplayName("First Name")]
-        public string FirstName { get; set; }        
+        public string FirstName { get; set; }
 
-        [EmailAddress(ErrorMessage ="Please enter a valid email address")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
 
         [DisplayName("Official Website")]
@@ -35,17 +34,5 @@ namespace BiblioCat.Data
 
         [DisplayName("Author's Twitter Handle")]
         public string TwitterHandle { get; set; }
-
-        [DisplayName("Books by Author")]
-        public virtual List<AuthorBook> BooksByAuthor { get; set; }
-
-        [DisplayName("Conventions Attending")]
-        public virtual List<AuthorConvention> ConventionsAttending { get; set; } = new List<AuthorConvention>();
-
-        [DisplayName("Published By")]
-        public virtual List<AuthorPublisher> AuthorPublishedBy { get; set; } = new List<AuthorPublisher>();
-
-        [DisplayName("Series Written")]
-        public virtual List<SeriesAuthor> SeriesWritten { get; set; } = new List<SeriesAuthor>();
     }
 }
