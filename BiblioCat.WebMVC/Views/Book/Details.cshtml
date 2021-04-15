@@ -114,9 +114,19 @@
             @Html.DisplayFor(model => model.IOwn)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorsOfBook)
+        </dt>
+        @foreach (var item in Model.AuthorsOfBook)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)               
+            </dd>            
+        }
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId}) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

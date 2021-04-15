@@ -1,4 +1,5 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Author;
 using BiblioCat.Models.Book;
 using System;
 using System.Collections.Generic;
@@ -24,13 +25,16 @@ namespace BiblioCat.Services
                 var query =
                     ctx
                         .Books
-                        .Select(b =>
+                        .Select(e =>
                         new BookListItem
                         {
-                            BookId = b.BookId,
-                            Title = b.Title,
-                            GenreOfBook = b.GenreOfBook,
-                            PublicationDate = b.PublicationDate
+                            BookId = e.BookId,
+                            Title = e.Title,
+                            GenreOfBook = e.GenreOfBook,
+                            PublicationDate = e.PublicationDate,
+                            AuthorIds = e.AuthorsOfBook.Select(a => a.Author.AuthorId).ToList(),
+                            LastNames = e.AuthorsOfBook.Select(a => a.Author.LastName).ToList(),
+                            FirstNames = e.AuthorsOfBook.Select(a => a.Author.FirstName).ToList()
                         });
                 return query.ToArray();
             }
@@ -86,7 +90,13 @@ namespace BiblioCat.Services
                         Illustrator = entity.Illustrator,
                         IsFirstEdition = entity.IsFirstEdition,
                         IHaveRead = entity.IHaveRead,
-                        IOwn = entity.IOwn
+                        IOwn = entity.IOwn,
+                        AuthorsOfBook = entity.AuthorsOfBook.Select(a => new AuthorListItem()
+                        {
+                            AuthorId = a.AuthorId,
+                            LastName = a.Author.LastName,
+                            FirstName = a.Author.FirstName
+                        }).ToList()
                     };
             }
         }

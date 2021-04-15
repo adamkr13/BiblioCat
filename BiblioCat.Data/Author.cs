@@ -37,7 +37,7 @@ namespace BiblioCat.Data
         public string TwitterHandle { get; set; }
 
         [DisplayName("Books by Author")]
-        public virtual List<AuthorBook> BooksByAuthor { get; set; }
+        public virtual List<AuthorBook> BooksByAuthor { get; set; } = new List<AuthorBook>();
 
         [DisplayName("Conventions Attending")]
         public virtual List<AuthorConvention> ConventionsAttending { get; set; } = new List<AuthorConvention>();

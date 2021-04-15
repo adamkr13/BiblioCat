@@ -18,11 +18,19 @@ namespace BiblioCat.Models.Book
         public BookGenre GenreOfBook { get; set; }
 
         public DateTime PublicationDate { get; set; }
+        
+        [DisplayName("Author Last Name")]
+        public string LastName { get; set; }
 
-        [DisplayName("First Name")]
+        [DisplayName("Author First Name")]
         public string FirstName { get; set; }
 
-        [DisplayName("Last Name")]
-        public string LastName { get; set; }
+        public List<int> AuthorIds { get; set; }
+
+        [DisplayName("Author Last Name")]
+        public List<string> LastNames { get; set; }
+
+        [DisplayName("Author First Name")]
+        public List<string> FirstNames { get; set; }
     }
 }

@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202104151435351_ChangeISBNType.designer.cs">
       <DependentUpon>202104151435351_ChangeISBNType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104151719586_AddVirtualToBookLists.cs" />
+    <Compile Include="Migrations\202104151719586_AddVirtualToBookLists.designer.cs">
+      <DependentUpon>202104151719586_AddVirtualToBookLists.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104151435351_ChangeISBNType.resx">
       <DependentUpon>202104151435351_ChangeISBNType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104151719586_AddVirtualToBookLists.resx">
+      <DependentUpon>202104151719586_AddVirtualToBookLists.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -48,13 +48,13 @@ namespace BiblioCat.Data
         public bool IOwn { get; set; }
 
         [DisplayName("Author(s) of Book")]
-        public List<AuthorBook> AuthorsOfBook { get; set; } = new List<AuthorBook>();
+        public virtual List<AuthorBook> AuthorsOfBook { get; set; } = new List<AuthorBook>();
 
         [DisplayName("Published By")]
-        public List<BookPublisher> PublishersOfBook { get; set; } = new List<BookPublisher>();
+        public virtual List<BookPublisher> PublishersOfBook { get; set; } = new List<BookPublisher>();
 
         [DisplayName("Part of Series")]
-        public List<SeriesBook> SeriesOfBook { get; set; } = new List<SeriesBook>();
+        public virtual List<SeriesBook> SeriesOfBook { get; set; } = new List<SeriesBook>();
     }
 
     public enum BookGenre
