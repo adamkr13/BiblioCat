@@ -11,6 +11,7 @@ namespace BiblioCat.WebMVC.Controllers
 {
     public class BookController : Controller
     {
+        [Authorize]
         // GET: Book
         public ActionResult Index()
         {
