@@ -18,21 +18,7 @@ namespace BiblioCat.Models.Book
         [DisplayName("Genre")]
         public BookGenre GenreOfBook { get; set; }
 
-        public DateTime PublicationDate { get; set; }
-        
-        [DisplayName("Author Last Name")]
-        public string LastName { get; set; }
-
-        [DisplayName("Author First Name")]
-        public string FirstName { get; set; }
-
-        public List<int> AuthorIds { get; set; }
-
-        [DisplayName("Author Last Name")]
-        public List<string> LastNames { get; set; }
-
-        [DisplayName("Author First Name")]
-        public List<string> FirstNames { get; set; }
+        public DateTime PublicationDate { get; set; }        
 
         [DisplayName("Author(s) of Book")]
         public virtual List<AuthorListItem> AuthorsOfBook { get; set; }

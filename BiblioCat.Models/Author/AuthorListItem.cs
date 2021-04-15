@@ -17,8 +17,6 @@ namespace BiblioCat.Models.Author
         [DisplayName("First Name")]
         public string FirstName { get; set; }
 
-        public string BookTitle { get; set; }
-
         public List<int> BookIds { get; set; }
 
         [DisplayName("Book Titles")]
