@@ -17,7 +17,7 @@ namespace BiblioCat.Models.Book
 
         public DateTime PublicationDate { get; set; }
 
-        public int ISBN { get; set; }
+        public string ISBN { get; set; }
 
         [DisplayName("Genre")]
         public BookGenre GenreOfBook { get; set; }

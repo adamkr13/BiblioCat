@@ -1,5 +1,6 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Author;
+using BiblioCat.Models.Book;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,14 @@ namespace BiblioCat.Services
                 var query =
                     ctx
                         .Authors
-                        .Select(a =>
+                        .Select(e =>
                         new AuthorListItem
                         {
-                            AuthorId = a.AuthorId,
-                            LastName = a.LastName,
-                            FirstName = a.FirstName
+                            AuthorId = e.AuthorId,
+                            LastName = e.LastName,
+                            FirstName = e.FirstName,
+                            BookIds = e.BooksByAuthor.Select(b => b.Book.BookId).ToList(),
+                            BookTitles = e.BooksByAuthor.Select(b => b.Book.Title).ToList()
                         });
 
                 return query.ToArray();
@@ -76,7 +79,12 @@ namespace BiblioCat.Services
                         OfficialWebsite = entity.OfficialWebsite,
                         AmazonPage = entity.AmazonPage,
                         GoodreadsPage = entity.GoodreadsPage,
-                        TwitterHandle = entity.TwitterHandle
+                        TwitterHandle = entity.TwitterHandle,
+                        BooksByAuthor = entity.BooksByAuthor.Select(b => new BookListItem()
+                        {
+                            BookId = b.BookId,
+                            Title = b.Book.Title
+                        }).ToList()
                     };
             }
         }

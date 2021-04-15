@@ -1,4 +1,5 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Book;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +12,13 @@ namespace BiblioCat.Models.Author
 {
     public class AuthorDetail
     {
-        public int AuthorId { get; set; }
-
-        [DisplayName("Last Name")]
-        public string LastName { get; set; }
+        public int AuthorId { get; set; }        
 
         [DisplayName("First Name")]
         public string FirstName { get; set; }
+
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
 
         [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
@@ -35,7 +36,7 @@ namespace BiblioCat.Models.Author
         public string TwitterHandle { get; set; }
 
         [DisplayName("Books by Author")]
-        public virtual List<AuthorBook> BooksByAuthor { get; set; }
+        public virtual List<BookListItem> BooksByAuthor { get; set; }
 
         [DisplayName("Conventions Attending")]
         public virtual List<AuthorConvention> ConventionsAttending { get; set; }

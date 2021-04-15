@@ -17,7 +17,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             var service = CreateAuthorBookService();
             var model = service.GetAuthorBooks();
 
-            return View();
+            return View(model);
         }
 
         public ActionResult Create()

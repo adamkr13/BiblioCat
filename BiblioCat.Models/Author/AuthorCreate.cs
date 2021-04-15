@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace BiblioCat.Models.Author
 {
     public class AuthorCreate
-    {
-        [Required]
-        [DisplayName("Last Name")]
-        public string LastName { get; set; }
-
+    {        
         [Required]
         [DisplayName("First Name")]
         public string FirstName { get; set; }
+
+        [Required]
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
 
         [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
