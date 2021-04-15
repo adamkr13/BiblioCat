@@ -74,7 +74,7 @@ namespace BiblioCat.Services.TableJunctions
 
         public AuthorBookDelete GetAuthorBookById(int authorId, int bookId)
         {
-            using (var ctx = new ApplicationDbContext)
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
