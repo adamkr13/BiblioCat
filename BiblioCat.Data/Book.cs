@@ -17,6 +17,7 @@ namespace BiblioCat.Data
         public string Title { get; set; }
 
         [Required]
+        [DisplayName("Publication Date")]
         public DateTime PublicationDate { get; set; }
 
         [Required]

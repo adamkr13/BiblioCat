@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BiblioCat.Services.TableJunctions
 {
@@ -38,7 +39,7 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public bool CreateAuthorBook (AuthorBookCreate model)
+        public bool CreateAuthorBook(AuthorBookCreate model)
         {
             var entity = new AuthorBook()
             {
@@ -90,6 +91,49 @@ namespace BiblioCat.Services.TableJunctions
                     Title = entity.Book.Title
                 };
             }
+        }
+
+        public List<SelectListItem> BookOptions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Books.Select(b =>
+                    new SelectListItem
+                    {
+                        Text = b.Title,
+                        Value = b.BookId.ToString()
+                    });
+
+                var bookList = query.ToList();
+                var orderedBookList = bookList.OrderBy(e => e.Text).ToList();
+                orderedBookList.Insert(0, new SelectListItem { Text = "--Select Book--", Value = "" });
+
+                return orderedBookList;
+            }
+        }
+
+        public List<SelectListItem> AuthorOptions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Authors.Select(a =>
+                    new SelectListItem
+                    {
+                        Text = a.LastName + ", " + a.FirstName,
+                        Value = a.AuthorId.ToString()
+                    });
+
+                var authorList = query.ToList();
+                var orderedAuthorList = authorList.OrderBy(e => e.Text).ToList();
+                orderedAuthorList.Insert(0, new SelectListItem { Text = "--Select Author--", Value = "" });
+
+                return orderedAuthorList;
+            }
+
         }
     }
 }

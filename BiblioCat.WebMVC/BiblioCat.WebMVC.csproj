@@ -251,6 +251,7 @@
     <Content Include="Views\AuthorBook\Index.cshtml" />
     <Content Include="Views\AuthorBook\Create.cshtml" />
     <Content Include="Views\AuthorBook\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

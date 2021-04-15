@@ -22,6 +22,12 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 
         public ActionResult Create()
         {
+            var service = CreateAuthorBookService();
+            var bookModel = service.BookOptions();
+            var authorModel = service.AuthorOptions();
+            ViewData["Books"] = bookModel;
+            ViewData["Authors"] = authorModel;
+
             return View();
         }
 

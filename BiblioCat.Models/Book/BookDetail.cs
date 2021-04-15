@@ -16,6 +16,7 @@ namespace BiblioCat.Models.Book
 
         public string Title { get; set; }
 
+        [DisplayName("Publication Date")]
         public DateTime PublicationDate { get; set; }
 
         public string ISBN { get; set; }

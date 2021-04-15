@@ -18,6 +18,7 @@ namespace BiblioCat.Models.Book
         [DisplayName("Genre")]
         public BookGenre GenreOfBook { get; set; }
 
+        [DisplayName("Publication Date")]
         public DateTime PublicationDate { get; set; }        
 
         [DisplayName("Author(s) of Book")]
