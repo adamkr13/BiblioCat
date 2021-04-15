@@ -24,11 +24,8 @@
             @Html.DisplayNameFor(model => model.PublicationDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastNames)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
+            @Html.DisplayNameFor(model => model.AuthorsOfBook)
+        </th>        
 
         <th></th>
     </tr>
@@ -48,19 +45,12 @@
         @Html.DisplayFor(modelItem => item.PublicationDate)
     </td>
     <td>
-        @foreach (var itemModel in item.LastNames)
+        @foreach (var itemModel in item.AuthorsOfBook)
         {
-            @Html.DisplayFor(modelItem => itemModel)
-            <br />
+        <p>@Html.DisplayFor(modelItem => itemModel.LastName), @Html.DisplayFor(modelItem => itemModel.FirstName)</p>
         }
     </td>
-    <td>
-        @foreach (var itemModel in item.FirstNames)
-        {
-            @Html.DisplayFor(modelItem => itemModel)
-            <br />
-        }
-    </td>
+    
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
         @Html.ActionLink("Details", "Details", new { id = item.BookId }) |

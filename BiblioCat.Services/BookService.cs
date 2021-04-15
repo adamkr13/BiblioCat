@@ -32,9 +32,15 @@ namespace BiblioCat.Services
                             Title = e.Title,
                             GenreOfBook = e.GenreOfBook,
                             PublicationDate = e.PublicationDate,
-                            AuthorIds = e.AuthorsOfBook.Select(a => a.Author.AuthorId).ToList(),
-                            LastNames = e.AuthorsOfBook.Select(a => a.Author.LastName).ToList(),
-                            FirstNames = e.AuthorsOfBook.Select(a => a.Author.FirstName).ToList()
+                            //AuthorIds = e.AuthorsOfBook.Select(a => a.Author.AuthorId).ToList(),
+                            //LastNames = e.AuthorsOfBook.Select(a => a.Author.LastName).ToList(),
+                            //FirstNames = e.AuthorsOfBook.Select(a => a.Author.FirstName).ToList(),
+                            AuthorsOfBook = e.AuthorsOfBook.Select(a => new AuthorListItem()
+                            {
+                                AuthorId = a.AuthorId,
+                                LastName = a.Author.LastName,
+                                FirstName = a.Author.FirstName
+                            }).ToList()
                         });
                 return query.ToArray();
             }

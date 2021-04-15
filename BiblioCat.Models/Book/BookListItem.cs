@@ -1,4 +1,5 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Author;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,5 +33,8 @@ namespace BiblioCat.Models.Book
 
         [DisplayName("Author First Name")]
         public List<string> FirstNames { get; set; }
+
+        [DisplayName("Author(s) of Book")]
+        public virtual List<AuthorListItem> AuthorsOfBook { get; set; }
     }
 }
