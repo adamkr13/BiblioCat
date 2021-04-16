@@ -67,7 +67,7 @@
     <Compile Include="Book\BookListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookCreate.cs" />
-    <Compile Include="TableJunctions\AuthorBook\AuthorBookDelete.cs" />
+    <Compile Include="TableJunctions\AuthorBook\AuthorBookDetail.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookListItem.cs" />
   </ItemGroup>
   <ItemGroup>

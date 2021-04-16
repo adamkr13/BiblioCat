@@ -38,10 +38,12 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateAuthorBookService();
+            
 
             if (service.CreateAuthorBook(model))
-            {
-                TempData["SaveResult"] = $"Author {model.AuthorId} was added to book {model.BookId}";
+            {                
+                var book = service.GetAuthorBookById(model.AuthorId, model.BookId);
+                TempData["SaveResult"] = $"Author {book.FirstName} {book.LastName} was added to book {book.Title}";
                 return RedirectToAction("Index");
             }
 

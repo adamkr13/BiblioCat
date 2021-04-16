@@ -44,7 +44,7 @@ namespace BiblioCat.Services.TableJunctions
             var entity = new AuthorBook()
             {
                 AuthorId = model.AuthorId,
-                BookId = model.BookId
+                BookId = model.BookId                
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -73,7 +73,7 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public AuthorBookDelete GetAuthorBookById(int authorId, int bookId)
+        public AuthorBookDetail GetAuthorBookById(int authorId, int bookId)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -82,7 +82,7 @@ namespace BiblioCat.Services.TableJunctions
                         .AuthorBooks
                         .Single(e => e.AuthorId == authorId && e.BookId == bookId);
 
-                return new AuthorBookDelete
+                return new AuthorBookDetail
                 {
                     AuthorId = entity.AuthorId,
                     FirstName = entity.Author.FirstName,

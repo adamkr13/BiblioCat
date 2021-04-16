@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BiblioCat.Models.TableJunctions.AuthorBook
 {
-    public class AuthorBookDelete
+    public class AuthorBookDetail
     {
         public int AuthorId { get; set; }
         public string FirstName { get; set; }

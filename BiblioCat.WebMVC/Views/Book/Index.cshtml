@@ -9,6 +9,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -25,38 +34,39 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AuthorsOfBook)
-        </th>        
+        </th>
 
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.BookId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GenreOfBook)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PublicationDate)
-    </td>
-    <td>
-        @foreach (var itemModel in item.AuthorsOfBook)
-        {
-        <p>@Html.DisplayFor(modelItem => itemModel.LastName), @Html.DisplayFor(modelItem => itemModel.FirstName)</p>
-        }
-    </td>
-    
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreOfBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicationDate)
+            </td>
+            <td>
+                @foreach (var itemModel in item.AuthorsOfBook)
+                {
+                    <p>@Html.DisplayFor(modelItem => itemModel.LastName), @Html.DisplayFor(modelItem => itemModel.FirstName)</p>
+                }
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+            </td>
+        </tr>
+    }
 
 </table>
