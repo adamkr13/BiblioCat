@@ -37,7 +37,7 @@ namespace BiblioCat.Services
                                 LastName = a.Author.LastName,
                                 FirstName = a.Author.FirstName
                             }).ToList(),
-                            BooksInSeries = e.SeriesOfBook.Select(b => new BookListItem()
+                            BooksInSeries = e.BooksInSeries.Select(b => new BookListItem()
                             {
                                 BookId = b.BookId,
                                 Title = b.Book.Title
@@ -65,7 +65,7 @@ namespace BiblioCat.Services
 
         public SeriesDetail GetSeriesById(int id)
         {
-            using (var ctx = new ApplicationDbContext)
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
