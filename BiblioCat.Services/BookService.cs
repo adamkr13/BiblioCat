@@ -130,14 +130,14 @@ namespace BiblioCat.Services
             }
         }
 
-        public bool DeleteBook(int bookId)
+        public bool DeleteBook(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Books
-                        .Single(e => e.BookId == bookId);
+                        .Single(e => e.BookId == id);
 
                 ctx.Books.Remove(entity);
 

@@ -23,7 +23,7 @@ namespace BiblioCat.Models.Series
         [DisplayName("Authors in the Series")]
         public virtual List<AuthorListItem> AuthorsInSeries { get; set; }
 
-        [DisplayName("Books in the Series")]
-        public virtual List<BookListItem> SeriesOfBook { get; set; }
+        [DisplayName("Books in Series")]
+        public virtual List<BookListItem> BooksInSeries { get; set; }
     }
 }

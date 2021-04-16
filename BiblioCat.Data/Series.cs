@@ -24,6 +24,6 @@ namespace BiblioCat.Data
         public virtual List<SeriesAuthor> AuthorsInSeries { get; set; } = new List<SeriesAuthor>();
 
         [DisplayName("Books in the Series")]
-        public virtual List<SeriesBook> SeriesOfBook { get; set; } = new List<SeriesBook>();
+        public virtual List<SeriesBook> BooksInSeries { get; set; } = new List<SeriesBook>();
     }    
 }
