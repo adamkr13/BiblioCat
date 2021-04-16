@@ -1,0 +1,42 @@
+﻿@model BiblioCat.Models.Series.SeriesDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SeriesDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SeriesId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeriesId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeriesName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeriesName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeriesDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeriesDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SeriesId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

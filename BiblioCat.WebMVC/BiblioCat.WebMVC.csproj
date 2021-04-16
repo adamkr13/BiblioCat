@@ -254,6 +254,10 @@
     <Content Include="Views\AuthorBook\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Series\Index.cshtml" />
+    <Content Include="Views\Series\Create.cshtml" />
+    <Content Include="Views\Series\Details.cshtml" />
+    <Content Include="Views\Series\Edit.cshtml" />
+    <Content Include="Views\Series\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
