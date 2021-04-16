@@ -1,0 +1,132 @@
+﻿@model BiblioCat.Models.Book.BookDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Book Details</h2>
+
+<div>
+    <h4>BookDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublicationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenreOfBook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenreOfBook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormatOfBook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormatOfBook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanedTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanedTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Narrator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Narrator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Translator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Translator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Illustrator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Illustrator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFirstEdition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFirstEdition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IHaveRead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IHaveRead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IOwn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IOwn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorsOfBook)
+        </dt>
+        @foreach (var item in Model.AuthorsOfBook)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)               
+            </dd>            
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
