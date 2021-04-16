@@ -1,19 +1,19 @@
-﻿using System;
+﻿using BiblioCat.Data;
+using BiblioCat.Models.Author;
+using BiblioCat.Models.Book;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Data
+namespace BiblioCat.Models.Series
 {
-    public class Series
+    public class SeriesDetail
     {
-        [Key]
         public int SeriesId { get; set; }
 
-        [Required]
         [DisplayName("Name of Series")]
         public string SeriesName { get; set; }
 
@@ -21,9 +21,9 @@ namespace BiblioCat.Data
         public string SeriesDescription { get; set; }
 
         [DisplayName("Authors in the Series")]
-        public virtual List<SeriesAuthor> AuthorsInSeries { get; set; } = new List<SeriesAuthor>();
+        public virtual List<AuthorListItem> AuthorsInSeries { get; set; }
 
         [DisplayName("Books in the Series")]
-        public virtual List<SeriesBook> SeriesOfBook { get; set; } = new List<SeriesBook>();
-    }    
+        public virtual List<BookListItem> SeriesOfBook { get; set; }
+    }
 }

@@ -23,9 +23,9 @@ namespace BiblioCat.Data
         public string PublisherWebsite { get; set; }
 
         [DisplayName("Authors with this Publisher")]
-        public List<AuthorPublisher> AuthorsWithPublisher { get; set; } = new List<AuthorPublisher>();
+        public virtual List<AuthorPublisher> AuthorsWithPublisher { get; set; } = new List<AuthorPublisher>();
 
         [DisplayName("Books Published")]
-        public List<BookPublisher> SeriesOfBook { get; set; } = new List<BookPublisher>();
+        public virtual List<BookPublisher> SeriesOfBook { get; set; } = new List<BookPublisher>();
     }
 }

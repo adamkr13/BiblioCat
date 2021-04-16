@@ -32,7 +32,7 @@ namespace BiblioCat.Data
 
         public Author GuestOfHonor { get; set; }
 
-        public List<AuthorConvention> AuthorsAttending { get; set; } = new List<AuthorConvention>();
+        public virtual List<AuthorConvention> AuthorsAttending { get; set; } = new List<AuthorConvention>();
 
     }
 }
