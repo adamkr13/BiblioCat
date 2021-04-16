@@ -31,6 +31,7 @@ namespace BiblioCat.Services
                         {
                             SeriesId = e.SeriesId,
                             SeriesName = e.SeriesName,
+                            SeriesDescription = e.SeriesDescription,
                             AuthorsInSeries = e.AuthorsInSeries.Select(a => new AuthorListItem()
                             {
                                 AuthorId = a.AuthorId,
