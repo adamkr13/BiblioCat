@@ -259,10 +259,12 @@
     <Content Include="Views\Series\Details.cshtml" />
     <Content Include="Views\Series\Edit.cshtml" />
     <Content Include="Views\Series\Delete.cshtml" />
+    <Content Include="Views\SeriesAuthor\Index.cshtml" />
+    <Content Include="Views\SeriesAuthor\Create.cshtml" />
+    <Content Include="Views\SeriesAuthor\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SeriesAuthor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

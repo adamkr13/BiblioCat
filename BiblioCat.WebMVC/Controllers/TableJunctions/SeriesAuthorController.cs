@@ -41,8 +41,8 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 
             if (service.CreateSeriesAuthor(model))
             {
-                var book = service.GetSeriesAuthorById(model.SeriesId, model.AuthorId);
-                TempData["SaveResult"] = $"The {model.SeriesName} was added to author {model.FirstName} {model.LastName}";
+                var series = service.GetSeriesAuthorById(model.SeriesId, model.AuthorId);
+                TempData["SaveResult"] = $"The {series.SeriesName} was added to author {series.FirstName} {series.LastName}";
                 return RedirectToAction("Index");
             }
 
