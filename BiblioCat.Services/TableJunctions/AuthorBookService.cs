@@ -133,7 +133,6 @@ namespace BiblioCat.Services.TableJunctions
 
                 return orderedAuthorList;
             }
-
         }
     }
 }
