@@ -1,5 +1,6 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Book;
+using BiblioCat.Models.Publisher;
 using BiblioCat.Models.Series;
 using System;
 using System.Collections.Generic;
@@ -42,12 +43,10 @@ namespace BiblioCat.Models.Author
         [DisplayName("Series Written")]
         public virtual List<SeriesListItem> SeriesWritten { get; set; }
 
+        [DisplayName("Published By")]
+        public virtual List<PublisherListItem> PublishedBy { get; set; }
+
         [DisplayName("Conventions Attending")]
         public virtual List<AuthorConvention> ConventionsAttending { get; set; }
-
-        [DisplayName("Published By")]
-        public virtual List<AuthorPublisher> AuthorPublishedBy { get; set; }
-
-        
     }
 }

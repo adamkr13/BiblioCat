@@ -66,6 +66,10 @@
     <Compile Include="Book\BookEdit.cs" />
     <Compile Include="Book\BookListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher\PublisherCreate.cs" />
+    <Compile Include="Publisher\PublisherDetail.cs" />
+    <Compile Include="Publisher\PublisherEdit.cs" />
+    <Compile Include="Publisher\PublisherListItem.cs" />
     <Compile Include="Series\SeriesCreate.cs" />
     <Compile Include="Series\SeriesDetail.cs" />
     <Compile Include="Series\SeriesEdit.cs" />
@@ -86,7 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Convention\" />
-    <Folder Include="Publisher\" />
     <Folder Include="TableJunctions\AuthorConvention\" />
     <Folder Include="TableJunctions\AuthorPublisher\" />
     <Folder Include="TableJunctions\BookPublisher\" />
