@@ -23,5 +23,8 @@ namespace BiblioCat.Models.Book
 
         [DisplayName("Author(s) of Book")]
         public virtual List<AuthorListItem> AuthorsOfBook { get; set; }
+
+        [DisplayName("Part of Series")]
+        public List<string> SeriesNames { get; set; }
     }
 }

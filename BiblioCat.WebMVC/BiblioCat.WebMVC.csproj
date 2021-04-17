@@ -173,7 +173,10 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="Controllers\TableJunctions\AuthorBookController.cs" />
+    <Compile Include="Controllers\TableJunctions\SeriesAuthorController.cs" />
+    <Compile Include="Controllers\TableJunctions\SeriesBookController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,6 +255,17 @@
     <Content Include="Views\AuthorBook\Create.cshtml" />
     <Content Include="Views\AuthorBook\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Series\Index.cshtml" />
+    <Content Include="Views\Series\Create.cshtml" />
+    <Content Include="Views\Series\Details.cshtml" />
+    <Content Include="Views\Series\Edit.cshtml" />
+    <Content Include="Views\Series\Delete.cshtml" />
+    <Content Include="Views\SeriesAuthor\Index.cshtml" />
+    <Content Include="Views\SeriesAuthor\Create.cshtml" />
+    <Content Include="Views\SeriesAuthor\Delete.cshtml" />
+    <Content Include="Views\SeriesBook\Index.cshtml" />
+    <Content Include="Views\SeriesBook\Create.cshtml" />
+    <Content Include="Views\SeriesBook\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,6 +11,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 {
     public class AuthorBookController : Controller
     {
+        [Authorize]
         // GET: AuthorBook
         public ActionResult Index()
         {
@@ -37,8 +38,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateAuthorBookService();
-            
+            var service = CreateAuthorBookService();            
 
             if (service.CreateAuthorBook(model))
             {                

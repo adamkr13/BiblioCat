@@ -81,7 +81,10 @@
     <Compile Include="AuthorService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeriesService.cs" />
     <Compile Include="TableJunctions\AuthorBookService.cs" />
+    <Compile Include="TableJunctions\SeriesAuthorService.cs" />
+    <Compile Include="TableJunctions\SeriesBookService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

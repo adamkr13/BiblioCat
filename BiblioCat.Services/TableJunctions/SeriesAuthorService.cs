@@ -1,5 +1,5 @@
 ﻿using BiblioCat.Data;
-using BiblioCat.Models.TableJunctions.AuthorBook;
+using BiblioCat.Models.TableJunctions.SeriesAuthor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,63 +9,62 @@ using System.Web.Mvc;
 
 namespace BiblioCat.Services.TableJunctions
 {
-    public class AuthorBookService
+    public class SeriesAuthorService
     {
         private readonly Guid _userId;
 
-        public AuthorBookService(Guid userId)
+        public SeriesAuthorService(Guid userId)
         {
             _userId = userId;
         }
 
-        public IEnumerable<AuthorBookListItem> GetAuthorBooks()
+        public IEnumerable<SeriesAuthorListItem> GetSeriesAuthors()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .AuthorBooks
-                    .Select(e =>
-                    new AuthorBookListItem
-                    {
-                        AuthorId = e.AuthorId,
-                        FirstName = e.Author.FirstName,
-                        LastName = e.Author.LastName,
-                        BookId = e.BookId,
-                        Title = e.Book.Title
-                    });
-
+                        .SeriesAuthors
+                        .Select(e =>
+                        new SeriesAuthorListItem
+                        {
+                            SeriesId = e.SeriesId,
+                            SeriesName = e.Series.SeriesName,
+                            AuthorId = e.AuthorId,
+                            LastName = e.Author.LastName,
+                            FirstName = e.Author.FirstName
+                        });
                 return query.ToArray();
             }
         }
 
-        public bool CreateAuthorBook(AuthorBookCreate model)
+        public bool CreateSeriesAuthor(SeriesAuthorCreate model)
         {
-            var entity = new AuthorBook()
+            var entity = new SeriesAuthor()
             {
-                AuthorId = model.AuthorId,
-                BookId = model.BookId                
+                SeriesId = model.SeriesId,
+                AuthorId = model.AuthorId
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.AuthorBooks.Add(entity);
+                ctx.SeriesAuthors.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteAuthorBook(int authorId, int bookId)
+        public bool DeleteSeriesAuthor(int seriesId, int authorId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .AuthorBooks
-                        .Single(e => e.AuthorId == authorId && e.BookId == bookId);
+                        .SeriesAuthors
+                        .Single(e => e.SeriesId == seriesId && e.AuthorId == authorId);
 
                 if (entity != null)
                 {
-                    ctx.AuthorBooks.Remove(entity);
+                    ctx.SeriesAuthors.Remove(entity);
                     return ctx.SaveChanges() == 1;
                 }
 
@@ -73,44 +72,43 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public AuthorBookDetail GetAuthorBookById(int authorId, int bookId)
+        public SeriesAuthorDetail GetSeriesAuthorById(int seriesId, int authorId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
-                    ctx
-                        .AuthorBooks
-                        .Single(e => e.AuthorId == authorId && e.BookId == bookId);
+                    ctx.SeriesAuthors
+                    .Single(e => e.SeriesId == seriesId && e.AuthorId == authorId);
 
-                return new AuthorBookDetail
+                return new SeriesAuthorDetail
                 {
+                    SeriesId = entity.SeriesId,
+                    SeriesName = entity.Series.SeriesName,
                     AuthorId = entity.AuthorId,
-                    FirstName = entity.Author.FirstName,
                     LastName = entity.Author.LastName,
-                    BookId = entity.BookId,
-                    Title = entity.Book.Title
+                    FirstName = entity.Author.FirstName
                 };
             }
         }
 
-        public List<SelectListItem> BookOptions()
+        public List<SelectListItem> SeriesOptions()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx
-                    .Books.Select(b =>
+                    ctx.SeriesPlural
+                    .Select(s =>
                     new SelectListItem
                     {
-                        Text = b.Title,
-                        Value = b.BookId.ToString()
+                        Text = s.SeriesName,
+                        Value = s.SeriesId.ToString()
                     });
 
-                var bookList = query.ToList();
-                var orderedBookList = bookList.OrderBy(e => e.Text).ToList();
-                orderedBookList.Insert(0, new SelectListItem { Text = "--Select Book--", Value = "" });
+                var seriesList = query.ToList();
+                var orderedSeriesList = seriesList.OrderBy(e => e.Text).ToList();
+                orderedSeriesList.Insert(0, new SelectListItem { Text = "--Select Series--", Value = "" });
 
-                return orderedBookList;
+                return orderedSeriesList;
             }
         }
 

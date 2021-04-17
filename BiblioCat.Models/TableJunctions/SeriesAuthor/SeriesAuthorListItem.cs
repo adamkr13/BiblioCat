@@ -5,10 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Models.Author
+namespace BiblioCat.Models.TableJunctions.SeriesAuthor
 {
-    public class AuthorListItem
+    public class SeriesAuthorListItem
     {
+        public int SeriesId { get; set; }
+
+        [DisplayName("Name of Series")]
+        public string SeriesName { get; set; }
+
         public int AuthorId { get; set; }
 
         [DisplayName("Last Name")]
@@ -16,13 +21,5 @@ namespace BiblioCat.Models.Author
 
         [DisplayName("First Name")]
         public string FirstName { get; set; }
-
-        public List<int> BookIds { get; set; }
-
-        [DisplayName("Book Titles")]
-        public List<string> BookTitles { get; set; }
-
-        [DisplayName("Series Written")]
-        public List<string> SeriesNames { get; set; }
     }
 }
