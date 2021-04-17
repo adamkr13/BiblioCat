@@ -120,10 +120,19 @@
         @foreach (var item in Model.AuthorsOfBook)
         {
             <dd>
-                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)               
-            </dd>            
-        }
+                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+            </dd>
 
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.SeriesOfBook)
+        </dt>
+        @foreach (var item in Model.SeriesOfBook)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.SeriesName)
+            </dd>
+        }
     </dl>
 </div>
 <p>

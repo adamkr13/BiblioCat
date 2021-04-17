@@ -47,7 +47,7 @@
         </dt>
 
         <dd>
-            <a href="@Html.DisplayFor(model => model.OfficialWebsite)">@Html.DisplayFor(model => model.OfficialWebsite)</a>            
+            <a href="@Html.DisplayFor(model => model.OfficialWebsite)">@Html.DisplayFor(model => model.OfficialWebsite)</a>
         </dd>
 
         <dt>
@@ -83,7 +83,15 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </dd>
         }
-
+        <dt>
+            @Html.DisplayNameFor(model => model.SeriesWritten)
+        </dt>
+        @foreach (var item in Model.SeriesWritten)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.SeriesName)
+            </dd>
+        }
     </dl>
 </div>
 <p>

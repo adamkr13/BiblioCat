@@ -1,6 +1,7 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Author;
 using BiblioCat.Models.Book;
+using BiblioCat.Models.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,8 @@ namespace BiblioCat.Services
                                 AuthorId = a.AuthorId,
                                 LastName = a.Author.LastName,
                                 FirstName = a.Author.FirstName
-                            }).ToList()
+                            }).ToList(),
+                            SeriesNames = e.SeriesOfBook.Select(s => s.Series.SeriesName).ToList()
                         });
                 return query.ToArray();
             }
@@ -99,6 +101,11 @@ namespace BiblioCat.Services
                             AuthorId = a.AuthorId,
                             LastName = a.Author.LastName,
                             FirstName = a.Author.FirstName
+                        }).ToList(),
+                        SeriesOfBook = entity.SeriesOfBook.Select(s => new SeriesListItem()
+                        {
+                            SeriesId = s.SeriesId,
+                            SeriesName = s.Series.SeriesName
                         }).ToList()
                     };
             }

@@ -21,5 +21,8 @@ namespace BiblioCat.Models.Author
 
         [DisplayName("Book Titles")]
         public List<string> BookTitles { get; set; }
+
+        [DisplayName("Series Written")]
+        public List<string> SeriesNames { get; set; }
     }
 }
