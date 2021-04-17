@@ -29,28 +29,47 @@
         <th>
             @Html.DisplayNameFor(model => model.SeriesDescription)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorsInSeries)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BooksInSeries)
+        </th>
         <th>Possible Options</th>
-        
+
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeriesId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeriesName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeriesDescription)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.SeriesId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SeriesId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SeriesId })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SeriesId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SeriesName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SeriesDescription)
+    </td>
+    <td>
+        @foreach (var itemModel in item.AuthorsInSeries)
+        {
+            <p>@Html.DisplayFor(modelItem => itemModel.LastName), @Html.DisplayFor(modelItem => itemModel.FirstName)</p>
+        }
+    </td>
+    <td>
+        @foreach (var itemModel in item.BooksInSeries)
+        {
+            @Html.DisplayFor(modelItem => itemModel.Title)
+            <br />
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.SeriesId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SeriesId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SeriesId })
+    </td>
+</tr>
     }
 
 </table>

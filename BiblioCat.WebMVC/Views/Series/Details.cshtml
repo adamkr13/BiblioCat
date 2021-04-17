@@ -34,6 +34,26 @@
             @Html.DisplayFor(model => model.SeriesDescription)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorsInSeries)
+        </dt>
+        @foreach (var item in Model.AuthorsInSeries)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+            </dd>
+
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.BooksInSeries)
+        </dt>
+        @foreach (var item in Model.BooksInSeries)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.Title)
+            </dd>
+        }
+
     </dl>
 </div>
 <p>
