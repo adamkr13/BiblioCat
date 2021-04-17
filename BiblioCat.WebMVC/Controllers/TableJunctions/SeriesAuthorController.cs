@@ -70,7 +70,6 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index");
         }
 
-
         private SeriesAuthorService CreateSeriesAuthorService()
         {
             Guid userId = Guid.Parse(User.Identity.GetUserId());
