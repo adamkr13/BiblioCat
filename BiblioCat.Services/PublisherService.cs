@@ -30,7 +30,18 @@ namespace BiblioCat.Services
                         PublisherId = e.PublisherId,
                         PublisherName = e.PublisherName,
                         Address = e.Address,
-                        PublisherWebsite = e.PublisherWebsite
+                        PublisherWebsite = e.PublisherWebsite,
+                        AuthorsWithPublisher = e.AuthorsWithPublisher.Select(a => new AuthorListItem()
+                        {
+                            AuthorId = a.AuthorId,
+                            LastName = a.Author.LastName,
+                            FirstName = a.Author.FirstName
+                        }).ToList(),
+                        BookTitles = e.BooksPublished.Select(b => new BookListItem()
+                        {
+                            BookId = b.BookId,
+                            Title = b.Book.Title
+                        }).ToList()
                     });
                 return query.ToArray();
             }
