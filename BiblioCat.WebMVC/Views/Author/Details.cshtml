@@ -101,10 +101,18 @@
                 @Html.DisplayFor(modelItem => item.PublisherName)
             </dd>
         }
+        <dt>
+            @Html.DisplayNameFor(model => model.ConventionsAttending)
+        </dt>
+        @foreach (var item in Model.ConventionsAttending)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.Name)
+            </dd>
+        }
 
     </dl>
 </div>
-<br />
 <br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorId }) |

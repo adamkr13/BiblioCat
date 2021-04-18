@@ -177,6 +177,7 @@
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="Controllers\TableJunctions\AuthorBookController.cs" />
+    <Compile Include="Controllers\TableJunctions\AuthorConventionController.cs" />
     <Compile Include="Controllers\TableJunctions\AuthorPublisherController.cs" />
     <Compile Include="Controllers\TableJunctions\BookPublisherController.cs" />
     <Compile Include="Controllers\TableJunctions\SeriesAuthorController.cs" />
@@ -286,6 +287,9 @@
     <Content Include="Views\Convention\Details.cshtml" />
     <Content Include="Views\Convention\Edit.cshtml" />
     <Content Include="Views\Convention\Delete.cshtml" />
+    <Content Include="Views\AuthorConvention\Index.cshtml" />
+    <Content Include="Views\AuthorConvention\Create.cshtml" />
+    <Content Include="Views\AuthorConvention\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

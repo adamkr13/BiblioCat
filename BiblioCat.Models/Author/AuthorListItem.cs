@@ -1,4 +1,5 @@
-﻿using BiblioCat.Models.Publisher;
+﻿using BiblioCat.Models.Convention;
+using BiblioCat.Models.Publisher;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,5 +29,8 @@ namespace BiblioCat.Models.Author
 
         [DisplayName("Published By")]
         public List<PublisherListItem> PublisherNames { get; set; }
+
+        [DisplayName("Conventions Attending")]
+        public List<ConventionListItem> ConventionsAttending { get; set; }
     }
 }
