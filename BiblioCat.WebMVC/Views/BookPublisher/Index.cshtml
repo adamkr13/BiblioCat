@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BiblioCat.Models.TableJunctions.BookPublisher.BookPublisherListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { bookId = item.BookId, publisherId = item.PublisherId }) |
+            </td>
+        </tr>
+    }
+
+</table>
