@@ -281,10 +281,14 @@
     <Content Include="Views\BookPublisher\Index.cshtml" />
     <Content Include="Views\BookPublisher\Create.cshtml" />
     <Content Include="Views\BookPublisher\Delete.cshtml" />
+    <Content Include="Views\Convention\Index.cshtml" />
+    <Content Include="Views\Convention\Create.cshtml" />
+    <Content Include="Views\Convention\Details.cshtml" />
+    <Content Include="Views\Convention\Edit.cshtml" />
+    <Content Include="Views\Convention\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Convention\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
