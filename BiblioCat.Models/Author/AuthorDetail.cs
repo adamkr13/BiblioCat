@@ -1,5 +1,6 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Book;
+using BiblioCat.Models.Convention;
 using BiblioCat.Models.Publisher;
 using BiblioCat.Models.Series;
 using System;
@@ -47,6 +48,6 @@ namespace BiblioCat.Models.Author
         public virtual List<PublisherListItem> PublishedBy { get; set; }
 
         [DisplayName("Conventions Attending")]
-        public virtual List<AuthorConvention> ConventionsAttending { get; set; }
+        public virtual List<ConventionListItem> ConventionsAttending { get; set; }
     }
 }

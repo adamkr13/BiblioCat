@@ -171,11 +171,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\ConventionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PublisherController.cs" />
     <Compile Include="Controllers\SeriesController.cs" />
     <Compile Include="Controllers\TableJunctions\AuthorBookController.cs" />
+    <Compile Include="Controllers\TableJunctions\AuthorConventionController.cs" />
     <Compile Include="Controllers\TableJunctions\AuthorPublisherController.cs" />
     <Compile Include="Controllers\TableJunctions\BookPublisherController.cs" />
     <Compile Include="Controllers\TableJunctions\SeriesAuthorController.cs" />
@@ -280,6 +282,14 @@
     <Content Include="Views\BookPublisher\Index.cshtml" />
     <Content Include="Views\BookPublisher\Create.cshtml" />
     <Content Include="Views\BookPublisher\Delete.cshtml" />
+    <Content Include="Views\Convention\Index.cshtml" />
+    <Content Include="Views\Convention\Create.cshtml" />
+    <Content Include="Views\Convention\Details.cshtml" />
+    <Content Include="Views\Convention\Edit.cshtml" />
+    <Content Include="Views\Convention\Delete.cshtml" />
+    <Content Include="Views\AuthorConvention\Index.cshtml" />
+    <Content Include="Views\AuthorConvention\Create.cshtml" />
+    <Content Include="Views\AuthorConvention\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,7 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Author;
 using BiblioCat.Models.Book;
+using BiblioCat.Models.Convention;
 using BiblioCat.Models.Publisher;
 using BiblioCat.Models.Series;
 using System;
@@ -35,7 +36,12 @@ namespace BiblioCat.Services
                             FirstName = e.FirstName,
                             BookIds = e.BooksByAuthor.Select(b => b.Book.BookId).ToList(),
                             BookTitles = e.BooksByAuthor.Select(b => b.Book.Title).ToList(),
-                            SeriesNames = e.SeriesWritten.Select(s => s.Series.SeriesName).ToList()                            
+                            SeriesNames = e.SeriesWritten.Select(s => s.Series.SeriesName).ToList(),
+                            ConventionsAttending = e.ConventionsAttending.Select(c => new ConventionListItem()
+                            {
+                                ConventionId = c.ConventionId,
+                                Name = c.Convention.Name
+                            }).ToList()
                         });
 
                 return query.ToArray();
@@ -97,6 +103,11 @@ namespace BiblioCat.Services
                         {
                             PublisherId = p.PublisherId,
                             PublisherName = p.Publisher.PublisherName
+                        }).ToList(),
+                        ConventionsAttending = entity.ConventionsAttending.Select(c => new ConventionListItem()
+                        {
+                            ConventionId = c.ConventionId,
+                            Name = c.Convention.Name
                         }).ToList()
                     };
             }
