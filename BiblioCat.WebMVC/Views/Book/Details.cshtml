@@ -133,8 +133,20 @@
                 @Html.DisplayFor(modelItem => item.SeriesName)
             </dd>
         }
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishedBy)
+        </dt>
+        @foreach (var item in Model.PublishedBy)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </dd>
+        }
+
     </dl>
 </div>
+<br />
+<br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
     @Html.ActionLink("Back to List", "Index")

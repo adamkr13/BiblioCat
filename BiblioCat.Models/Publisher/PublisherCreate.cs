@@ -6,13 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Data
+namespace BiblioCat.Models.Publisher
 {
-    public class Publisher
+    public class PublisherCreate
     {
-        [Key]
-        public int PublisherId { get; set; }
-
         [Required]
         public string PublisherName { get; set; }
 
@@ -21,11 +18,5 @@ namespace BiblioCat.Data
 
         [DisplayName("Publisher's Official Website")]
         public string PublisherWebsite { get; set; }
-
-        [DisplayName("Authors with this Publisher")]
-        public virtual List<AuthorPublisher> AuthorsWithPublisher { get; set; } = new List<AuthorPublisher>();
-
-        [DisplayName("Books Published")]
-        public virtual List<BookPublisher> BooksPublished { get; set; } = new List<BookPublisher>();
     }
 }

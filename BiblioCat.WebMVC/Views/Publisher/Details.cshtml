@@ -1,0 +1,72 @@
+﻿@model BiblioCat.Models.Publisher.PublisherDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PublisherDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublisherWebsite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherWebsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorsWithPublisher)
+        </dt>
+        @foreach (var item in Model.AuthorsWithPublisher)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+            </dd>
+
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitles)
+        </dt>
+        @foreach (var item in Model.BookTitles)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.Title)
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    <br />
+    <br />
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

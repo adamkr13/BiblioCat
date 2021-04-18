@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BiblioCat.Models.Publisher.PublisherListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Publisher Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublisherWebsite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorsWithPublisher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookTitles)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherWebsite)
+            </td>
+            <td>
+                @foreach (var itemModel in item.AuthorsWithPublisher)
+                {
+                    <p>@Html.DisplayFor(modelItem => itemModel.LastName), @Html.DisplayFor(modelItem => itemModel.FirstName)</p>
+                }
+            </td>
+            <td>
+                @foreach (var itemModel in item.BookTitles)
+                {
+                    @Html.DisplayFor(modelItem => itemModel.Title)
+                    <br />
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PublisherId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PublisherId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PublisherId })
+            </td>
+        </tr>
+    }
+
+</table>

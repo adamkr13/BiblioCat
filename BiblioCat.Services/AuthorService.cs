@@ -1,6 +1,7 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Author;
 using BiblioCat.Models.Book;
+using BiblioCat.Models.Publisher;
 using BiblioCat.Models.Series;
 using System;
 using System.Collections.Generic;
@@ -91,7 +92,12 @@ namespace BiblioCat.Services
                         {
                             SeriesId = s.SeriesId,
                             SeriesName = s.Series.SeriesName
-                        }).ToList()                        
+                        }).ToList(),
+                        PublishedBy = entity.AuthorPublishedBy.Select(p => new PublisherListItem()
+                        {
+                            PublisherId = p.PublisherId,
+                            PublisherName = p.Publisher.PublisherName
+                        }).ToList()
                     };
             }
         }

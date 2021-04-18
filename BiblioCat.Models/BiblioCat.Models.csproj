@@ -66,6 +66,10 @@
     <Compile Include="Book\BookEdit.cs" />
     <Compile Include="Book\BookListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher\PublisherCreate.cs" />
+    <Compile Include="Publisher\PublisherDetail.cs" />
+    <Compile Include="Publisher\PublisherEdit.cs" />
+    <Compile Include="Publisher\PublisherListItem.cs" />
     <Compile Include="Series\SeriesCreate.cs" />
     <Compile Include="Series\SeriesDetail.cs" />
     <Compile Include="Series\SeriesEdit.cs" />
@@ -73,6 +77,12 @@
     <Compile Include="TableJunctions\AuthorBook\AuthorBookCreate.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookDetail.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookListItem.cs" />
+    <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherCreate.cs" />
+    <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherDetail.cs" />
+    <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherListItem.cs" />
+    <Compile Include="TableJunctions\BookPublisher\BookPublisherCreate.cs" />
+    <Compile Include="TableJunctions\BookPublisher\BookPublisherDetail.cs" />
+    <Compile Include="TableJunctions\BookPublisher\BookPublisherListItem.cs" />
     <Compile Include="TableJunctions\SeriesAuthor\SeriesAuthorCreate.cs" />
     <Compile Include="TableJunctions\SeriesAuthor\SeriesAuthorDetail.cs" />
     <Compile Include="TableJunctions\SeriesAuthor\SeriesAuthorListItem.cs" />
@@ -86,10 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Convention\" />
-    <Folder Include="Publisher\" />
     <Folder Include="TableJunctions\AuthorConvention\" />
-    <Folder Include="TableJunctions\AuthorPublisher\" />
-    <Folder Include="TableJunctions\BookPublisher\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BiblioCat.Data\BiblioCat.Data.csproj">

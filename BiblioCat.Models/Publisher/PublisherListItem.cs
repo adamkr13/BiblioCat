@@ -1,31 +1,29 @@
-﻿using System;
+﻿using BiblioCat.Models.Author;
+using BiblioCat.Models.Book;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiblioCat.Data
+namespace BiblioCat.Models.Publisher
 {
-    public class Publisher
+    public class PublisherListItem
     {
-        [Key]
         public int PublisherId { get; set; }
 
-        [Required]
         public string PublisherName { get; set; }
 
-        [Required]
         public string Address { get; set; }
 
         [DisplayName("Publisher's Official Website")]
         public string PublisherWebsite { get; set; }
 
-        [DisplayName("Authors with this Publisher")]
-        public virtual List<AuthorPublisher> AuthorsWithPublisher { get; set; } = new List<AuthorPublisher>();
-
         [DisplayName("Books Published")]
-        public virtual List<BookPublisher> BooksPublished { get; set; } = new List<BookPublisher>();
+        public virtual List<BookListItem> BookTitles { get; set; }
+
+        [DisplayName("Authors with Publisher")]
+        public virtual List<AuthorListItem> AuthorsWithPublisher { get; set; }
     }
 }
