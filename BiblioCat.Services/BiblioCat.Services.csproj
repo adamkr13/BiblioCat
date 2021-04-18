@@ -85,6 +85,7 @@
     <Compile Include="PublisherService.cs" />
     <Compile Include="SeriesService.cs" />
     <Compile Include="TableJunctions\AuthorBookService.cs" />
+    <Compile Include="TableJunctions\AuthorConventionService.cs" />
     <Compile Include="TableJunctions\AuthorPublisherService.cs" />
     <Compile Include="TableJunctions\BookPublisherService.cs" />
     <Compile Include="TableJunctions\SeriesAuthorService.cs" />

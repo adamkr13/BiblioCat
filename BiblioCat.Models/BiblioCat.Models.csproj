@@ -81,6 +81,9 @@
     <Compile Include="TableJunctions\AuthorBook\AuthorBookCreate.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookDetail.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookListItem.cs" />
+    <Compile Include="TableJunctions\AuthorConvention\AuthorConventionCreate.cs" />
+    <Compile Include="TableJunctions\AuthorConvention\AuthorConventionDetail.cs" />
+    <Compile Include="TableJunctions\AuthorConvention\AuthorConventionListItem.cs" />
     <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherCreate.cs" />
     <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherDetail.cs" />
     <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherListItem.cs" />
@@ -98,9 +101,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TableJunctions\AuthorConvention\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BiblioCat.Data\BiblioCat.Data.csproj">
       <Project>{2EA881DA-1C80-4EE5-9E69-4B834A261DAE}</Project>
