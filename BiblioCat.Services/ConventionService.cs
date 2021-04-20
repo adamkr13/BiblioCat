@@ -54,7 +54,8 @@ namespace BiblioCat.Services
                     State = model.State,
                     StartDate = model.StartDate,
                     EndDate = model.EndDate,
-                    Hotel = model.Hotel
+                    Hotel = model.Hotel,
+                    Website = model.Website
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -81,6 +82,7 @@ namespace BiblioCat.Services
                     StartDate = entity.StartDate,
                     EndDate = entity.EndDate,
                     Hotel = entity.Hotel,
+                    Website = entity.Website,
                     AuthorsAttending = entity.AuthorsAttending.Select(a => new AuthorListItem()
                     {
                         AuthorId = a.AuthorId,
@@ -106,6 +108,7 @@ namespace BiblioCat.Services
                 entity.StartDate = model.StartDate;
                 entity.EndDate = model.EndDate;
                 entity.Hotel = model.Hotel;
+                entity.Website = model.Website;
 
                 return ctx.SaveChanges() == 1;
             }

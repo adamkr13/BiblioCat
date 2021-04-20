@@ -56,14 +56,14 @@
     <td>
         @foreach (var itemModel in item.BookTitles)
         {
-            @Html.DisplayFor(modelItem => itemModel)
+            @Html.DisplayFor(modelItem => itemModel.Title)
             <br />
         }
     </td>
     <td>
         @foreach (var itemModel in item.SeriesNames)
         {
-            @Html.DisplayFor(modelItem => itemModel)
+            @Html.DisplayFor(modelItem => itemModel.SeriesName)
             <br />
         }
     </td>

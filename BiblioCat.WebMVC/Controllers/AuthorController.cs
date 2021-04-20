@@ -64,7 +64,7 @@ namespace BiblioCat.WebMVC.Controllers
                     AuthorId = detail.AuthorId,
                     LastName = detail.LastName,
                     FirstName = detail.FirstName,
-                    Email = detail.Email,
+                    Patreon = detail.Patreon,
                     OfficialWebsite = detail.OfficialWebsite,
                     AmazonPage = detail.AmazonPage,
                     GoodreadsPage = detail.GoodreadsPage,

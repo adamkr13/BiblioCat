@@ -40,7 +40,11 @@ namespace BiblioCat.Services
                                 LastName = a.Author.LastName,
                                 FirstName = a.Author.FirstName
                             }).ToList(),
-                            SeriesNames = e.SeriesOfBook.Select(s => s.Series.SeriesName).ToList()
+                            SeriesNames = e.SeriesOfBook.Select(s => new SeriesListItem()
+                            {
+                                SeriesId = s.SeriesId,
+                                SeriesName = s.Series.SeriesName
+                            }).ToList()
                         });
                 return query.ToArray();
             }

@@ -21,8 +21,8 @@ namespace BiblioCat.Data
         [DisplayName("First Name")]
         public string FirstName { get; set; }        
 
-        [EmailAddress(ErrorMessage ="Please enter a valid email address")]
-        public string Email { get; set; }
+        [DisplayName("Patreon Site")]
+        public string Patreon { get; set; }
 
         [DisplayName("Official Website")]
         public string OfficialWebsite { get; set; }

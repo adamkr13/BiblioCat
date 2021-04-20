@@ -29,6 +29,8 @@ namespace BiblioCat.Data
 
         public string Hotel { get; set; }
 
+        public string Website { get; set; }
+
         public virtual List<AuthorConvention> AuthorsAttending { get; set; } = new List<AuthorConvention>();
 
     }

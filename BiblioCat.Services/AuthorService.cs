@@ -19,7 +19,7 @@ namespace BiblioCat.Services
         public AuthorService(Guid userId)
         {
             _userId = userId;
-        }
+        }        
 
         public IEnumerable<AuthorListItem> GetAuthors()
         {
@@ -34,9 +34,16 @@ namespace BiblioCat.Services
                             AuthorId = e.AuthorId,
                             LastName = e.LastName,
                             FirstName = e.FirstName,
-                            BookIds = e.BooksByAuthor.Select(b => b.Book.BookId).ToList(),
-                            BookTitles = e.BooksByAuthor.Select(b => b.Book.Title).ToList(),
-                            SeriesNames = e.SeriesWritten.Select(s => s.Series.SeriesName).ToList(),
+                            BookTitles = e.BooksByAuthor.Select(b => new BookListItem()
+                            {
+                                BookId = b.BookId,
+                                Title = b.Book.Title
+                            }).ToList(),
+                            SeriesNames = e.SeriesWritten.Select(s => new SeriesListItem()
+                            {
+                                SeriesId = s.SeriesId,
+                                SeriesName = s.Series.SeriesName
+                            }).ToList(),
                             ConventionsAttending = e.ConventionsAttending.Select(c => new ConventionListItem()
                             {
                                 ConventionId = c.ConventionId,
@@ -49,29 +56,29 @@ namespace BiblioCat.Services
         }
 
         public bool CreateAuthor(AuthorCreate model)
-        {
+        {            
             var entity =
                 new Author()
                 {
                     LastName = model.LastName,
                     FirstName = model.FirstName,
-                    Email = model.Email,
+                    Patreon = model.Patreon,
                     OfficialWebsite = model.OfficialWebsite,
                     AmazonPage = model.AmazonPage,
                     GoodreadsPage = model.GoodreadsPage,
-                    TwitterHandle = model.TwitterHandle
-                };
+                    TwitterHandle = model.TwitterHandle,
+                };            
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Authors.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
+                return ctx.SaveChanges() == 1;                
+            }            
         }
 
         public AuthorDetail GetAuthorById(int id)
         {
-            using (var ctx  = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
@@ -84,7 +91,7 @@ namespace BiblioCat.Services
                         AuthorId = entity.AuthorId,
                         LastName = entity.LastName,
                         FirstName = entity.FirstName,
-                        Email = entity.Email,
+                        Patreon = entity.Patreon,
                         OfficialWebsite = entity.OfficialWebsite,
                         AmazonPage = entity.AmazonPage,
                         GoodreadsPage = entity.GoodreadsPage,
@@ -124,7 +131,7 @@ namespace BiblioCat.Services
 
                 entity.LastName = model.LastName;
                 entity.FirstName = model.FirstName;
-                entity.Email = model.Email;
+                entity.Patreon = model.Patreon;
                 entity.OfficialWebsite = model.OfficialWebsite;
                 entity.AmazonPage = model.AmazonPage;
                 entity.GoodreadsPage = model.GoodreadsPage;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,15 @@ namespace BiblioCat.Models.Convention
         public string State { get; set; }
 
         [Required]
+        [DisplayName("Start")]
         public DateTime StartDate { get; set; }
 
         [Required]
+        [DisplayName("End")]
         public DateTime EndDate { get; set; }
 
         public string Hotel { get; set; }
+
+        public string Website { get; set; }
     }
 }

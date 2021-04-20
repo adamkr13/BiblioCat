@@ -1,5 +1,7 @@
-﻿using BiblioCat.Models.Convention;
+﻿using BiblioCat.Models.Book;
+using BiblioCat.Models.Convention;
 using BiblioCat.Models.Publisher;
+using BiblioCat.Models.Series;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,13 +21,11 @@ namespace BiblioCat.Models.Author
         [DisplayName("First Name")]
         public string FirstName { get; set; }
 
-        public List<int> BookIds { get; set; }
-
         [DisplayName("Book Titles")]
-        public List<string> BookTitles { get; set; }
+        public List<BookListItem> BookTitles { get; set; }
 
         [DisplayName("Series Written")]
-        public List<string> SeriesNames { get; set; }
+        public List<SeriesListItem> SeriesNames { get; set; }
 
         [DisplayName("Published By")]
         public List<PublisherListItem> PublisherNames { get; set; }
