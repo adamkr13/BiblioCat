@@ -39,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Patreon)
+            <a href="@Html.DisplayFor(model => model.Patreon)" target="_blank">@Html.DisplayFor(model => model.Patreon)</a>
         </dd>
 
         <dt>
@@ -63,7 +63,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GoodreadsPage)
+            <a href="@Html.DisplayFor(model => model.GoodreadsPage)" target="_blank">@Html.DisplayFor(model => model.GoodreadsPage)</a>
         </dd>
 
         <dt>
@@ -71,7 +71,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TwitterHandle)
+            <a href="@Html.DisplayFor(model => model.TwitterHandle)" target="_blank">@Html.DisplayFor(model => model.TwitterHandle)</a>
         </dd>
 
         <dt>
@@ -80,7 +80,7 @@
         @foreach (var item in Model.BooksByAuthor)
         {
             <dd>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.Title)                 
             </dd>
         }
         <dt>
@@ -89,7 +89,7 @@
         @foreach (var item in Model.SeriesWritten)
         {
             <dd>
-                @Html.DisplayFor(modelItem => item.SeriesName)
+                @Html.DisplayFor(modelItem => item.SeriesName)                 
             </dd>
         }
         <dt>
@@ -98,7 +98,7 @@
         @foreach (var item in Model.PublishedBy)
         {
             <dd>
-                @Html.DisplayFor(modelItem => item.PublisherName)
+                @Html.DisplayFor(modelItem => item.PublisherName)                 
             </dd>
         }
         <dt>
@@ -107,14 +107,19 @@
         @foreach (var item in Model.ConventionsAttending)
         {
             <dd>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Name)                 
             </dd>
         }
 
     </dl>
 </div>
 <br />
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+<br />
+<br />
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+
