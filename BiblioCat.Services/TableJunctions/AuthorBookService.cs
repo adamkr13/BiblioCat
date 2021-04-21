@@ -1,4 +1,5 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Book;
 using BiblioCat.Models.TableJunctions.AuthorBook;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,21 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
+        public bool AddBook(int authorId, int bookId)
+        {
+            var entity = new AuthorBook()
+            {
+                AuthorId = authorId,
+                BookId = bookId
+            };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.AuthorBooks.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public bool DeleteAuthorBook(int authorId, int bookId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -90,6 +106,22 @@ namespace BiblioCat.Services.TableJunctions
                     BookId = entity.BookId,
                     Title = entity.Book.Title
                 };
+            }
+        }
+
+        public List<BookListItem> GetBooks()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Books.Select(e =>
+                    new BookListItem
+                    {
+                        BookId = e.BookId,
+                        Title = e.Title
+                    });
+
+                return query.ToList();
             }
         }
 

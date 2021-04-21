@@ -290,6 +290,7 @@
     <Content Include="Views\AuthorConvention\Index.cshtml" />
     <Content Include="Views\AuthorConvention\Create.cshtml" />
     <Content Include="Views\AuthorConvention\Delete.cshtml" />
+    <Content Include="Views\AuthorBook\AddBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
