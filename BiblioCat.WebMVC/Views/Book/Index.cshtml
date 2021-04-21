@@ -72,7 +72,9 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookId }) <br />
+                @Html.ActionLink("Add Authors", "AddAuthors", "AuthorBook") |
+                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorBook")
             </td>
         </tr>
     }

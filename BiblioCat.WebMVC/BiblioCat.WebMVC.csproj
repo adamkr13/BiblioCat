@@ -257,7 +257,6 @@
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Book\Delete.cshtml" />
     <Content Include="Views\AuthorBook\Index.cshtml" />
-    <Content Include="Views\AuthorBook\Create.cshtml" />
     <Content Include="Views\AuthorBook\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Series\Index.cshtml" />
@@ -291,6 +290,9 @@
     <Content Include="Views\AuthorConvention\Create.cshtml" />
     <Content Include="Views\AuthorConvention\Delete.cshtml" />
     <Content Include="Views\AuthorBook\AddBooks.cshtml" />
+    <Content Include="Views\AuthorBook\AddAuthors.cshtml" />
+    <Content Include="Views\AuthorBook\RemoveBooks.cshtml" />
+    <Content Include="Views\AuthorBook\RemoveAuthors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

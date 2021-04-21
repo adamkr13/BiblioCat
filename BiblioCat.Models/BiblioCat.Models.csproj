@@ -78,6 +78,7 @@
     <Compile Include="Series\SeriesDetail.cs" />
     <Compile Include="Series\SeriesEdit.cs" />
     <Compile Include="Series\SeriesListItem.cs" />
+    <Compile Include="TableJunctions\AuthorBook\AddAuthorsCreate.cs" />
     <Compile Include="TableJunctions\AuthorBook\AddBooksCreate.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookCreate.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookDetail.cs" />

@@ -149,5 +149,7 @@
 <br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add Authors to Book", "AddAuthors", "AuthorBook") |
+    @Html.ActionLink("Remove Authors from Book", "RemoveAuthors", "AuthorBook")
 </p>

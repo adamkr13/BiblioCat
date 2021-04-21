@@ -7,8 +7,10 @@
 <h2>Author-Book Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create") <br />
-    @Html.ActionLink("Add Books", "AddBooks")
+    @Html.ActionLink("Add Books", "AddBooks") |
+    @Html.ActionLink("Add Authors", "AddAuthors") |
+    @Html.ActionLink("Remove Books", "RemoveBooks") |
+    @Html.ActionLink("Remove Authors", "RemoveAuthors") |
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
