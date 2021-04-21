@@ -7,20 +7,18 @@ using System.Threading.Tasks;
 
 namespace BiblioCat.Models.TableJunctions.AuthorBook
 {
-    public class AuthorBookCreate
+    public class AddBooksCreate
     {
         [Required]
         public int AuthorId { get; set; }
-        
-        [Required]
+
         public int BookId { get; set; }
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        public string Title { get; set; }
-
-        public int []Titles { get; set; }
+        [Required]
+        public int[] Titles { get; set; }
     }
 }

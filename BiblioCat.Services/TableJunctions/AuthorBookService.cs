@@ -55,19 +55,25 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public bool AddBook(int authorId, int bookId)
+        public bool AddBook(AddBooksCreate model)
         {
-            var entity = new AuthorBook()
+            foreach(int bookId in model.Titles)
             {
-                AuthorId = authorId,
-                BookId = bookId
-            };
+                var entity = new AuthorBook()
+                {
+                    AuthorId = model.AuthorId,
+                    BookId = bookId
+                };
 
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.AuthorBooks.Add(entity);
-                return ctx.SaveChanges() == 1;
+                using (var ctx = new ApplicationDbContext())
+                {                    
+                    ctx.AuthorBooks.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
             }
+
+            return true;
+            
         }
 
         public bool DeleteAuthorBook(int authorId, int bookId)

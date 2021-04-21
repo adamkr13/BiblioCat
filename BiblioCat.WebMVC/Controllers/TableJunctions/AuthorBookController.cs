@@ -65,16 +65,15 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddBooks(int authorId, int []Titles)
+        public ActionResult AddBooks(AddBooksCreate model)
         {
             var service = CreateAuthorBookService();
-            foreach (int bookId in Titles)
-            {
-                service.AddBook(authorId, bookId);
-            }
+                        
+            service.AddBook(model);
+            
 
-            return View("Index");
-        }
+            return RedirectToAction("Index");
+        }        
 
         public ActionResult Delete(int authorId, int bookId)
         {
