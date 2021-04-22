@@ -93,6 +93,8 @@
     <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherCreate.cs" />
     <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherDetail.cs" />
     <Compile Include="TableJunctions\AuthorPublisher\AuthorPublisherListItem.cs" />
+    <Compile Include="TableJunctions\BookPublisher\AddBooksCreate.cs" />
+    <Compile Include="TableJunctions\BookPublisher\AddPublishersCreate.cs" />
     <Compile Include="TableJunctions\BookPublisher\BookPublisherCreate.cs" />
     <Compile Include="TableJunctions\BookPublisher\BookPublisherDetail.cs" />
     <Compile Include="TableJunctions\BookPublisher\BookPublisherListItem.cs" />

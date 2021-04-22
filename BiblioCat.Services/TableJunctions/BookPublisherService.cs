@@ -1,4 +1,6 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Book;
+using BiblioCat.Models.Publisher;
 using BiblioCat.Models.TableJunctions.BookPublisher;
 using System;
 using System.Collections.Generic;
@@ -36,56 +38,137 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public bool CreateBookPublisher(BookPublisherCreate model)
+        public bool AddBook(AddBooksCreate model)
         {
-            var entity = new BookPublisher()
+            foreach (int bookId in model.Books)
             {
-                BookId = model.BookId,
-                PublisherId = model.PublisherId
-            };
-
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.BookPublishers.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-        public bool DeleteBookPublisher(int bookId, int publisherId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx.BookPublishers
-                    .Single(e => e.BookId == bookId && e.PublisherId == publisherId);
-
-                if (entity != null)
+                var entity = new BookPublisher()
                 {
-                    ctx.BookPublishers.Remove(entity);
-                    return ctx.SaveChanges() == 1;
-                }
-
-                return false;
-            }
-        }
-
-        public BookPublisherDetail GetBookPublisherById(int bookId, int publisherId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx.BookPublishers
-                    .Single(e => e.BookId == bookId && e.PublisherId == publisherId);
-
-                return new BookPublisherDetail
-                {
-                    BookId = entity.BookId,
-                    Title = entity.Book.Title,
-                    PublisherId = entity.PublisherId,
-                    PublisherName = entity.Publisher.PublisherName
+                    BookId = bookId,
+                    PublisherId = model.PublisherId
                 };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.BookPublishers.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
             }
+
+            return true;
         }
+
+        public bool AddPublisher(AddPublishersCreate model)
+        {
+            foreach (int publisherId in model.Publishers)
+            {
+                var entity = new BookPublisher()
+                {
+                    BookId = model.BookId,
+                    PublisherId = publisherId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.BookPublishers.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool RemoveBook(AddBooksCreate model)
+        {
+            foreach (int bookId in model.Books)
+            {
+                var entity = new BookPublisher()
+                {
+                    BookId = bookId,
+                    PublisherId = model.PublisherId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.BookPublishers.Attach(entity);
+                    ctx.BookPublishers.Remove(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool RemovePublisher(AddPublishersCreate model)
+        {
+            foreach (int publisherId in model.Publishers)
+            {
+                var entity = new BookPublisher()
+                {
+                    BookId = model.BookId,
+                    PublisherId = publisherId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.BookPublishers.Attach(entity);
+                    ctx.BookPublishers.Remove(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+        //public bool CreateBookPublisher(BookPublisherCreate model)
+        //{
+        //    var entity = new BookPublisher()
+        //    {
+        //        BookId = model.BookId,
+        //        PublisherId = model.PublisherId
+        //    };
+
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        ctx.BookPublishers.Add(entity);
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
+
+        //public bool DeleteBookPublisher(int bookId, int publisherId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx.BookPublishers
+        //            .Single(e => e.BookId == bookId && e.PublisherId == publisherId);
+
+        //        if (entity != null)
+        //        {
+        //            ctx.BookPublishers.Remove(entity);
+        //            return ctx.SaveChanges() == 1;
+        //        }
+
+        //        return false;
+        //    }
+        //}
+
+        //public BookPublisherDetail GetBookPublisherById(int bookId, int publisherId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx.BookPublishers
+        //            .Single(e => e.BookId == bookId && e.PublisherId == publisherId);
+
+        //        return new BookPublisherDetail
+        //        {
+        //            BookId = entity.BookId,
+        //            Title = entity.Book.Title,
+        //            PublisherId = entity.PublisherId,
+        //            PublisherName = entity.Publisher.PublisherName
+        //        };
+        //    }
+        //}
 
         public List<SelectListItem> BookOptions()
         {
@@ -128,6 +211,38 @@ namespace BiblioCat.Services.TableJunctions
                 });
 
                 return orderedPublisherList;
+            }
+        }
+
+        public List<BookListItem> GetBooks()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Books.Select(e =>
+                    new BookListItem
+                    {
+                        BookId = e.BookId,
+                        Title = e.Title,                        
+                    });
+
+                return query.ToList();
+            }
+        }
+
+        public List<PublisherListItem> GetPublishers()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Publishers.Select(e =>
+                    new PublisherListItem
+                    {
+                        PublisherId = e.PublisherId,
+                        PublisherName = e.PublisherName
+                    });
+
+                return query.ToList();
             }
         }
     }

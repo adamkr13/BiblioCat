@@ -14,10 +14,7 @@
         
         <th>
             @Html.DisplayNameFor(model => model.PublisherName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
+        </th>        
         <th>
             @Html.DisplayNameFor(model => model.PublisherWebsite)
         </th>
@@ -35,10 +32,7 @@
         <tr>            
             <td>
                 @Html.DisplayFor(modelItem => item.PublisherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
+            </td>            
             <td>
                 <a href="@Html.DisplayFor(modelItem => item.PublisherWebsite)" target="_blank">@Html.DisplayFor(modelItem => item.PublisherWebsite)</a>
             </td>
@@ -60,7 +54,9 @@
                 @Html.ActionLink("Details", "Details", new { id = item.PublisherId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.PublisherId }) <br />
                 @Html.ActionLink("Add Authors", "AddAuthors", "AuthorPublisher") |
-                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorPublisher")
+                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorPublisher") <br />
+                @Html.ActionLink("Add Books", "AddBooks", "BookPublisher") |
+                @Html.ActionLink("Remove Books", "RemoveBooks", "BookPublisher")
             </td>
         </tr>
     }

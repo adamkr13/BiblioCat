@@ -301,6 +301,10 @@
     <Content Include="Views\AuthorPublisher\AddPublishers.cshtml" />
     <Content Include="Views\AuthorPublisher\RemoveAuthors.cshtml" />
     <Content Include="Views\AuthorPublisher\RemovePublishers.cshtml" />
+    <Content Include="Views\BookPublisher\AddBooks.cshtml" />
+    <Content Include="Views\BookPublisher\AddPublishers.cshtml" />
+    <Content Include="Views\BookPublisher\RemoveBooks.cshtml" />
+    <Content Include="Views\BookPublisher\RemovePublishers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
