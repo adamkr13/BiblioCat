@@ -294,6 +294,9 @@
     <Content Include="Views\AuthorBook\RemoveBooks.cshtml" />
     <Content Include="Views\AuthorBook\RemoveAuthors.cshtml" />
     <Content Include="Views\AuthorConvention\AddAuthors.cshtml" />
+    <Content Include="Views\AuthorConvention\RemoveAuthors.cshtml" />
+    <Content Include="Views\AuthorConvention\AddConventions.cshtml" />
+    <Content Include="Views\AuthorConvention\RemoveConventions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
