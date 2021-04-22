@@ -68,5 +68,7 @@
     <br />
     <br />
     @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") <br />
+    @Html.ActionLink("Add Authors to Publisher", "AddAuthors", "AuthorPublisher") |
+    @Html.ActionLink("Remove Authors to Publisher", "RemoveAuthors", "AuthorPublisher")
 </p>

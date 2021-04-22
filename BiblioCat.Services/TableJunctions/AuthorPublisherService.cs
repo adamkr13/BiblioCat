@@ -107,7 +107,7 @@ namespace BiblioCat.Services.TableJunctions
                 using (var ctx = new ApplicationDbContext())
                 {
                     ctx.AuthorPublishers.Attach(entity);
-                    ctx.AuthorPublishers.Add(entity);
+                    ctx.AuthorPublishers.Remove(entity);
                     var changes = ctx.SaveChanges();
                 }
             }
@@ -128,7 +128,7 @@ namespace BiblioCat.Services.TableJunctions
                 using (var ctx = new ApplicationDbContext())
                 {
                     ctx.AuthorPublishers.Attach(entity);
-                    ctx.AuthorPublishers.Add(entity);
+                    ctx.AuthorPublishers.Remove(entity);
                     var changes = ctx.SaveChanges();
                 }
             }

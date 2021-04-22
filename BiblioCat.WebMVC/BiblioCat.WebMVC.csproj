@@ -297,6 +297,10 @@
     <Content Include="Views\AuthorConvention\RemoveAuthors.cshtml" />
     <Content Include="Views\AuthorConvention\AddConventions.cshtml" />
     <Content Include="Views\AuthorConvention\RemoveConventions.cshtml" />
+    <Content Include="Views\AuthorPublisher\AddAuthors.cshtml" />
+    <Content Include="Views\AuthorPublisher\AddPublishers.cshtml" />
+    <Content Include="Views\AuthorPublisher\RemoveAuthors.cshtml" />
+    <Content Include="Views\AuthorPublisher\RemovePublishers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

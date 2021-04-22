@@ -140,23 +140,23 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
         //    return View(model);
         //}
 
-        public ActionResult Delete(int authorId, int conventionId)
-        {
-            var service = CreateAuthorConventionService();
-            var model = service.GetAuthorConventionById(authorId, conventionId);
-            return View(model);
-        }
+        //public ActionResult Delete(int authorId, int conventionId)
+        //{
+        //    var service = CreateAuthorConventionService();
+        //    var model = service.GetAuthorConventionById(authorId, conventionId);
+        //    return View(model);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [ActionName("Delete")]
-        public ActionResult DeletePost(int authorId, int conventionId)
-        {
-            var service = CreateAuthorConventionService();
-            service.DeleteAuthorConvention(authorId, conventionId);
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[ActionName("Delete")]
+        //public ActionResult DeletePost(int authorId, int conventionId)
+        //{
+        //    var service = CreateAuthorConventionService();
+        //    service.DeleteAuthorConvention(authorId, conventionId);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
         private AuthorConventionService CreateAuthorConventionService()
         {
