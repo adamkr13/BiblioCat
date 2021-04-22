@@ -69,8 +69,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
         {
             var service = CreateAuthorBookService();
                         
-            service.AddBook(model);
-            
+            service.AddBook(model);            
 
             return RedirectToAction("Index");
         }
@@ -84,6 +83,17 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             ViewData["Books"] = bookModel;
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddAuthors(AddAuthorsCreate model)
+        {
+            var service = CreateAuthorBookService();
+
+            service.AddAuthor(model);
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult RemoveBooks()
@@ -106,19 +116,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             service.RemoveBook(model);
 
             return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddAuthors(AddAuthorsCreate model)
-        {
-            var service = CreateAuthorBookService();
-
-            service.AddAuthor(model);
-
-
-            return RedirectToAction("Index");
-        }
+        }        
 
         public ActionResult RemoveAuthors()
         {

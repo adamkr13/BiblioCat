@@ -76,6 +76,26 @@ namespace BiblioCat.Services.TableJunctions
             return true;            
         }
 
+        public bool AddAuthor(AddAuthorsCreate model)
+        {
+            foreach (int authorId in model.Authors)
+            {
+                var entity = new AuthorBook()
+                {
+                    AuthorId = authorId,
+                    BookId = model.BookId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorBooks.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
         public bool RemoveBook(AddBooksCreate model)
         {
             foreach (int bookId in model.Titles)
@@ -116,27 +136,7 @@ namespace BiblioCat.Services.TableJunctions
             }
 
             return true;
-        }
-
-        public bool AddAuthor(AddAuthorsCreate model)
-        {
-            foreach (int authorId in model.Authors)
-            {
-                var entity = new AuthorBook()
-                {
-                    AuthorId = authorId,
-                    BookId = model.BookId
-                };
-
-                using (var ctx = new ApplicationDbContext())
-                {
-                    ctx.AuthorBooks.Add(entity);
-                    var changes = ctx.SaveChanges();
-                }
-            }
-
-            return true;
-        }
+        }        
 
         public bool DeleteAuthorBook(int authorId, int bookId)
         {

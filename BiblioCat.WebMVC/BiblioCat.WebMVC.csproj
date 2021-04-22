@@ -293,6 +293,7 @@
     <Content Include="Views\AuthorBook\AddAuthors.cshtml" />
     <Content Include="Views\AuthorBook\RemoveBooks.cshtml" />
     <Content Include="Views\AuthorBook\RemoveAuthors.cshtml" />
+    <Content Include="Views\AuthorConvention\AddAuthors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

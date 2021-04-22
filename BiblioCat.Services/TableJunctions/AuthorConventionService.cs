@@ -1,4 +1,6 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Author;
+using BiblioCat.Models.Convention;
 using BiblioCat.Models.TableJunctions.AuthorConvention;
 using System;
 using System.Collections.Generic;
@@ -50,6 +52,88 @@ namespace BiblioCat.Services.TableJunctions
                 ctx.AuthorConventions.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public bool AddAuthor(AddAuthorsCreate model)
+        {
+            foreach (int authorId in model.Authors)
+            {
+                var entity = new AuthorConvention()
+                {
+                    AuthorId = authorId,
+                    ConventionId = model.ConventionId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorConventions.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool AddConvention(AddConventionsCreate model)
+        {
+            foreach (int conventionId in model.Conventions)
+            {
+                var entity = new AuthorConvention()
+                {
+                    AuthorId = model.AuthorId,
+                    ConventionId = conventionId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorConventions.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool RemoveAuthor(AddAuthorsCreate model)
+        {
+            foreach (int authorId in model.Authors)
+            {
+                var entity = new AuthorConvention()
+                {
+                    AuthorId = authorId,
+                    ConventionId = model.ConventionId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorConventions.Attach(entity);
+                    ctx.AuthorConventions.Remove(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool RemoveConvention(AddConventionsCreate model)
+        {
+            foreach (int conventionId in model.Conventions)
+            {
+                var entity = new AuthorConvention()
+                {
+                    AuthorId = model.AuthorId,
+                    ConventionId = conventionId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorConventions.Attach(entity);
+                    ctx.AuthorConventions.Remove(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
         }
 
         public bool DeleteAuthorConvention(int authorId, int conventionId)
@@ -128,6 +212,39 @@ namespace BiblioCat.Services.TableJunctions
                 orderedConventionList.Insert(0, new SelectListItem { Text = "--Select Convention--", Value = "" });
 
                 return orderedConventionList;
+            }
+        }
+
+        public List<AuthorListItem> GetAuthors()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Authors.Select(e =>
+                    new AuthorListItem
+                    {
+                        AuthorId = e.AuthorId,
+                        FirstName = e.FirstName,
+                        LastName = e.LastName
+                    });
+
+                return query.ToList();
+            }
+        }
+
+        public List<ConventionListItem> GetConventions()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Conventions.Select(e =>
+                    new ConventionListItem
+                    {
+                        ConventionId = e.ConventionId,
+                        Name = e.Name
+                    });
+
+                return query.ToList();
             }
         }
     }

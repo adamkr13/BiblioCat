@@ -83,6 +83,8 @@
     <Compile Include="TableJunctions\AuthorBook\AuthorBookCreate.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookDetail.cs" />
     <Compile Include="TableJunctions\AuthorBook\AuthorBookListItem.cs" />
+    <Compile Include="TableJunctions\AuthorConvention\AddAuthorsCreate.cs" />
+    <Compile Include="TableJunctions\AuthorConvention\AddConventionsCreate.cs" />
     <Compile Include="TableJunctions\AuthorConvention\AuthorConventionCreate.cs" />
     <Compile Include="TableJunctions\AuthorConvention\AuthorConventionDetail.cs" />
     <Compile Include="TableJunctions\AuthorConvention\AuthorConventionListItem.cs" />
