@@ -67,7 +67,9 @@
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.SeriesId }) |
         @Html.ActionLink("Details", "Details", new { id = item.SeriesId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.SeriesId })
+        @Html.ActionLink("Delete", "Delete", new { id = item.SeriesId }) <br />
+        @Html.ActionLink("Add Authors", "AddAuthors", "SeriesAuthor") |
+        @Html.ActionLink("Remove Authors", "RemoveAuthors", "SeriesAuthor")
     </td>
 </tr>
     }

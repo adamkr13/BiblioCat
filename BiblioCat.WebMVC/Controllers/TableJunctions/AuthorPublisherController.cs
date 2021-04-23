@@ -103,8 +103,8 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
         public ActionResult RemovePublishers(AddPublishersCreate model)
         {
             var service = CreateAuthorPublisherService();
-            service.RemovePublisher(model);
 
+            service.RemovePublisher(model);
 
             return RedirectToAction("Details", "Author", new { id = model.AuthorId });
         }
