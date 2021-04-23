@@ -20,12 +20,12 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult AddAuthors()
         {
             var service = CreateAuthorConventionService();
-            var authorModel = service.AuthorOptions();
+            var authors = service.GetAuthors();
             var conventionModel = service.ConventionOptions();
-            ViewData["Authors"] = authorModel;
+            ViewBag.Authors = authors;
             ViewData["Conventions"] = conventionModel;
 
             return View();
@@ -33,42 +33,130 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AuthorConventionCreate model)
+        public ActionResult AddAuthors(AddAuthorsCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
-
             var service = CreateAuthorConventionService();
 
-            if (service.CreateAuthorConvention(model))
-            {
-                var authors = service.GetAuthorConventionById(model.AuthorId, model.ConventionId);
-                TempData["SaveResult"] = $"The convention {authors.ConventionName}" +
-                    $" was added to author {authors.FirstName} {authors.LastName}";
-                return RedirectToAction("Index");
-            }
+            service.AddAuthor(model);
 
-            ModelState.AddModelError("", "The convention could not be added to the author.");
-
-            return View(model);
+            return RedirectToAction("Index", "Convention");
         }
 
-        public ActionResult Delete(int authorId, int conventionId)
+        public ActionResult AddConventions()
         {
             var service = CreateAuthorConventionService();
-            var model = service.GetAuthorConventionById(authorId, conventionId);
-            return View(model);
+            var authorModel = service.AuthorOptions();
+            var conventions = service.GetConventions();
+            ViewBag.Conventions = conventions;
+            ViewData["Authors"] = authorModel;
+
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Delete")]
-        public ActionResult DeletePost(int authorId, int conventionId)
+        public ActionResult AddConventions(AddConventionsCreate model)
         {
             var service = CreateAuthorConventionService();
-            service.DeleteAuthorConvention(authorId, conventionId);
 
-            return RedirectToAction("Index");
+            service.AddConvention(model);
+
+            return RedirectToAction("Index", "Author");
         }
+
+        public ActionResult RemoveAuthors()
+        {
+            var service = CreateAuthorConventionService();
+            var authors = service.GetAuthors();
+            var conventionModel = service.ConventionOptions();
+            ViewBag.Authors = authors;
+            ViewData["Conventions"] = conventionModel;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveAuthors(AddAuthorsCreate model)
+        {
+            var service = CreateAuthorConventionService();
+
+            service.RemoveAuthor(model);
+
+            return RedirectToAction("Index", "Convention");
+        }
+
+        public ActionResult RemoveConventions()
+        {
+            var service = CreateAuthorConventionService();
+            var authorModel = service.AuthorOptions();
+            var conventions = service.GetConventions();
+            ViewBag.Conventions = conventions;
+            ViewData["Authors"] = authorModel;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveConventions(AddConventionsCreate model)
+        {
+            var service = CreateAuthorConventionService();
+
+            service.RemoveConvention(model);
+
+            return RedirectToAction("Index", "Author");
+        }
+
+        //public ActionResult Create()
+        //{
+        //    var service = CreateAuthorConventionService();
+        //    var authorModel = service.AuthorOptions();
+        //    var conventionModel = service.ConventionOptions();
+        //    ViewData["Authors"] = authorModel;
+        //    ViewData["Conventions"] = conventionModel;
+
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(AuthorConventionCreate model)
+        //{
+        //    if (!ModelState.IsValid) return View(model);
+
+        //    var service = CreateAuthorConventionService();
+
+        //    if (service.CreateAuthorConvention(model))
+        //    {
+        //        var authors = service.GetAuthorConventionById(model.AuthorId, model.ConventionId);
+        //        TempData["SaveResult"] = $"The convention {authors.ConventionName}" +
+        //            $" was added to author {authors.FirstName} {authors.LastName}";
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ModelState.AddModelError("", "The convention could not be added to the author.");
+
+        //    return View(model);
+        //}
+
+        //public ActionResult Delete(int authorId, int conventionId)
+        //{
+        //    var service = CreateAuthorConventionService();
+        //    var model = service.GetAuthorConventionById(authorId, conventionId);
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[ActionName("Delete")]
+        //public ActionResult DeletePost(int authorId, int conventionId)
+        //{
+        //    var service = CreateAuthorConventionService();
+        //    service.DeleteAuthorConvention(authorId, conventionId);
+
+        //    return RedirectToAction("Index");
+        //}
 
         private AuthorConventionService CreateAuthorConventionService()
         {

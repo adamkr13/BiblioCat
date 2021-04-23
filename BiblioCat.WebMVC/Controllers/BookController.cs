@@ -37,7 +37,7 @@ namespace BiblioCat.WebMVC.Controllers
             if (service.CreateBook(model))
             {
                 TempData["SaveResult"] = "The book was created.";
-                return RedirectToAction("Index");
+                return RedirectToAction("AddAuthors", "AuthorBook");
             }
 
             ModelState.AddModelError("", "Book could not be created.");

@@ -37,9 +37,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EndDate)
-        </th>
+        </th>        
         <th>
-        @Html.DisplayNameFor(model => model.AuthorsAttending)
+            @Html.DisplayNameFor(model => model.AuthorsAttending)
         </th>
         <th></th>
     </tr>
@@ -64,7 +64,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
+            </td>            
             <td>
                 @foreach (var itemModel in item.AuthorsAttending)
                 {
@@ -74,7 +74,9 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ConventionId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ConventionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ConventionId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ConventionId }) <br />
+                @Html.ActionLink("Add Authors", "AddAuthors", "AuthorConvention") |
+                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorConvention")
             </td>
         </tr>
     }

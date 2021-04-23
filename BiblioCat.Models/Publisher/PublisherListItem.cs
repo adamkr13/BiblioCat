@@ -13,11 +13,12 @@ namespace BiblioCat.Models.Publisher
     {
         public int PublisherId { get; set; }
 
+        [DisplayName("Publisher")]
         public string PublisherName { get; set; }
 
         public string Address { get; set; }
 
-        [DisplayName("Publisher's Official Website")]
+        [DisplayName("Official Website")]
         public string PublisherWebsite { get; set; }
 
         [DisplayName("Books Published")]

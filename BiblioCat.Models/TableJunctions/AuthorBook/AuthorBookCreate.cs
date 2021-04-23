@@ -20,5 +20,7 @@ namespace BiblioCat.Models.TableJunctions.AuthorBook
         public string LastName { get; set; }
 
         public string Title { get; set; }
+
+        public int []Titles { get; set; }
     }
 }

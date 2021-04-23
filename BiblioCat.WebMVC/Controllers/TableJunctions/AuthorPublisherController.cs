@@ -21,12 +21,12 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult AddAuthors()
         {
             var service = CreateAuthorPublisherService();
-            var authorModel = service.AuthorOptions();
+            var authors = service.GetAuthors();
             var publisherModel = service.PublisherOptions();
-            ViewData["Authors"] = authorModel;
+            ViewBag.Authors = authors;
             ViewData["Publishers"] = publisherModel;
 
             return View();
@@ -34,42 +34,130 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AuthorPublisherCreate model)
+        public ActionResult AddAuthors(AddAuthorsCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
-
             var service = CreateAuthorPublisherService();
 
-            if (service.CreateAuthorPublisher(model))
-            {
-                var ap = service.GetAuthorPublisherById(model.AuthorId, model.PublisherId);
-                TempData["SaveResult"] = $"Author {ap.FirstName} {ap.LastName} was added to publisher {ap.PublisherName}";
-                return RedirectToAction("Index");
-            }
+            service.AddAuthor(model);
 
-            ModelState.AddModelError("", "The author could not be added to the publisher.");
-
-            return View(model);
+            return RedirectToAction("Index", "Publisher");
         }
 
-        public ActionResult Delete(int authorId, int publisherId)
+        public ActionResult AddPublishers()
         {
             var service = CreateAuthorPublisherService();
-            var model = service.GetAuthorPublisherById(authorId, publisherId);
+            var authorModel = service.AuthorOptions();
+            var publishers = service.GetPublishers();
+            ViewBag.Publishers = publishers;
+            ViewData["Authors"] = authorModel;
 
-            return View(model);
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Delete")]
-        public ActionResult DeletePost(int authorId, int publisherId)
+        public ActionResult AddPublishers(AddPublishersCreate model)
         {
             var service = CreateAuthorPublisherService();
-            service.DeleteAuthorPublisher(authorId, publisherId);
 
-            return RedirectToAction("Index");
+            service.AddPublisher(model);
+
+            return RedirectToAction("Details", "Author", new { id = model.AuthorId });
         }
+
+        public ActionResult RemoveAuthors()
+        {
+            var service = CreateAuthorPublisherService();
+            var authors = service.GetAuthors();
+            var publisherModel = service.PublisherOptions();
+            ViewBag.Authors = authors;
+            ViewData["Publishers"] = publisherModel;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveAuthors(AddAuthorsCreate model)
+        {
+            var service = CreateAuthorPublisherService();
+
+            service.RemoveAuthor(model);
+
+            return RedirectToAction("Index", "Publisher");
+        }
+
+        public ActionResult RemovePublishers()
+        {
+            var service = CreateAuthorPublisherService();
+            var authorModel = service.AuthorOptions();
+            var publishers = service.GetPublishers();
+            ViewBag.Publishers = publishers;
+            ViewData["Authors"] = authorModel;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemovePublishers(AddPublishersCreate model)
+        {
+            var service = CreateAuthorPublisherService();
+
+            service.RemovePublisher(model);
+
+            return RedirectToAction("Details", "Author", new { id = model.AuthorId });
+        }
+
+        //public ActionResult Create()
+        //{
+        //    var service = CreateAuthorPublisherService();
+        //    var authorModel = service.AuthorOptions();
+        //    var publisherModel = service.PublisherOptions();
+        //    ViewData["Authors"] = authorModel;
+        //    ViewData["Publishers"] = publisherModel;
+
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(AuthorPublisherCreate model)
+        //{
+        //    if (!ModelState.IsValid) return View(model);
+
+        //    var service = CreateAuthorPublisherService();
+
+        //    if (service.CreateAuthorPublisher(model))
+        //    {
+        //        var ap = service.GetAuthorPublisherById(model.AuthorId, model.PublisherId);
+        //        TempData["SaveResult"] = $"Author {ap.FirstName} {ap.LastName} was added to publisher {ap.PublisherName}";
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ModelState.AddModelError("", "The author could not be added to the publisher.");
+
+        //    return View(model);
+        //}
+
+        //public ActionResult Delete(int authorId, int publisherId)
+        //{
+        //    var service = CreateAuthorPublisherService();
+        //    var model = service.GetAuthorPublisherById(authorId, publisherId);
+
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[ActionName("Delete")]
+        //public ActionResult DeletePost(int authorId, int publisherId)
+        //{
+        //    var service = CreateAuthorPublisherService();
+        //    service.DeleteAuthorPublisher(authorId, publisherId);
+
+        //    return RedirectToAction("Index");
+        //}
 
 
 

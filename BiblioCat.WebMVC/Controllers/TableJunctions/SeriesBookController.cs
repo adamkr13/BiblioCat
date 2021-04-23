@@ -20,12 +20,34 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return View(model);
         }
 
-        public ActionResult Create()
+        public ActionResult AddBooks()
         {
             var service = CreateSeriesBookService();
+            var books = service.GetBooks();
             var seriesModel = service.SeriesOptions();
-            var bookModel = service.BookOptions();
+            ViewBag.Books = books;
             ViewData["Series"] = seriesModel;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddBooks(AddBooksCreate model)
+        {
+            var service = CreateSeriesBookService();
+
+            service.AddBook(model);
+
+            return RedirectToAction("Index", "Series");
+        }
+
+        public ActionResult AddSeries()
+        {
+            var service = CreateSeriesBookService();
+            var bookModel = service.BookOptions();
+            var series = service.GetSeries();
+            ViewBag.Series = series;
             ViewData["Books"] = bookModel;
 
             return View();
@@ -33,42 +55,108 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(SeriesBookCreate model)
+        public ActionResult AddSeries(AddSeriesCreate model)
         {
-            if (!ModelState.IsValid) return View(model);
-
             var service = CreateSeriesBookService();
 
-            if (service.CreateSeriesBook(model))
-            {
-                var series = service.GetSeriesBookById(model.SeriesId, model.BookId);
-                TempData["SaveResult"] = $"The book {series.Title} was added to {series.SeriesName}";
-                return RedirectToAction("Index");
-            }
+            service.AddSeries(model);
 
-            ModelState.AddModelError("", "The book could not be added to the series.");
-
-            return View(model);
+            return RedirectToAction("Index", "Book");
         }
 
-        public ActionResult Delete(int seriesId, int bookId)
+        public ActionResult RemoveBooks()
         {
             var service = CreateSeriesBookService();
-            var model = service.GetSeriesBookById(seriesId, bookId);
+            var books = service.GetBooks();
+            var seriesModel = service.SeriesOptions();
+            ViewBag.Books = books;
+            ViewData["Series"] = seriesModel;
 
-            return View(model);
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ActionName("Delete")]
-        public ActionResult DeletePost(int seriesId, int bookId)
+        public ActionResult RemoveBooks(AddBooksCreate model)
         {
             var service = CreateSeriesBookService();
-            service.DeleteSeriesBook(seriesId, bookId);
 
-            return RedirectToAction("Index");
+            service.RemoveBook(model);
+
+            return RedirectToAction("Index", "Series");
         }
+
+        public ActionResult RemoveSeries()
+        {
+            var service = CreateSeriesBookService();
+            var bookModel = service.BookOptions();
+            var series = service.GetSeries();
+            ViewBag.Series = series;
+            ViewData["Books"] = bookModel;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveSeries(AddSeriesCreate model)
+        {
+            var service = CreateSeriesBookService();
+
+            service.RemoveSeries(model);
+
+            return RedirectToAction("Index", "Book");
+        }
+
+        //public ActionResult Create()
+        //{
+        //    var service = CreateSeriesBookService();
+        //    var seriesModel = service.SeriesOptions();
+        //    var bookModel = service.BookOptions();
+        //    ViewData["Series"] = seriesModel;
+        //    ViewData["Books"] = bookModel;
+
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(SeriesBookCreate model)
+        //{
+        //    if (!ModelState.IsValid) return View(model);
+
+        //    var service = CreateSeriesBookService();
+
+        //    if (service.CreateSeriesBook(model))
+        //    {
+        //        var series = service.GetSeriesBookById(model.SeriesId, model.BookId);
+        //        TempData["SaveResult"] = $"The book {series.Title} was added to {series.SeriesName}";
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ModelState.AddModelError("", "The book could not be added to the series.");
+
+        //    return View(model);
+        //}
+
+        //public ActionResult Delete(int seriesId, int bookId)
+        //{
+        //    var service = CreateSeriesBookService();
+        //    var model = service.GetSeriesBookById(seriesId, bookId);
+
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[ActionName("Delete")]
+        //public ActionResult DeletePost(int seriesId, int bookId)
+        //{
+        //    var service = CreateSeriesBookService();
+        //    service.DeleteSeriesBook(seriesId, bookId);
+
+        //    return RedirectToAction("Index");
+        //}
 
         private SeriesBookService CreateSeriesBookService()
         {

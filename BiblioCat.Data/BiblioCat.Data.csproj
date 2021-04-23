@@ -85,6 +85,10 @@
     <Compile Include="Migrations\202104181957123_RemoveGoH.designer.cs">
       <DependentUpon>202104181957123_RemoveGoH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104201500121_EmailToPatreon.cs" />
+    <Compile Include="Migrations\202104201500121_EmailToPatreon.designer.cs">
+      <DependentUpon>202104201500121_EmailToPatreon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104181957123_RemoveGoH.resx">
       <DependentUpon>202104181957123_RemoveGoH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104201500121_EmailToPatreon.resx">
+      <DependentUpon>202104201500121_EmailToPatreon.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

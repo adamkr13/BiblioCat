@@ -257,7 +257,6 @@
     <Content Include="Views\Book\Edit.cshtml" />
     <Content Include="Views\Book\Delete.cshtml" />
     <Content Include="Views\AuthorBook\Index.cshtml" />
-    <Content Include="Views\AuthorBook\Create.cshtml" />
     <Content Include="Views\AuthorBook\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Series\Index.cshtml" />
@@ -290,6 +289,30 @@
     <Content Include="Views\AuthorConvention\Index.cshtml" />
     <Content Include="Views\AuthorConvention\Create.cshtml" />
     <Content Include="Views\AuthorConvention\Delete.cshtml" />
+    <Content Include="Views\AuthorBook\AddBooks.cshtml" />
+    <Content Include="Views\AuthorBook\AddAuthors.cshtml" />
+    <Content Include="Views\AuthorBook\RemoveBooks.cshtml" />
+    <Content Include="Views\AuthorBook\RemoveAuthors.cshtml" />
+    <Content Include="Views\AuthorConvention\AddAuthors.cshtml" />
+    <Content Include="Views\AuthorConvention\RemoveAuthors.cshtml" />
+    <Content Include="Views\AuthorConvention\AddConventions.cshtml" />
+    <Content Include="Views\AuthorConvention\RemoveConventions.cshtml" />
+    <Content Include="Views\AuthorPublisher\AddAuthors.cshtml" />
+    <Content Include="Views\AuthorPublisher\AddPublishers.cshtml" />
+    <Content Include="Views\AuthorPublisher\RemoveAuthors.cshtml" />
+    <Content Include="Views\AuthorPublisher\RemovePublishers.cshtml" />
+    <Content Include="Views\BookPublisher\AddBooks.cshtml" />
+    <Content Include="Views\BookPublisher\AddPublishers.cshtml" />
+    <Content Include="Views\BookPublisher\RemoveBooks.cshtml" />
+    <Content Include="Views\BookPublisher\RemovePublishers.cshtml" />
+    <Content Include="Views\SeriesAuthor\AddAuthors.cshtml" />
+    <Content Include="Views\SeriesAuthor\AddSeries.cshtml" />
+    <Content Include="Views\SeriesAuthor\RemoveAuthors.cshtml" />
+    <Content Include="Views\SeriesAuthor\RemoveSeries.cshtml" />
+    <Content Include="Views\SeriesBook\AddBooks.cshtml" />
+    <Content Include="Views\SeriesBook\AddSeries.cshtml" />
+    <Content Include="Views\SeriesBook\RemoveSeries.cshtml" />
+    <Content Include="Views\SeriesBook\RemoveBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

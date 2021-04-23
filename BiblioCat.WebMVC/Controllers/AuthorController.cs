@@ -36,8 +36,8 @@ namespace BiblioCat.WebMVC.Controllers
 
             if (service.CreateAuthor(model))
             {
-                TempData["SaveResult"] = "The author was created.";
-                return RedirectToAction("Index");
+                TempData["SaveResult"] = "The author was created. Add some books?";
+                return RedirectToAction("AddBooks", "AuthorBook");
             }
 
             ModelState.AddModelError("", "Author could not be created.");
@@ -64,7 +64,7 @@ namespace BiblioCat.WebMVC.Controllers
                     AuthorId = detail.AuthorId,
                     LastName = detail.LastName,
                     FirstName = detail.FirstName,
-                    Email = detail.Email,
+                    Patreon = detail.Patreon,
                     OfficialWebsite = detail.OfficialWebsite,
                     AmazonPage = detail.AmazonPage,
                     GoodreadsPage = detail.GoodreadsPage,

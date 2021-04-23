@@ -67,6 +67,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Website)" target="_blank">@Html.DisplayFor(model => model.Website)</a>
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.AuthorsAttending)
         </dt>
         @foreach (var item in Model.AuthorsAttending)
@@ -81,5 +89,7 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ConventionId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") <br />
+    @Html.ActionLink("Add Authors to Convention", "AddAuthors", "AuthorConvention") |
+    @Html.ActionLink("Remove Authors from Convention", "RemoveAuthors", "AuthorConvention")
 </p>

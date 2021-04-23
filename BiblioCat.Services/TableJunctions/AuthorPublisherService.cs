@@ -1,4 +1,6 @@
 ﻿using BiblioCat.Data;
+using BiblioCat.Models.Author;
+using BiblioCat.Models.Publisher;
 using BiblioCat.Models.TableJunctions.AuthorPublisher;
 using System;
 using System.Collections.Generic;
@@ -37,57 +39,139 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public bool CreateAuthorPublisher(AuthorPublisherCreate model)
+        //public bool CreateAuthorPublisher(AuthorPublisherCreate model)
+        //{
+        //    var entity = new AuthorPublisher()
+        //    {
+        //        AuthorId = model.AuthorId,
+        //        PublisherId = model.PublisherId
+        //    };
+
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        ctx.AuthorPublishers.Add(entity);
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
+
+        public bool AddAuthor(AddAuthorsCreate model)
         {
-            var entity = new AuthorPublisher()
+            foreach (int authorId in model.Authors)
             {
-                AuthorId = model.AuthorId,
-                PublisherId = model.PublisherId
-            };
-
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.AuthorPublishers.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
-        public bool DeleteAuthorPublisher(int authorId, int publisherId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx.AuthorPublishers
-                    .Single(e => e.AuthorId == authorId && e.PublisherId == publisherId);
-
-                if (entity != null)
+                var entity = new AuthorPublisher()
                 {
-                    ctx.AuthorPublishers.Remove(entity);
-                    return ctx.SaveChanges() == 1;
-                }
-
-                return false;
-            }
-        }
-
-        public AuthorPublisherDetail GetAuthorPublisherById(int authorId, int publisherId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx.AuthorPublishers
-                    .Single(e => e.AuthorId == authorId && e.PublisherId == publisherId);
-
-                return new AuthorPublisherDetail
-                {
-                    AuthorId = entity.AuthorId,
-                    LastName = entity.Author.LastName,
-                    FirstName = entity.Author.FirstName,
-                    PublisherId = entity.PublisherId,
-                    PublisherName = entity.Publisher.PublisherName
+                    AuthorId = authorId,
+                    PublisherId = model.PublisherId
                 };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorPublishers.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
             }
+
+            return true;
         }
+
+        public bool AddPublisher(AddPublishersCreate model)
+        {
+            foreach (int publisherId in model.Publishers)
+            {
+                var entity = new AuthorPublisher()
+                {
+                    AuthorId = model.AuthorId,
+                    PublisherId = publisherId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorPublishers.Add(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool RemoveAuthor(AddAuthorsCreate model)
+        {
+            foreach (int authorId in model.Authors)
+            {
+                var entity = new AuthorPublisher()
+                {
+                    AuthorId = authorId,
+                    PublisherId = model.PublisherId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorPublishers.Attach(entity);
+                    ctx.AuthorPublishers.Remove(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        public bool RemovePublisher(AddPublishersCreate model)
+        {
+            foreach (int publisherId in model.Publishers)
+            {
+                var entity = new AuthorPublisher()
+                {
+                    AuthorId = model.AuthorId,
+                    PublisherId = publisherId
+                };
+
+                using (var ctx = new ApplicationDbContext())
+                {
+                    ctx.AuthorPublishers.Attach(entity);
+                    ctx.AuthorPublishers.Remove(entity);
+                    var changes = ctx.SaveChanges();
+                }
+            }
+
+            return true;
+        }
+
+        //public bool DeleteAuthorPublisher(int authorId, int publisherId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx.AuthorPublishers
+        //            .Single(e => e.AuthorId == authorId && e.PublisherId == publisherId);
+
+        //        if (entity != null)
+        //        {
+        //            ctx.AuthorPublishers.Remove(entity);
+        //            return ctx.SaveChanges() == 1;
+        //        }
+
+        //        return false;
+        //    }
+        //}
+
+        //public AuthorPublisherDetail GetAuthorPublisherById(int authorId, int publisherId)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx.AuthorPublishers
+        //            .Single(e => e.AuthorId == authorId && e.PublisherId == publisherId);
+
+        //        return new AuthorPublisherDetail
+        //        {
+        //            AuthorId = entity.AuthorId,
+        //            LastName = entity.Author.LastName,
+        //            FirstName = entity.Author.FirstName,
+        //            PublisherId = entity.PublisherId,
+        //            PublisherName = entity.Publisher.PublisherName
+        //        };
+        //    }
+        //}
 
         public List<SelectListItem> AuthorOptions()
         {
@@ -129,6 +213,39 @@ namespace BiblioCat.Services.TableJunctions
                 });
 
                 return orderedPublisherList;
+            }
+        }
+
+        public List<AuthorListItem> GetAuthors()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Authors.Select(e =>
+                    new AuthorListItem
+                    {
+                        AuthorId = e.AuthorId,
+                        FirstName = e.FirstName,
+                        LastName = e.LastName
+                    });
+
+                return query.ToList();
+            }
+        }
+
+        public List<PublisherListItem> GetPublishers()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx.Publishers.Select(e =>
+                    new PublisherListItem
+                    {
+                        PublisherId = e.PublisherId,
+                        PublisherName = e.PublisherName
+                    });
+
+                return query.ToList();
             }
         }
     }

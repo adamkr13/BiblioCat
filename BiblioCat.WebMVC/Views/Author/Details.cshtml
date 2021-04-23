@@ -35,11 +35,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Patreon)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            <a href="@Html.DisplayFor(model => model.Patreon)" target="_blank">@Html.DisplayFor(model => model.Patreon)</a>
         </dd>
 
         <dt>
@@ -47,7 +47,7 @@
         </dt>
 
         <dd>
-            <a href="@Html.DisplayFor(model => model.OfficialWebsite)">@Html.DisplayFor(model => model.OfficialWebsite)</a>
+            <a href="@Html.DisplayFor(model => model.OfficialWebsite)" target="_blank">@Html.DisplayFor(model => model.OfficialWebsite)</a>
         </dd>
 
         <dt>
@@ -55,7 +55,7 @@
         </dt>
 
         <dd>
-            <a href="@Html.DisplayFor(model => model.AmazonPage)">@Html.DisplayFor(model => model.AmazonPage)</a>
+            <a href="@Html.DisplayFor(model => model.AmazonPage)" target="_blank">@Html.DisplayFor(model => model.AmazonPage)</a>
         </dd>
 
         <dt>
@@ -63,7 +63,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GoodreadsPage)
+            <a href="@Html.DisplayFor(model => model.GoodreadsPage)" target="_blank">@Html.DisplayFor(model => model.GoodreadsPage)</a>
         </dd>
 
         <dt>
@@ -71,12 +71,11 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TwitterHandle)
+            <a href="@Html.DisplayFor(model => model.TwitterHandle)" target="_blank">@Html.DisplayFor(model => model.TwitterHandle)</a>
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.BooksByAuthor)
-        </dt>
+        </dt>        
         @foreach (var item in Model.BooksByAuthor)
         {
             <dd>
@@ -114,7 +113,20 @@
     </dl>
 </div>
 <br />
+<br />
+<br />
+<br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add Books to Author", "AddBooks", "AuthorBook") |
+    @Html.ActionLink("Remove Books from Author", "RemoveBooks", "AuthorBook") <br />
+    @Html.ActionLink("Add Conventions to Author", "AddConventions", "AuthorConvention") |
+    @Html.ActionLink("Remove Conventions from Author", "RemoveConventions", "AuthorConvention") <br />
+    @Html.ActionLink("Add Publishers to Author", "AddPublishers", "AuthorPublisher") |
+    @Html.ActionLink("Remove Publishers from Author", "RemovePublishers", "AuthorPublisher") <br />
+    @Html.ActionLink("Add Series to Author", "AddSeries", "SeriesAuthor") |
+    @Html.ActionLink("Remove Series from Author", "RemoveSeries", "SeriesAuthor")
 </p>
+
+

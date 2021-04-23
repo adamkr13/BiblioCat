@@ -1,6 +1,7 @@
 ﻿using BiblioCat.Data;
 using BiblioCat.Models.Author;
 using BiblioCat.Models.Publisher;
+using BiblioCat.Models.Series;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace BiblioCat.Models.Book
         public virtual List<AuthorListItem> AuthorsOfBook { get; set; }
 
         [DisplayName("Part of Series")]
-        public List<string> SeriesNames { get; set; }
+        public List<SeriesListItem> SeriesNames { get; set; }
 
         [DisplayName("Published By")]
         public List<PublisherListItem> PublisherNames { get; set; }

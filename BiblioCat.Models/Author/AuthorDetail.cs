@@ -22,20 +22,20 @@ namespace BiblioCat.Models.Author
 
         [DisplayName("Last Name")]
         public string LastName { get; set; }
-
-        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
-        public string Email { get; set; }
+        
+        [DisplayName("Patreon Site")]
+        public string Patreon { get; set; }
 
         [DisplayName("Official Website")]
         public string OfficialWebsite { get; set; }
 
-        [DisplayName("Author's Amazon Page")]
+        [DisplayName("Amazon Page")]
         public string AmazonPage { get; set; }
 
-        [DisplayName("Author's Goodreads Page")]
+        [DisplayName("Goodreads Page")]
         public string GoodreadsPage { get; set; }
 
-        [DisplayName("Author's Twitter Handle")]
+        [DisplayName("Twitter Handle")]
         public string TwitterHandle { get; set; }
 
         [DisplayName("Books by Author")]

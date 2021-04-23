@@ -60,5 +60,9 @@
 <br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.SeriesId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") <br />
+    @Html.ActionLink("Add Authors to Series", "AddAuthors", "SeriesAuthor") |
+    @Html.ActionLink("Remove Authors from Series", "RemoveAuthors", "SeriesAuthor") <br />
+    @Html.ActionLink("Add Books to Series", "AddBooks", "SeriesBook") |
+    @Html.ActionLink("Remove Books from Series", "RemoveBooks", "SeriesBook")
 </p>
