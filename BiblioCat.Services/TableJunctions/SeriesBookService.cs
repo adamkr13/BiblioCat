@@ -18,24 +18,7 @@ namespace BiblioCat.Services.TableJunctions
         public SeriesBookService(Guid userId)
         {
             _userId = userId;
-        }
-
-        public IEnumerable<SeriesBookListItem> GetSeriesBooks()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx.SeriesBooks.Select(e =>
-                    new SeriesBookListItem
-                    {
-                        SeriesId = e.SeriesId,
-                        SeriesName = e.Series.SeriesName,
-                        BookId = e.BookId,
-                        Title = e.Book.Title
-                    });
-                return query.ToArray();
-            }
-        }
+        }        
 
         public bool AddBook(AddBooksCreate model)
         {
@@ -118,59 +101,6 @@ namespace BiblioCat.Services.TableJunctions
 
             return true;
         }
-
-
-
-        //public bool CreateSeriesBook(SeriesBookCreate model)
-        //{
-        //    var entity = new SeriesBook()
-        //    {
-        //        SeriesId = model.SeriesId,
-        //        BookId = model.BookId
-        //    };
-
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        ctx.SeriesBooks.Add(entity);
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
-
-        //public bool DeleteSeriesBook(int seriesId, int bookId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.SeriesBooks
-        //            .Single(e => e.SeriesId == seriesId && e.BookId == bookId);
-
-        //        if (entity != null)
-        //        {
-        //            ctx.SeriesBooks.Remove(entity);
-        //            return ctx.SaveChanges() == 1;
-        //        }
-
-        //        return false;
-        //    }
-        //}
-
-        //public SeriesBookDetail GetSeriesBookById(int seriesId, int bookId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.SeriesBooks
-        //            .Single(e => e.SeriesId == seriesId && e.BookId == bookId);
-
-        //        return new SeriesBookDetail
-        //        {
-        //            SeriesId = entity.SeriesId,
-        //            SeriesName = entity.Series.SeriesName,
-        //            BookId = entity.BookId,
-        //            Title = entity.Book.Title
-        //        };
-        //    }
-        //}
 
         public List<SelectListItem> SeriesOptions()
         {

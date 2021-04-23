@@ -18,41 +18,7 @@ namespace BiblioCat.Services.TableJunctions
         public AuthorConventionService(Guid userId)
         {
             _userId = userId;
-        }
-
-        public IEnumerable<AuthorConventionListItem> GetAuthorConventions()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx.AuthorConventions
-                    .Select(e =>
-                    new AuthorConventionListItem
-                    {
-                        AuthorId = e.AuthorId,
-                        LastName = e.Author.LastName,
-                        FirstName = e.Author.FirstName,
-                        ConventionId = e.ConventionId,
-                        ConventionName = e.Convention.Name
-                    });
-                return query.ToArray();
-            }
-        }
-
-        //public bool CreateAuthorConvention(AuthorConventionCreate model)
-        //{
-        //    var entity = new AuthorConvention()
-        //    {
-        //        AuthorId = model.AuthorId,
-        //        ConventionId = model.ConventionId
-        //    };
-
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        ctx.AuthorConventions.Add(entity);
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
+        }        
 
         public bool AddAuthor(AddAuthorsCreate model)
         {
@@ -134,44 +100,7 @@ namespace BiblioCat.Services.TableJunctions
             }
 
             return true;
-        }
-
-        //public bool DeleteAuthorConvention(int authorId, int conventionId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.AuthorConventions
-        //            .Single(e => e.AuthorId == authorId && e.ConventionId == conventionId);
-
-        //        if (entity != null)
-        //        {
-        //            ctx.AuthorConventions.Remove(entity);
-        //            return ctx.SaveChanges() == 1;
-        //        }
-
-        //        return false;
-        //    }
-        //}
-
-        //public AuthorConventionDetail GetAuthorConventionById(int authorId, int conventionId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.AuthorConventions
-        //            .Single(e => e.AuthorId == authorId && e.ConventionId == conventionId);
-
-        //        return new AuthorConventionDetail
-        //        {
-        //            AuthorId = entity.AuthorId,
-        //            FirstName = entity.Author.FirstName,
-        //            LastName = entity.Author.LastName,
-        //            ConventionId = entity.ConventionId,
-        //            ConventionName = entity.Convention.Name
-        //        };
-        //    }
-        //}
+        }        
 
         public List<SelectListItem> AuthorOptions()
         {

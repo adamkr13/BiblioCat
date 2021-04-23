@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace BiblioCat.WebMVC.Controllers
 {
+    [Authorize]
     public class SeriesController : Controller
     {
-        [Authorize]
         // GET: Series
         public ActionResult Index()
         {

@@ -18,41 +18,7 @@ namespace BiblioCat.Services.TableJunctions
         public AuthorPublisherService(Guid userId)
         {
             _userId = userId;
-        }
-
-        public IEnumerable<AuthorPublisherListItem> GetAuthorPublishers()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx.AuthorPublishers
-                    .Select(e =>
-                    new AuthorPublisherListItem
-                    {
-                        AuthorId = e.AuthorId,
-                        LastName = e.Author.LastName,
-                        FirstName = e.Author.FirstName,
-                        PublisherId = e.PublisherId,
-                        PublisherName = e.Publisher.PublisherName
-                    });
-                return query.ToArray();
-            }
-        }
-
-        //public bool CreateAuthorPublisher(AuthorPublisherCreate model)
-        //{
-        //    var entity = new AuthorPublisher()
-        //    {
-        //        AuthorId = model.AuthorId,
-        //        PublisherId = model.PublisherId
-        //    };
-
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        ctx.AuthorPublishers.Add(entity);
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
+        }        
 
         public bool AddAuthor(AddAuthorsCreate model)
         {
@@ -135,43 +101,6 @@ namespace BiblioCat.Services.TableJunctions
 
             return true;
         }
-
-        //public bool DeleteAuthorPublisher(int authorId, int publisherId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.AuthorPublishers
-        //            .Single(e => e.AuthorId == authorId && e.PublisherId == publisherId);
-
-        //        if (entity != null)
-        //        {
-        //            ctx.AuthorPublishers.Remove(entity);
-        //            return ctx.SaveChanges() == 1;
-        //        }
-
-        //        return false;
-        //    }
-        //}
-
-        //public AuthorPublisherDetail GetAuthorPublisherById(int authorId, int publisherId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.AuthorPublishers
-        //            .Single(e => e.AuthorId == authorId && e.PublisherId == publisherId);
-
-        //        return new AuthorPublisherDetail
-        //        {
-        //            AuthorId = entity.AuthorId,
-        //            LastName = entity.Author.LastName,
-        //            FirstName = entity.Author.FirstName,
-        //            PublisherId = entity.PublisherId,
-        //            PublisherName = entity.Publisher.PublisherName
-        //        };
-        //    }
-        //}
 
         public List<SelectListItem> AuthorOptions()
         {

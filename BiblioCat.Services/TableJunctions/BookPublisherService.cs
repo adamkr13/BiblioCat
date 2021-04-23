@@ -20,24 +20,6 @@ namespace BiblioCat.Services.TableJunctions
             _userId = userId;
         }
 
-        public IEnumerable<BookPublisherListItem> GetBookPublishers()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx.BookPublishers
-                    .Select(e =>
-                    new BookPublisherListItem
-                    {
-                        BookId = e.BookId,
-                        Title = e.Book.Title,
-                        PublisherId = e.PublisherId,
-                        PublisherName = e.Publisher.PublisherName
-                    });
-                return query.ToArray();
-            }
-        }
-
         public bool AddBook(AddBooksCreate model)
         {
             foreach (int bookId in model.Books)
@@ -119,57 +101,7 @@ namespace BiblioCat.Services.TableJunctions
 
             return true;
         }
-        //public bool CreateBookPublisher(BookPublisherCreate model)
-        //{
-        //    var entity = new BookPublisher()
-        //    {
-        //        BookId = model.BookId,
-        //        PublisherId = model.PublisherId
-        //    };
-
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        ctx.BookPublishers.Add(entity);
-        //        return ctx.SaveChanges() == 1;
-        //    }
-        //}
-
-        //public bool DeleteBookPublisher(int bookId, int publisherId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.BookPublishers
-        //            .Single(e => e.BookId == bookId && e.PublisherId == publisherId);
-
-        //        if (entity != null)
-        //        {
-        //            ctx.BookPublishers.Remove(entity);
-        //            return ctx.SaveChanges() == 1;
-        //        }
-
-        //        return false;
-        //    }
-        //}
-
-        //public BookPublisherDetail GetBookPublisherById(int bookId, int publisherId)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity =
-        //            ctx.BookPublishers
-        //            .Single(e => e.BookId == bookId && e.PublisherId == publisherId);
-
-        //        return new BookPublisherDetail
-        //        {
-        //            BookId = entity.BookId,
-        //            Title = entity.Book.Title,
-        //            PublisherId = entity.PublisherId,
-        //            PublisherName = entity.Publisher.PublisherName
-        //        };
-        //    }
-        //}
-
+        
         public List<SelectListItem> BookOptions()
         {
             using (var ctx = new ApplicationDbContext())

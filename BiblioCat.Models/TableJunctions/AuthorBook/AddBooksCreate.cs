@@ -19,6 +19,6 @@ namespace BiblioCat.Models.TableJunctions.AuthorBook
         public string LastName { get; set; }
 
         [Required]
-        public int[] Titles { get; set; }
+        public int[] Books { get; set; }
     }
 }

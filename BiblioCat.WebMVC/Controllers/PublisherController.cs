@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace BiblioCat.WebMVC.Controllers
 {
+    [Authorize]
     public class PublisherController : Controller
     {
-        [Authorize]
         // GET: Publisher
         public ActionResult Index()
         {
