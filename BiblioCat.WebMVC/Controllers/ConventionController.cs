@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace BiblioCat.WebMVC.Controllers
 {
+    [Authorize]
     public class ConventionController : Controller
     {
-        [Authorize]
         // GET: Convention
         public ActionResult Index()
         {

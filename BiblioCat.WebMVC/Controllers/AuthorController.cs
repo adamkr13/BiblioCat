@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace BiblioCat.WebMVC.Controllers
 {
+    [Authorize]
     public class AuthorController : Controller
     {
-        [Authorize]
         // GET: Author
         public ActionResult Index()
         {
@@ -36,8 +36,8 @@ namespace BiblioCat.WebMVC.Controllers
 
             if (service.CreateAuthor(model))
             {
-                TempData["SaveResult"] = "The author was created. Add some books?";
-                return RedirectToAction("AddBooks", "AuthorBook");
+                TempData["SaveResult"] = "The author was created.";
+                return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Author could not be created.");

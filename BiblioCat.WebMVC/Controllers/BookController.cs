@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace BiblioCat.WebMVC.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
-        [Authorize]
         // GET: Book
         public ActionResult Index()
         {
@@ -37,7 +37,7 @@ namespace BiblioCat.WebMVC.Controllers
             if (service.CreateBook(model))
             {
                 TempData["SaveResult"] = "The book was created.";
-                return RedirectToAction("AddAuthors", "AuthorBook");
+                return RedirectToAction("Index");
             }
 
             ModelState.AddModelError("", "Book could not be created.");
