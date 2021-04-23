@@ -311,8 +311,8 @@
     <Content Include="Views\SeriesAuthor\RemoveSeries.cshtml" />
     <Content Include="Views\SeriesBook\AddBooks.cshtml" />
     <Content Include="Views\SeriesBook\AddSeries.cshtml" />
-    <Content Include="Views\SeriesBook\RemoveBooks.cshtml" />
     <Content Include="Views\SeriesBook\RemoveSeries.cshtml" />
+    <Content Include="Views\SeriesBook\RemoveBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

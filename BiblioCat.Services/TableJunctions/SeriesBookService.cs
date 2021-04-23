@@ -39,7 +39,7 @@ namespace BiblioCat.Services.TableJunctions
 
         public bool AddBook(AddBooksCreate model)
         {
-            foreach (int bookId in model.Titles)
+            foreach (int bookId in model.Books)
             {
                 var entity = new SeriesBook()
                 {
@@ -79,7 +79,7 @@ namespace BiblioCat.Services.TableJunctions
 
         public bool RemoveBook(AddBooksCreate model)
         {
-            foreach (int bookId in model.Titles)
+            foreach (int bookId in model.Books)
             {
                 var entity = new SeriesBook()
                 {
@@ -111,7 +111,7 @@ namespace BiblioCat.Services.TableJunctions
                 using (var ctx = new ApplicationDbContext())
                 {
                     ctx.SeriesBooks.Attach(entity);
-                    ctx.SeriesBooks.Add(entity);
+                    ctx.SeriesBooks.Remove(entity);
                     var changes = ctx.SaveChanges();
                 }
             }

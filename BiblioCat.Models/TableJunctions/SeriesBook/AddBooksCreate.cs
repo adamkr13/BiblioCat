@@ -21,6 +21,6 @@ namespace BiblioCat.Models.TableJunctions.SeriesBook
         public string Title { get; set; }
 
         [Required]
-        public int[] Titles { get; set; }
+        public int[] Books { get; set; }
     }
 }
