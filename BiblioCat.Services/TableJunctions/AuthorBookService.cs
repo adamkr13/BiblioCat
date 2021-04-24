@@ -100,7 +100,43 @@ namespace BiblioCat.Services.TableJunctions
             }
 
             return true;
-        } 
+        }
+
+        public List<SelectListItem> BookOptions(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Books.Where(b => b.BookId == id)
+                    .Select(b =>
+                    new SelectListItem
+                    {
+                        Text = b.Title,
+                        Value = b.BookId.ToString()
+                    });
+
+                return query.ToList();
+            }
+        }
+
+        public List<SelectListItem> AuthorOptions(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Authors.Where(a => a.AuthorId == id)
+                    .Select(a =>
+                    new SelectListItem
+                    {
+                        Text = a.LastName + ", " + a.FirstName,
+                        Value = a.AuthorId.ToString()
+                    });
+
+                return query.ToList();
+            }
+        }
 
         public List<BookListItem> GetBooks()
         {
@@ -133,42 +169,6 @@ namespace BiblioCat.Services.TableJunctions
 
                 return query.OrderBy(e => e.LastName).ToList();
             }
-        }
-
-        public List<SelectListItem> BookOptions(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Books.Where(b => b.BookId == id)
-                    .Select(b =>
-                    new SelectListItem
-                    {
-                        Text = b.Title,
-                        Value = b.BookId.ToString()
-                    });
-
-                return query.ToList();                
-            }
-        }
-
-        public List<SelectListItem> AuthorOptions(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Authors.Where(a => a.AuthorId == id)
-                    .Select(a =>
-                    new SelectListItem
-                    {
-                        Text = a.LastName + ", " + a.FirstName,
-                        Value = a.AuthorId.ToString()
-                    });
-
-                return query.ToList();
-            }
-        }
+        }        
     }
 }
