@@ -118,15 +118,15 @@
 <br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorId }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Add Books to Author", "AddBooks", "AuthorBook") |
-    @Html.ActionLink("Remove Books from Author", "RemoveBooks", "AuthorBook") <br />
-    @Html.ActionLink("Add Conventions to Author", "AddConventions", "AuthorConvention") |
-    @Html.ActionLink("Remove Conventions from Author", "RemoveConventions", "AuthorConvention") <br />
-    @Html.ActionLink("Add Publishers to Author", "AddPublishers", "AuthorPublisher") |
-    @Html.ActionLink("Remove Publishers from Author", "RemovePublishers", "AuthorPublisher") <br />
-    @Html.ActionLink("Add Series to Author", "AddSeries", "SeriesAuthor") |
-    @Html.ActionLink("Remove Series from Author", "RemoveSeries", "SeriesAuthor")
+    @Html.ActionLink("Back to List", "Index") <br />
+    @Html.ActionLink("Add Books to Author", "AddBooks", "AuthorBook", new { id = Model.AuthorId }, null) |
+    @Html.ActionLink("Remove Books from Author", "RemoveBooks", "AuthorBook", new { id = Model.AuthorId }, null) <br />
+    @Html.ActionLink("Add Conventions to Author", "AddConventions", "AuthorConvention", new { id = Model.AuthorId }, null) |
+    @Html.ActionLink("Remove Conventions from Author", "RemoveConventions", "AuthorConvention", new { id = Model.AuthorId }, null) <br />
+    @Html.ActionLink("Add Publishers to Author", "AddPublishers", "AuthorPublisher", new { id = Model.AuthorId }, null) |
+    @Html.ActionLink("Remove Publishers from Author", "RemovePublishers", "AuthorPublisher", new { id = Model.AuthorId }, null) <br />
+    @Html.ActionLink("Add Series to Author", "AddSeries", "SeriesAuthor", new { id = Model.AuthorId }, null) |
+    @Html.ActionLink("Remove Series from Author", "RemoveSeries", "SeriesAuthor", new { id = Model.AuthorId }, null)
 </p>
 
 

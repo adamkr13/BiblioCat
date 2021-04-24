@@ -73,10 +73,10 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.BookId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.BookId }) <br />
-                @Html.ActionLink("Add Authors", "AddAuthors", "AuthorBook") |
-                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorBook") <br />
-                @Html.ActionLink("Add Series", "AddSeries", "SeriesBook") |
-                @Html.ActionLink("Remove Series", "RemoveSeries", "SeriesBook")
+                @Html.ActionLink("Add Authors", "AddAuthors", "AuthorBook", new { id = item.BookId }, null) |
+                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorBook", new { id = item.BookId }, null) <br />
+                @Html.ActionLink("Add Series", "AddSeries", "SeriesBook", new { id = item.BookId }, null) |
+                @Html.ActionLink("Remove Series", "RemoveSeries", "SeriesBook", new { id = item.BookId }, null)
             </td>
         </tr>
     }

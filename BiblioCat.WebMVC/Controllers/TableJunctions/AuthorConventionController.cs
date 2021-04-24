@@ -12,11 +12,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
     [Authorize]
     public class AuthorConventionController : Controller
     {        
-        public ActionResult AddAuthors()
+        public ActionResult AddAuthors(int id)
         {
             var service = CreateAuthorConventionService();
             var authors = service.GetAuthors();
-            var conventionModel = service.ConventionOptions();
+            var conventionModel = service.ConventionOptions(id);
             ViewBag.Authors = authors;
             ViewData["Conventions"] = conventionModel;
 
@@ -34,10 +34,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Convention");
         }
 
-        public ActionResult AddConventions()
+        public ActionResult AddConventions(int id)
         {
             var service = CreateAuthorConventionService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var conventions = service.GetConventions();
             ViewBag.Conventions = conventions;
             ViewData["Authors"] = authorModel;
@@ -56,11 +56,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Author");
         }
 
-        public ActionResult RemoveAuthors()
+        public ActionResult RemoveAuthors(int id)
         {
             var service = CreateAuthorConventionService();
             var authors = service.GetAuthors();
-            var conventionModel = service.ConventionOptions();
+            var conventionModel = service.ConventionOptions(id);
             ViewBag.Authors = authors;
             ViewData["Conventions"] = conventionModel;
 
@@ -78,10 +78,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Convention");
         }
 
-        public ActionResult RemoveConventions()
+        public ActionResult RemoveConventions(int id)
         {
             var service = CreateAuthorConventionService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var conventions = service.GetConventions();
             ViewBag.Conventions = conventions;
             ViewData["Authors"] = authorModel;

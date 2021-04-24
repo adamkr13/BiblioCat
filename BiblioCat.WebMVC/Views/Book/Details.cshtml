@@ -150,10 +150,10 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Add Authors to Book", "AddAuthors", "AuthorBook") |
-    @Html.ActionLink("Remove Authors from Book", "RemoveAuthors", "AuthorBook") <br />
-    @Html.ActionLink("Add Publishers to Book", "AddPublishers", "BookPublisher") |
-    @Html.ActionLink("Remove Publishers from Book", "RemovePublishers", "BookPublisher") <br />
-    @Html.ActionLink("Add Series to Book", "AddSeries", "SeriesBook") |
-    @Html.ActionLink("Remove Series from Book", "RemoveSeries", "SeriesBook")
+    @Html.ActionLink("Add Authors to Book", "AddAuthors", "AuthorBook", new { id = Model.BookId }, null) |
+    @Html.ActionLink("Remove Authors from Book", "RemoveAuthors", "AuthorBook", new { id = Model.BookId }, null) <br />
+    @Html.ActionLink("Add Publishers to Book", "AddPublishers", "BookPublisher", new { id = Model.BookId }, null) |
+    @Html.ActionLink("Remove Publishers from Book", "RemovePublishers", "BookPublisher", new { id = Model.BookId }, null) <br />
+    @Html.ActionLink("Add Series to Book", "AddSeries", "SeriesBook", new { id = Model.BookId }, null) |
+    @Html.ActionLink("Remove Series from Book", "RemoveSeries", "SeriesBook", new { id = Model.BookId }, null)
 </p>

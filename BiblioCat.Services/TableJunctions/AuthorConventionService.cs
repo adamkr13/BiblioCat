@@ -102,45 +102,39 @@ namespace BiblioCat.Services.TableJunctions
             return true;
         }        
 
-        public List<SelectListItem> AuthorOptions()
+        public List<SelectListItem> AuthorOptions(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Authors.Select(a =>
+                    .Authors.Where(a => a.AuthorId == id)
+                    .Select(a =>
                     new SelectListItem
                     {
                         Text = a.LastName + ", " + a.FirstName,
                         Value = a.AuthorId.ToString()
                     });
 
-                var authorList = query.ToList();
-                var orderedAuthorList = authorList.OrderBy(e => e.Text).ToList();
-                orderedAuthorList.Insert(0, new SelectListItem { Text = "--Select Author--", Value = "" });
-
-                return orderedAuthorList;
+                return query.ToList();
             }
         }
 
-        public List<SelectListItem> ConventionOptions()
+        public List<SelectListItem> ConventionOptions(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Conventions.Select(c =>
+                    .Conventions.Where(c => c.ConventionId == id)
+                    .Select(c =>
                     new SelectListItem
                     {
                         Text = c.Name,
                         Value = c.ConventionId.ToString()
                     });
 
-                var conventionList = query.ToList();
-                var orderedConventionList = conventionList.OrderBy(e => e.Text).ToList();
-                orderedConventionList.Insert(0, new SelectListItem { Text = "--Select Convention--", Value = "" });
-
-                return orderedConventionList;
+                return query.ToList();
             }
         }
 
@@ -157,7 +151,7 @@ namespace BiblioCat.Services.TableJunctions
                         LastName = e.LastName
                     });
 
-                return query.ToList();
+                return query.OrderBy(e => e.LastName).ToList();
             }
         }
 
@@ -173,7 +167,7 @@ namespace BiblioCat.Services.TableJunctions
                         Name = e.Name
                     });
 
-                return query.ToList();
+                return query.OrderBy(e => e.Name).ToList();
             }
         }
     }

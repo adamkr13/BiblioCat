@@ -90,6 +90,6 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ConventionId }) |
     @Html.ActionLink("Back to List", "Index") <br />
-    @Html.ActionLink("Add Authors to Convention", "AddAuthors", "AuthorConvention") |
-    @Html.ActionLink("Remove Authors from Convention", "RemoveAuthors", "AuthorConvention")
+    @Html.ActionLink("Add Authors to Convention", "AddAuthors", "AuthorConvention", new { id = Model.ConventionId }, null) |
+    @Html.ActionLink("Remove Authors from Convention", "RemoveAuthors", "AuthorConvention", new { id = Model.ConventionId }, null)
 </p>

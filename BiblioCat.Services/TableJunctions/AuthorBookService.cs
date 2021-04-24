@@ -100,7 +100,43 @@ namespace BiblioCat.Services.TableJunctions
             }
 
             return true;
-        } 
+        }
+
+        public List<SelectListItem> BookOptions(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Books.Where(b => b.BookId == id)
+                    .Select(b =>
+                    new SelectListItem
+                    {
+                        Text = b.Title,
+                        Value = b.BookId.ToString()
+                    });
+
+                return query.ToList();
+            }
+        }
+
+        public List<SelectListItem> AuthorOptions(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Authors.Where(a => a.AuthorId == id)
+                    .Select(a =>
+                    new SelectListItem
+                    {
+                        Text = a.LastName + ", " + a.FirstName,
+                        Value = a.AuthorId.ToString()
+                    });
+
+                return query.ToList();
+            }
+        }
 
         public List<BookListItem> GetBooks()
         {
@@ -114,7 +150,7 @@ namespace BiblioCat.Services.TableJunctions
                         Title = e.Title
                     });
 
-                return query.ToList();
+                return query.OrderBy(e => e.Title).ToList();
             }
         }
 
@@ -131,50 +167,8 @@ namespace BiblioCat.Services.TableJunctions
                         LastName = e.LastName
                     });
 
-                return query.ToList();
+                return query.OrderBy(e => e.LastName).ToList();
             }
-        }
-
-        public List<SelectListItem> BookOptions()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Books.Select(b =>
-                    new SelectListItem
-                    {
-                        Text = b.Title,
-                        Value = b.BookId.ToString()
-                    });
-
-                var bookList = query.ToList();
-                var orderedBookList = bookList.OrderBy(e => e.Text).ToList();
-                orderedBookList.Insert(0, new SelectListItem { Text = "--Select Book--", Value = "" });
-
-                return orderedBookList;
-            }
-        }
-
-        public List<SelectListItem> AuthorOptions()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Authors.Select(a =>
-                    new SelectListItem
-                    {
-                        Text = a.LastName + ", " + a.FirstName,
-                        Value = a.AuthorId.ToString()
-                    });
-
-                var authorList = query.ToList();
-                var orderedAuthorList = authorList.OrderBy(e => e.Text).ToList();
-                orderedAuthorList.Insert(0, new SelectListItem { Text = "--Select Author--", Value = "" });
-
-                return orderedAuthorList;
-            }
-        }
+        }        
     }
 }

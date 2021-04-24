@@ -102,47 +102,37 @@ namespace BiblioCat.Services.TableJunctions
             return true;
         }
         
-        public List<SelectListItem> BookOptions()
+        public List<SelectListItem> BookOptions(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx.Books.Select(s =>
+                    ctx.Books.Where(b => b.BookId == id)
+                    .Select(b =>
                     new SelectListItem
                     {
-                        Text = s.Title,
-                        Value = s.BookId.ToString()
+                        Text = b.Title,
+                        Value = b.BookId.ToString()
                     });
 
-                var bookList = query.ToList();
-                var orderedBookList = bookList.OrderBy(e => e.Text).ToList();
-                orderedBookList.Insert(0, new SelectListItem { Text = "--Select Book--", Value = "" });
-
-                return orderedBookList;
+                return query.ToList();
             }
         }
 
-        public List<SelectListItem> PublisherOptions()
+        public List<SelectListItem> PublisherOptions(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx.Publishers.Select(p =>
+                    ctx.Publishers.Where (p => p.PublisherId == id)
+                    .Select(p =>
                     new SelectListItem
                     {
                         Text = p.PublisherName,
                         Value = p.PublisherId.ToString()
                     });
 
-                var publisherList = query.ToList();
-                var orderedPublisherList = publisherList.OrderBy(e => e.Text).ToList();
-                orderedPublisherList.Insert(0, new SelectListItem
-                {
-                    Text = "--Select Publisher--",
-                    Value = ""
-                });
-
-                return orderedPublisherList;
+                return query.ToList();
             }
         }
 
@@ -158,7 +148,7 @@ namespace BiblioCat.Services.TableJunctions
                         Title = e.Title,                        
                     });
 
-                return query.ToList();
+                return query.OrderBy(e => e.Title).ToList();
             }
         }
 
@@ -174,7 +164,7 @@ namespace BiblioCat.Services.TableJunctions
                         PublisherName = e.PublisherName
                     });
 
-                return query.ToList();
+                return query.OrderBy(e => e.PublisherName).ToList();
             }
         }
     }

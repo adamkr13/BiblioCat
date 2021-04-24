@@ -75,8 +75,8 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.ConventionId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ConventionId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ConventionId }) <br />
-                @Html.ActionLink("Add Authors", "AddAuthors", "AuthorConvention") |
-                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorConvention")
+                @Html.ActionLink("Add Authors", "AddAuthors", "AuthorConvention", new { id = item.ConventionId }, null) |
+                @Html.ActionLink("Remove Authors", "RemoveAuthors", "AuthorConvention", new { id = item.ConventionId }, null)
             </td>
         </tr>
     }

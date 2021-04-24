@@ -78,12 +78,12 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.AuthorId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.AuthorId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.AuthorId }) <br />
-                @Html.ActionLink("Add Books", "AddBooks", "AuthorBook") |
-                @Html.ActionLink("Remove Books", "RemoveBooks", "AuthorBook") <br />
-                @Html.ActionLink("Add Conventions", "AddConventions", "AuthorConvention") |
-                @Html.ActionLink("Remove Conventions", "RemoveConventions", "AuthorConvention") <br />
-                @Html.ActionLink("Add Series", "AddSeries", "SeriesAuthor") |
-                @Html.ActionLink("Remove Series", "RemoveSeries", "SeriesAuthor")
+                @Html.ActionLink("Add Books", "AddBooks", "AuthorBook", new { id = item.AuthorId }, null) |
+                @Html.ActionLink("Remove Books", "RemoveBooks", "AuthorBook", new { id = item.AuthorId }, null) <br />
+                @Html.ActionLink("Add Conventions", "AddConventions", "AuthorConvention", new { id = item.AuthorId }, null) |
+                @Html.ActionLink("Remove Conventions", "RemoveConventions", "AuthorConvention", new { id = item.AuthorId }, null) <br />
+                @Html.ActionLink("Add Series", "AddSeries", "SeriesAuthor", new { id = item.AuthorId }, null) |
+                @Html.ActionLink("Remove Series", "RemoveSeries", "SeriesAuthor", new { id = item.AuthorId }, null)
             </td>
         </tr>
     }

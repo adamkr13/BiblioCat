@@ -12,11 +12,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
     [Authorize]
     public class BookPublisherController : Controller
     {        
-        public ActionResult AddBooks()
+        public ActionResult AddBooks(int id)
         {
             var service = CreateBookPublisherService();
             var books = service.GetBooks();
-            var publisherModel = service.PublisherOptions();
+            var publisherModel = service.PublisherOptions(id);
             ViewBag.Books = books;
             ViewData["Publishers"] = publisherModel;
 
@@ -34,10 +34,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Publisher");
         }
 
-        public ActionResult AddPublishers()
+        public ActionResult AddPublishers(int id)
         {
             var service = CreateBookPublisherService();
-            var bookModel = service.BookOptions();
+            var bookModel = service.BookOptions(id);
             var publishers = service.GetPublishers();
             ViewBag.Publishers = publishers;
             ViewData["Books"] = bookModel;
@@ -56,11 +56,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Details", "Book", new { id = model.BookId });
         }
 
-        public ActionResult RemoveBooks()
+        public ActionResult RemoveBooks(int id)
         {
             var service = CreateBookPublisherService();
             var books = service.GetBooks();
-            var publisherModel = service.PublisherOptions();
+            var publisherModel = service.PublisherOptions(id);
             ViewBag.Books = books;
             ViewData["Publishers"] = publisherModel;
 
@@ -78,10 +78,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Publisher");
         }
 
-        public ActionResult RemovePublishers()
+        public ActionResult RemovePublishers(int id)
         {
             var service = CreateBookPublisherService();
-            var bookModel = service.BookOptions();
+            var bookModel = service.BookOptions(id);
             var publishers = service.GetPublishers();
             ViewBag.Publishers = publishers;
             ViewData["Books"] = bookModel;

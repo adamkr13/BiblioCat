@@ -12,11 +12,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
     [Authorize]
     public class AuthorPublisherController : Controller
     {
-        public ActionResult AddAuthors()
+        public ActionResult AddAuthors(int id)
         {
             var service = CreateAuthorPublisherService();
             var authors = service.GetAuthors();
-            var publisherModel = service.PublisherOptions();
+            var publisherModel = service.PublisherOptions(id);
             ViewBag.Authors = authors;
             ViewData["Publishers"] = publisherModel;
 
@@ -34,10 +34,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Publisher");
         }
 
-        public ActionResult AddPublishers()
+        public ActionResult AddPublishers(int id)
         {
             var service = CreateAuthorPublisherService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var publishers = service.GetPublishers();
             ViewBag.Publishers = publishers;
             ViewData["Authors"] = authorModel;
@@ -56,11 +56,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Details", "Author", new { id = model.AuthorId });
         }
 
-        public ActionResult RemoveAuthors()
+        public ActionResult RemoveAuthors(int id)
         {
             var service = CreateAuthorPublisherService();
             var authors = service.GetAuthors();
-            var publisherModel = service.PublisherOptions();
+            var publisherModel = service.PublisherOptions(id);
             ViewBag.Authors = authors;
             ViewData["Publishers"] = publisherModel;
 
@@ -78,10 +78,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Publisher");
         }
 
-        public ActionResult RemovePublishers()
+        public ActionResult RemovePublishers(int id)
         {
             var service = CreateAuthorPublisherService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var publishers = service.GetPublishers();
             ViewBag.Publishers = publishers;
             ViewData["Authors"] = authorModel;
