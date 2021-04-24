@@ -12,11 +12,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
     [Authorize]
     public class SeriesAuthorController : Controller
     {
-        public ActionResult AddAuthors()
+        public ActionResult AddAuthors(int id)
         {
             var service = CreateSeriesAuthorService();
             var authors = service.GetAuthors();
-            var seriesModel = service.SeriesOptions();
+            var seriesModel = service.SeriesOptions(id);
             ViewBag.Authors = authors;
             ViewData["Series"] = seriesModel;
 
@@ -34,10 +34,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Series");
         }
 
-        public ActionResult AddSeries()
+        public ActionResult AddSeries(int id)
         {
             var service = CreateSeriesAuthorService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var series = service.GetSeries();
             ViewBag.Series = series;
             ViewData["Authors"] = authorModel;
@@ -56,11 +56,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Author");
         }
 
-        public ActionResult RemoveAuthors()
+        public ActionResult RemoveAuthors(int id)
         {
             var service = CreateSeriesAuthorService();
             var authors = service.GetAuthors();
-            var seriesModel = service.SeriesOptions();
+            var seriesModel = service.SeriesOptions(id);
             ViewBag.Authors = authors;
             ViewData["Series"] = seriesModel;
 
@@ -78,10 +78,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Series");
         }
 
-        public ActionResult RemoveSeries()
+        public ActionResult RemoveSeries(int id)
         {
             var service = CreateSeriesAuthorService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var series = service.GetSeries();
             ViewBag.Series = series;
             ViewData["Authors"] = authorModel;

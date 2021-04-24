@@ -12,11 +12,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
     [Authorize]
     public class SeriesBookController : Controller
     {
-        public ActionResult AddBooks()
+        public ActionResult AddBooks(int id)
         {
             var service = CreateSeriesBookService();
             var books = service.GetBooks();
-            var seriesModel = service.SeriesOptions();
+            var seriesModel = service.SeriesOptions(id);
             ViewBag.Books = books;
             ViewData["Series"] = seriesModel;
 
@@ -34,10 +34,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Series");
         }
 
-        public ActionResult AddSeries()
+        public ActionResult AddSeries(int id)
         {
             var service = CreateSeriesBookService();
-            var bookModel = service.BookOptions();
+            var bookModel = service.BookOptions(id);
             var series = service.GetSeries();
             ViewBag.Series = series;
             ViewData["Books"] = bookModel;
@@ -56,11 +56,11 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Book");
         }
 
-        public ActionResult RemoveBooks()
+        public ActionResult RemoveBooks(int id)
         {
             var service = CreateSeriesBookService();
             var books = service.GetBooks();
-            var seriesModel = service.SeriesOptions();
+            var seriesModel = service.SeriesOptions(id);
             ViewBag.Books = books;
             ViewData["Series"] = seriesModel;
 
@@ -78,10 +78,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Series");
         }
 
-        public ActionResult RemoveSeries()
+        public ActionResult RemoveSeries(int id)
         {
             var service = CreateSeriesBookService();
-            var bookModel = service.BookOptions();
+            var bookModel = service.BookOptions(id);
             var series = service.GetSeries();
             ViewBag.Series = series;
             ViewData["Books"] = bookModel;
