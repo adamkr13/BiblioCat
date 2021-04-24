@@ -156,13 +156,13 @@ namespace BiblioCat.Services.TableJunctions
             }
         }
 
-        public List<SelectListItem> AuthorOptions()
+        public List<SelectListItem> AuthorOptions(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Authors.Select(a =>
+                    .Authors.Where(a => a.AuthorId == id).Select(a =>
                     new SelectListItem
                     {
                         Text = a.LastName + ", " + a.FirstName,
@@ -170,10 +170,7 @@ namespace BiblioCat.Services.TableJunctions
                     });
 
                 var authorList = query.ToList();
-                var orderedAuthorList = authorList.OrderBy(e => e.Text).ToList();
-                orderedAuthorList.Insert(0, new SelectListItem { Text = "--Select Author--", Value = "" });
-
-                return orderedAuthorList;
+                return authorList;
             }
         }
     }

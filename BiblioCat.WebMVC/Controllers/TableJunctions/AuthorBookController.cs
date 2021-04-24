@@ -12,10 +12,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
     [Authorize]
     public class AuthorBookController : Controller
     {        
-        public ActionResult AddBooks()
+        public ActionResult AddBooks(int id)
         {
             var service = CreateAuthorBookService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var books = service.GetBooks();
             ViewBag.Books = books;
             ViewData["Authors"] = authorModel;
@@ -56,10 +56,10 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             return RedirectToAction("Index", "Book");
         }
 
-        public ActionResult RemoveBooks()
+        public ActionResult RemoveBooks(int id)
         {
             var service = CreateAuthorBookService();
-            var authorModel = service.AuthorOptions();
+            var authorModel = service.AuthorOptions(id);
             var books = service.GetBooks();
             ViewBag.Books = books;
             ViewData["Authors"] = authorModel;
