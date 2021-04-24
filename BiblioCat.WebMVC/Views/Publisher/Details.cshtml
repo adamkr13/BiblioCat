@@ -69,8 +69,8 @@
     <br />
     @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherId }) |
     @Html.ActionLink("Back to List", "Index") <br />
-    @Html.ActionLink("Add Authors to Publisher", "AddAuthors", "AuthorPublisher") |
-    @Html.ActionLink("Remove Authors from Publisher", "RemoveAuthors", "AuthorPublisher") <br />
-    @Html.ActionLink("Add Books to Publisher", "AddBooks", "BookPublisher") |
-    @Html.ActionLink("Remove Books from Publisher", "RemoveBooks", "BookPublisher")
+    @Html.ActionLink("Add Authors to Publisher", "AddAuthors", "AuthorPublisher", new { id = Model.PublisherId }, null) |
+    @Html.ActionLink("Remove Authors from Publisher", "RemoveAuthors", "AuthorPublisher", new { id = Model.PublisherId }, null) <br />
+    @Html.ActionLink("Add Books to Publisher", "AddBooks", "BookPublisher", new { id = Model.PublisherId }, null) |
+    @Html.ActionLink("Remove Books from Publisher", "RemoveBooks", "BookPublisher", new { id = Model.PublisherId }, null)
 </p>
