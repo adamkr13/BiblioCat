@@ -6,12 +6,10 @@
 
 <h2>Delete Author</h2>
 
-<h3>Are you sure you want to delete author @Html.DisplayFor(model => model.LastName) @Html.DisplayFor(model => model.FirstName)?</h3>
+<h3>Are you sure you want to delete author @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)?</h3>
 <hr />
 <div class="container">
     <div class="col-md-4"></div>
-
-
     <div class="col-md-4">
         <dl class="dl-horizontal">
             <dt>
@@ -77,7 +75,6 @@
             <dd>
                 @Html.DisplayFor(model => model.TwitterHandle)
             </dd>
-
         </dl>
 
         @using (Html.BeginForm())
