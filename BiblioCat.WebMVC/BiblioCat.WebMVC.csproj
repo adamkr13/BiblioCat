@@ -192,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Assets\catFrontPage.jpg" />
+    <Content Include="Content\Assets\PaperTexture.jpg" />
     <Content Include="Content\bootstrap-paper.css" />
     <Content Include="Content\bootstrap-readable.css" />
     <Content Include="Content\bootstrap-theme.css" />
