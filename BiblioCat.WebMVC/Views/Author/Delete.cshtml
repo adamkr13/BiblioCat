@@ -4,85 +4,91 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Author Delete</h2>
+<h2>Delete Author</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>AuthorDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorId)
-        </dt>
+<h3>Are you sure you want to delete author @Html.DisplayFor(model => model.LastName) @Html.DisplayFor(model => model.FirstName)?</h3>
+<hr />
+<div class="container">
+    <div class="col-md-4"></div>
 
-        <dd>
-            @Html.DisplayFor(model => model.AuthorId)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.AuthorId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Patreon)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Patreon)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.OfficialWebsite)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Patreon)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.OfficialWebsite)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Patreon)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AmazonPage)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.OfficialWebsite)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AmazonPage)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.OfficialWebsite)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GoodreadsPage)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AmazonPage)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GoodreadsPage)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.AmazonPage)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TwitterHandle)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.GoodreadsPage)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TwitterHandle)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.GoodreadsPage)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.TwitterHandle)
+            </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            <dd>
+                @Html.DisplayFor(model => model.TwitterHandle)
+            </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> 
+                @Html.ActionLink("Back to Author List", "Index", "Author", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role="button" })
+            </div>
+        }
+    </div>
+    <div class="col-md-4"></div>
 </div>

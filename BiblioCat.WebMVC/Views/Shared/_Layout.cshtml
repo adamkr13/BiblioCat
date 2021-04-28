@@ -30,9 +30,10 @@
                         <li>@Html.ActionLink("Publisher", "Index", "Publisher")</li>
                         <li>@Html.ActionLink("Convention", "Index", "Convention")</li>
                     </ul>
+                    @Html.Partial("_LoginPartial")
                 }
 
-                @Html.Partial("_LoginPartial")
+
             </div>
 
         </div>
@@ -41,7 +42,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                <p>&copy; @DateTime.Now.Year - BiblioCat</p>
             </footer>       
     </div>
 

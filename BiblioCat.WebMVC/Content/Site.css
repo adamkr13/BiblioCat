@@ -13,7 +13,11 @@
 }
 
 .space {
-   height: 70vh;    
+   height: 65vh;    
+}
+
+.small-space {
+    height: 20vh;
 }
 
 /* Set padding to keep content from hitting the edges */
