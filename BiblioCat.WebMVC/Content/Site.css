@@ -1,6 +1,19 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 20px;    
+}
+
+.kitty-book {
+    background-image: url('Assets/catFrontPage.jpg');
+    height: 100vh;
+    position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.space {
+   height: 70vh;    
 }
 
 /* Set padding to keep content from hitting the edges */
