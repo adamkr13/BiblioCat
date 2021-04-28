@@ -2,9 +2,10 @@
     ViewBag.Title = "Home Page";
 }
 
-@if (!User.Identity.IsAuthenticated)
-{
-    <div class="kitty-book">
+<div class="kitty-book">
+    @if (!User.Identity.IsAuthenticated)
+    {
+
         <div class="space"></div>
         <div class="row">
             <div class="col-md-1"></div>
@@ -15,42 +16,73 @@
         <br />
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-2 btn btn-primary btn-lg">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</div>
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
         </div>
         <br />
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-2 btn btn-primary btn-lg">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</div>
+            @Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
+        </div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="small-space"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <a class="btn btn-default btn-lg" href="/Author/Index">Add, Edit and Remove Authors</a>
+            </div>
+        </div>
+        <div class="small-space"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <a class="btn btn-default btn-lg" href="/Book/Index">Add, Edit and Remove Books</a>
+            </div>
+        </div>
+        <div class="small-space"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <a class="btn btn-default btn-lg" href="/Series/Index">Add, Edit and Remove Book Series</a>
+            </div>
+        </div>
+        <div class="small-space"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <a class="btn btn-default btn-lg" href="/Publisher/Index">Add, Edit and Remove Publishers</a>
+            </div>
+        </div>
+        <div class="small-space"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <a class="btn btn-default btn-lg" href="/Convention/Index">Add, Edit and Remove Conventions</a>
+            </div>
+        </div>
+        <div class="small-space"></div>
+    }
+</div>
+@if (!User.Identity.IsAuthenticated)
+{
+
+    <div class="space"></div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            Welcome to BiblioCat, an application that will help you track and manage information about your favorite Books, Authors, Publishers, Series, and Conventions.
         </div>
     </div>
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-2"></div>
+        @Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
+    </div>
 }
-
-<div class="small-space"></div>
-<div class="row">
-    <div class="col-md-4">
-        <a class="btn btn-primary btn-lg" href="/Author/Index">Add, Edit and Remove Authors</a>
-    </div>
-    <div class="col-md-4">
-        <a class="btn btn-primary btn-lg" href="/Book/Index">Add, Edit and Remove Books</a>
-    </div>
-    <div class="col-md-4">
-        <a class="btn btn-primary btn-lg" href="/Series/Index">Add, Edit and Remove Book Series</a>
-    </div>
-</div>
-
-<div class="small-space"></div>
-
-<div class="row">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-3">
-        <a class="btn btn-primary btn-lg" href="/Publisher/Index">Add, Edit and Remove Publishers</a>
-    </div>
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-3">
-        <a class="btn btn-primary btn-lg" href="/Convention/Index">Add, Edit and Remove Conventions</a>
-    </div>
-</div>
-
-<div class="small-space"></div>

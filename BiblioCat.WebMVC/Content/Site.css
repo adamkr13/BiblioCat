@@ -9,7 +9,10 @@
     position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
 
+.button-width {
+    width: 20vh;
 }
 
 .space {
@@ -17,7 +20,7 @@
 }
 
 .small-space {
-    height: 20vh;
+    height: 10vh;
 }
 
 /* Set padding to keep content from hitting the edges */

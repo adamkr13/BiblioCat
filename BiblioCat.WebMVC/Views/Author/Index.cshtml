@@ -7,7 +7,7 @@
 <h2>Author List</h2>
 
 <p>
-    @Html.ActionLink("Add Author", "Create")
+    @Html.ActionLink("Add Author", "Create", "Author", null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -19,10 +19,7 @@
     </div>
 }
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorId)
-        </th>
+    <tr>        
         <th>
             @Html.DisplayNameFor(model => model.LastName)
         </th>
@@ -43,10 +40,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorId)
-            </td>
+        <tr>            
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
