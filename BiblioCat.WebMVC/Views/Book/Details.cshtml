@@ -127,41 +127,45 @@
                 <dt>
                     @Html.DisplayNameFor(model => model.AuthorsOfBook)
                 </dt>
-                @foreach (var item in Model.AuthorsOfBook)
-                {
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
-                    </dd>
 
-                }
+                <dd>
+                    @foreach (var item in Model.AuthorsOfBook)
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)</p>
+                    }
+                </dd>
+
                 <dt>
                     @Html.DisplayNameFor(model => model.SeriesOfBook)
                 </dt>
-                @foreach (var item in Model.SeriesOfBook)
-                {
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.SeriesName)
-                    </dd>
-                }
+
+                <dd>
+                    @foreach (var item in Model.SeriesOfBook)
+                    {
+                        @Html.DisplayFor(modelItem => item.SeriesName) <br />
+                    }
+                </dd>
+
                 <dt>
                     @Html.DisplayNameFor(model => model.PublishedBy)
                 </dt>
-                @foreach (var item in Model.PublishedBy)
-                {
-                    <dd>
-                        @Html.DisplayFor(modelItem => item.PublisherName)
-                    </dd>
-                }
+
+                <dd>
+                    @foreach (var item in Model.PublishedBy)
+                    {
+                        @Html.DisplayFor(modelItem => item.PublisherName) <br />
+                    }
+                </dd>
+
             </dl>
         </div>
     </div>
 
-    <br />
-
     <div class="container">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
             @Html.ActionLink("Edit Book", "Edit", "Book", new { id = Model.BookId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Delete Book", "Delete", "Book", new { id = Model.BookId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
             @Html.ActionLink("Back to Book List", "Index", "Book", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
         </div>
     </div>

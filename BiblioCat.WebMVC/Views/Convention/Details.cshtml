@@ -78,17 +78,17 @@
             <dt>
                 @Html.DisplayNameFor(model => model.AuthorsAttending)
             </dt>
-            @foreach (var item in Model.AuthorsAttending)
-            {
-                <dd>
-                    @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
-                </dd>
 
-            }
+            <dd>
+                @foreach (var item in Model.AuthorsAttending)
+                {
+                    <p>@Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)</p>
+                }
+            </dd>
+
         </dl>
     </div>
 </div>
-<br />
 
 <div class="container">
     <div class="col-md-2"></div>
