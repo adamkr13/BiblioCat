@@ -6,123 +6,126 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>BookDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BookId)
-        </dt>
+<h3>Are you sure you want to delete the book @Html.DisplayFor(model => model.Title)?</h3>
+<hr />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BookId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.BookId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublicationDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PublicationDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublicationDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PublicationDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ISBN)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ISBN)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ISBN)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GenreOfBook)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.GenreOfBook)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GenreOfBook)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.GenreOfBook)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FormatOfBook)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FormatOfBook)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FormatOfBook)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FormatOfBook)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LoanedTo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.LoanedTo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoanedTo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LoanedTo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Narrator)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Narrator)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Narrator)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Narrator)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Translator)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Translator)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Translator)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Translator)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Illustrator)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Illustrator)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Illustrator)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Illustrator)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsFirstEdition)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsFirstEdition)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsFirstEdition)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IsFirstEdition)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IHaveRead)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IHaveRead)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IHaveRead)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IHaveRead)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IOwn)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IOwn)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IOwn)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.IOwn)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" />
+                @Html.ActionLink("Back to Book List", "Index", "Book", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            </div>
+        }
+    </div>
 </div>

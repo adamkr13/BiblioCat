@@ -9,8 +9,8 @@
 <h3>Are you sure you want to delete author @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)?</h3>
 <hr />
 <div class="container">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.AuthorId)
@@ -82,8 +82,8 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> 
-                @Html.ActionLink("Back to Author List", "Index", "Author", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role="button" })
+                <input type="submit" value="Delete" class="btn btn-default" />
+                @Html.ActionLink("Back to Author List", "Index", "Author", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
             </div>
         }
     </div>

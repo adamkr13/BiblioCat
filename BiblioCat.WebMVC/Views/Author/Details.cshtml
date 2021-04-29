@@ -6,145 +6,144 @@
 
 <h2>Author Detail</h2>
 
-<div>
-    <hr />
-    <div class="container">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.AuthorId)
-                </dt>
+<hr />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.AuthorId)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.AuthorId)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.FirstName)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.LastName)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Patreon)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Patreon)
+            </dt>
 
-                <dd>
-                    <a href="@Html.DisplayFor(model => model.Patreon)" target="_blank">@Html.DisplayFor(model => model.Patreon)</a>
-                </dd>
+            <dd>
+                <a href="@Html.DisplayFor(model => model.Patreon)" target="_blank">@Html.DisplayFor(model => model.Patreon)</a>
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.OfficialWebsite)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.OfficialWebsite)
+            </dt>
 
-                <dd>
-                    <a href="@Html.DisplayFor(model => model.OfficialWebsite)" target="_blank">@Html.DisplayFor(model => model.OfficialWebsite)</a>
-                </dd>
+            <dd>
+                <a href="@Html.DisplayFor(model => model.OfficialWebsite)" target="_blank">@Html.DisplayFor(model => model.OfficialWebsite)</a>
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.AmazonPage)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AmazonPage)
+            </dt>
 
-                <dd>
-                    <a href="@Html.DisplayFor(model => model.AmazonPage)" target="_blank">@Html.DisplayFor(model => model.AmazonPage)</a>
-                </dd>
+            <dd>
+                <a href="@Html.DisplayFor(model => model.AmazonPage)" target="_blank">@Html.DisplayFor(model => model.AmazonPage)</a>
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.GoodreadsPage)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.GoodreadsPage)
+            </dt>
 
-                <dd>
-                    <a href="@Html.DisplayFor(model => model.GoodreadsPage)" target="_blank">@Html.DisplayFor(model => model.GoodreadsPage)</a>
-                </dd>
+            <dd>
+                <a href="@Html.DisplayFor(model => model.GoodreadsPage)" target="_blank">@Html.DisplayFor(model => model.GoodreadsPage)</a>
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.TwitterHandle)
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TwitterHandle)
+            </dt>
 
-                <dd>
-                    <a href="@Html.DisplayFor(model => model.TwitterHandle)" target="_blank">@Html.DisplayFor(model => model.TwitterHandle)</a>
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.BooksByAuthor)
-                </dt>
-                <dd>
-                    @foreach (var item in Model.BooksByAuthor)
-                    {
-                        @Html.DisplayFor(modelItem => item.Title) <br />
-                    }
+            <dd>
+                <a href="@Html.DisplayFor(model => model.TwitterHandle)" target="_blank">@Html.DisplayFor(model => model.TwitterHandle)</a>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BooksByAuthor)
+            </dt>
+            <dd>
+                @foreach (var item in Model.BooksByAuthor)
+                {
+                    @Html.DisplayFor(modelItem => item.Title) <br />
+                }
 
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.SeriesWritten)
-                </dt>
-                <dd>
-                    @foreach (var item in Model.SeriesWritten)
-                    {
-                        @Html.DisplayFor(modelItem => item.SeriesName) <br />
-                    }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SeriesWritten)
+            </dt>
+            <dd>
+                @foreach (var item in Model.SeriesWritten)
+                {
+                    @Html.DisplayFor(modelItem => item.SeriesName) <br />
+                }
 
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.PublishedBy)
-                </dt>
-                <dd>
-                    @foreach (var item in Model.PublishedBy)
-                    {
-                        @Html.DisplayFor(modelItem => item.PublisherName) <br />
-                    }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PublishedBy)
+            </dt>
+            <dd>
+                @foreach (var item in Model.PublishedBy)
+                {
+                    @Html.DisplayFor(modelItem => item.PublisherName) <br />
+                }
 
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.ConventionsAttending)
-                </dt>
-                <dd>
-                    @foreach (var item in Model.ConventionsAttending)
-                    {
-                        @Html.DisplayFor(modelItem => item.Name) <br />
-                    }
-                </dd>
-            </dl>
-        </div>
-        <div class="col-md-2"></div>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ConventionsAttending)
+            </dt>
+            <dd>
+                @foreach (var item in Model.ConventionsAttending)
+                {
+                    @Html.DisplayFor(modelItem => item.Name) <br />
+                }
+            </dd>
+        </dl>
     </div>
+    <div class="col-md-2"></div>
+</div>
 
+<br />
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit Author", "Edit", "Author", new { id = Model.AuthorId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Delete Author", "Delete", "Author", routeValues: new { id = Model.AuthorId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Back to Author List", "Index", "Author", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+        </div>
+    </div>
+    <div class="col-md-3"></div>
     <br />
-
-    <div class="container">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div class="form-actions no-color">
-                @Html.ActionLink("Edit Author", "Edit", "Author", new { id = Model.AuthorId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
-                @Html.ActionLink("Back to Author List", "Index", "Author", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
-            </div>
-        </div>
-        <div class="col-md-3"></div>
-        <br />
+</div>
+<br />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @Html.ActionLink("Add Books to Author", "AddBooks", "AuthorBook", new { id = Model.AuthorId }, null) |
+        @Html.ActionLink("Remove Books from Author", "RemoveBooks", "AuthorBook", new { id = Model.AuthorId }, null) <br />
+        @Html.ActionLink("Add Conventions to Author", "AddConventions", "AuthorConvention", new { id = Model.AuthorId }, null) |
+        @Html.ActionLink("Remove Conventions from Author", "RemoveConventions", "AuthorConvention", new { id = Model.AuthorId }, null) <br />
+        @Html.ActionLink("Add Publishers to Author", "AddPublishers", "AuthorPublisher", new { id = Model.AuthorId }, null) |
+        @Html.ActionLink("Remove Publishers from Author", "RemovePublishers", "AuthorPublisher", new { id = Model.AuthorId }, null) <br />
+        @Html.ActionLink("Add Series to Author", "AddSeries", "SeriesAuthor", new { id = Model.AuthorId }, null) |
+        @Html.ActionLink("Remove Series from Author", "RemoveSeries", "SeriesAuthor", new { id = Model.AuthorId }, null)
     </div>
-    <br />
-    <div class="container">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-                @Html.ActionLink("Add Books to Author", "AddBooks", "AuthorBook", new { id = Model.AuthorId }, null) |
-                @Html.ActionLink("Remove Books from Author", "RemoveBooks", "AuthorBook", new { id = Model.AuthorId }, null) <br />
-                @Html.ActionLink("Add Conventions to Author", "AddConventions", "AuthorConvention", new { id = Model.AuthorId }, null) |
-                @Html.ActionLink("Remove Conventions from Author", "RemoveConventions", "AuthorConvention", new { id = Model.AuthorId }, null) <br />
-                @Html.ActionLink("Add Publishers to Author", "AddPublishers", "AuthorPublisher", new { id = Model.AuthorId }, null) |
-                @Html.ActionLink("Remove Publishers from Author", "RemovePublishers", "AuthorPublisher", new { id = Model.AuthorId }, null) <br />
-                @Html.ActionLink("Add Series to Author", "AddSeries", "SeriesAuthor", new { id = Model.AuthorId }, null) |
-                @Html.ActionLink("Remove Series from Author", "RemoveSeries", "SeriesAuthor", new { id = Model.AuthorId }, null)
-        </div>
-        <div class="col-md-2"></div>
-    </div>
+    <div class="col-md-2"></div>
 </div>
