@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Publisher Index</h2>
+<h2>Publisher List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Publisher", "Create", "Publisher", null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
