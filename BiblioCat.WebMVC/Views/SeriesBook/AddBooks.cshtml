@@ -6,23 +6,11 @@
 
 <h2>Add Books to Series</h2>
 
-
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-        @TempData["SaveResult"]
-    </div>
-}
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>AddBooksCreate</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -33,23 +21,37 @@
             </div>
         </div>
 
-        @foreach (var item in ViewBag.Books)
-        {
-            <input type="checkbox" name="Books" value="@item.BookId" /> @item.Title
-            <br />
-        }
+        <table class="table">
+            <tr>
+                <th class="col-md-3">
+                    @Html.DisplayNameFor(model => model.Books)
+                </th>
+                <th>
+                    Select
+                </th>
+            </tr>
+
+            @foreach (var item in ViewBag.Books)
+            {
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        <input type="checkbox" name="Books" value="@item.BookId" />
+                    </td>
+                </tr>
+            }
+        </table>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-1 col-md-10">
+                <input type="submit" value="Add Books" class="btn btn-default" />
+                @Html.ActionLink("Back to Series List", "Index", "Series", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to Series List", "Index", "Series")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
