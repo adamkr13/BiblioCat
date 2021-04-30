@@ -18,8 +18,10 @@ namespace BiblioCat.Models.TableJunctions.AuthorConvention
         [DisplayName("Convention Name")]
         public string ConventionName { get; set; }
 
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
 
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
 
         [Required]
