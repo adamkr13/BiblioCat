@@ -39,24 +39,20 @@
                         @item.Title
                     </td>
                     <td>
-                        <input type="checkbox" name="Books" value="@item.Title" />
+                        <input type="checkbox" name="Books" value="@item.BookId" />
                     </td>
                 </tr>
             }
         </table>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-1 col-md-10">
                 <input type="submit" value="Remove Books" class="btn btn-default" />
                 @Html.ActionLink("Back to Author List", "Index", "Author", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to Author List", "Index", "Author")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
