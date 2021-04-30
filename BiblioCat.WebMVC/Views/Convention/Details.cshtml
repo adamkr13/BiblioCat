@@ -1,95 +1,112 @@
 ﻿@model BiblioCat.Models.Convention.ConventionDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Convention Details";
 }
 
-<h2>Details</h2>
+<h2>Convention Details</h2>
 
-<div>
-    <h4>ConventionDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ConventionId)
-        </dt>
+<hr />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ConventionId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ConventionId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Hotel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hotel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Website)
-        </dt>
-
-        <dd>
-            <a href="@Html.DisplayFor(model => model.Website)" target="_blank">@Html.DisplayFor(model => model.Website)</a>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorsAttending)
-        </dt>
-        @foreach (var item in Model.AuthorsAttending)
-        {
             <dd>
-                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(model => model.ConventionId)
             </dd>
 
-        }
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Hotel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hotel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Website)
+            </dt>
+
+            <dd>
+                <a href="@Html.DisplayFor(model => model.Website)" target="_blank">@Html.DisplayFor(model => model.Website)</a>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorsAttending)
+            </dt>
+
+            <dd>
+                @foreach (var item in Model.AuthorsAttending)
+                {
+                    <p>@Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)</p>
+                }
+            </dd>
+
+        </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ConventionId }) |
-    @Html.ActionLink("Back to List", "Index") <br />
-    @Html.ActionLink("Add Authors to Convention", "AddAuthors", "AuthorConvention", new { id = Model.ConventionId }, null) |
-    @Html.ActionLink("Remove Authors from Convention", "RemoveAuthors", "AuthorConvention", new { id = Model.ConventionId }, null)
-</p>
+
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit Convention", "Edit", "Convention", new { id = Model.ConventionId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Delete Convention", "Delete", "Convention", new { id = Model.ConventionId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Back to Convention List", "Index", "Convention", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+    <br />
+</div>
+<br />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @Html.ActionLink("Add Authors to Convention", "AddAuthors", "AuthorConvention", new { id = Model.ConventionId }, null) |
+        @Html.ActionLink("Remove Authors from Convention", "RemoveAuthors", "AuthorConvention", new { id = Model.ConventionId }, null)
+    </div>
+</div>

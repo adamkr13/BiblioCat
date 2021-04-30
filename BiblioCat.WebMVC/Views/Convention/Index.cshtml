@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiblioCat.Models.Convention.ConventionListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Convention List";
 }
 
-<h2>Index</h2>
+<h2>Convention List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Convention", "Create", "Convention", null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -19,10 +19,7 @@
     </div>
 }
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ConventionId)
-        </th>
+    <tr>        
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -47,9 +44,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConventionId)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

@@ -1,54 +1,64 @@
 ﻿@model BiblioCat.Models.TableJunctions.AuthorPublisher.AddAuthorsCreate
 
 @{
-    ViewBag.Title = "AddAuthors";
+    ViewBag.Title = "Add Authors to Publisher";
 }
 
-<h2>AddAuthors</h2>
-
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-        @TempData["SaveResult"]
-    </div>
-}
+<h2>Add Authors to Publisher</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>AddAuthorsCreate</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.PublisherId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.PublisherId, ViewData["Publishers"] as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.PublisherId, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PublisherId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PublisherId, ViewData["Publishers"] as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PublisherId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th class="col-md-3">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th class="col-md-3">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    Select
+                </th>
+            </tr>
+
+            @foreach (var item in ViewBag.Authors)
+            {
+                <tr>
+                    <td>
+                        @item.LastName
+                    </td>
+                    <td>
+                        @item.FirstName
+                    </td>
+                    <td>
+                        <input type="checkbox" name="Authors" value="@item.AuthorId" />
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Authors" class="btn btn-default" />
+                @Html.ActionLink("Back to Publisher List", "Index", "Publisher", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            </div>
         </div>
     </div>
-
-    @foreach (var item in ViewBag.Authors)
-    {
-        <input type="checkbox" name="Authors" value="@item.AuthorId" /> @item.FirstName @item.LastName
-        <br />
-    }
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
-
-<div>
-    @Html.ActionLink("Back to Publisher List", "Index", "Publisher")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

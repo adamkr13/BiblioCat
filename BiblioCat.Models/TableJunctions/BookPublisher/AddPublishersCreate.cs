@@ -17,7 +17,7 @@ namespace BiblioCat.Models.TableJunctions.BookPublisher
 
         public int PublisherId { get; set; }
 
-        [DisplayName("Publisher")]
+        [DisplayName("Publisher Name")]
         public string PublisherName { get; set; }
 
         [Required]

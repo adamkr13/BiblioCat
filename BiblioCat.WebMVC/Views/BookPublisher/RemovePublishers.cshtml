@@ -1,31 +1,18 @@
 ﻿@model BiblioCat.Models.TableJunctions.BookPublisher.AddPublishersCreate
 
 @{
-    ViewBag.Title = "RemovePublishers";
+    ViewBag.Title = "Remove Publishers from Book";
 }
 
-<h2>RemovePublishers</h2>
-
-
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-        @TempData["SaveResult"]
-    </div>
-}
+<h2>Remove Publishers from Book</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>AddPublishersCreate</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="form-group">
             @Html.LabelFor(model => model.BookId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -34,22 +21,37 @@
             </div>
         </div>
 
-        @foreach (var item in ViewBag.Publishers)
-        {
-            <input type="checkbox" name="Publishers" value="@item.PublisherId" /> @item.PublisherName <br />
-        }
+        <table class="table">
+            <tr>
+                <th class="col-md-3">
+                    @Html.DisplayNameFor(model => model.PublisherName)
+                </th>
+                <th>
+                    Select
+                </th>
+            </tr>
+
+            @foreach (var item in ViewBag.Publishers)
+            {
+                <tr>
+                    <td>
+                        @item.PublisherName
+                    </td>
+                    <td>
+                        <input type="checkbox" name="Publishers" value="@item.PublisherId" />
+                    </td>
+                </tr>
+            }
+        </table>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Remove" class="btn btn-default" />
+            <div class="col-md-offset-1 col-md-10">
+                <input type="submit" value="Remove Publishers" class="btn btn-default" />
+                @Html.ActionLink("Go to Book List", "Index", "Book", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to Book List", "Index", "Book")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

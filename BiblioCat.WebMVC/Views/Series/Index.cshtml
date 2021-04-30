@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiblioCat.Models.Series.SeriesListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Series List";
 }
 
-<h2>Index</h2>
+<h2>Series List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Series", "Create", "Series", null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -35,7 +35,7 @@
         <th>
             @Html.DisplayNameFor(model => model.BooksInSeries)
         </th>
-        <th>Possible Options</th>
+        <th></th>
 
     </tr>
 

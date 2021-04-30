@@ -1,76 +1,88 @@
 ﻿@model BiblioCat.Models.Publisher.PublisherDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Publisher Details";
 }
 
-<h2>Details</h2>
+<h2>Publisher Details</h2>
 
-<div>
-    <h4>PublisherDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PublisherId)
-        </dt>
+<hr />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PublisherId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublisherId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PublisherName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PublisherName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PublisherWebsite)
-        </dt>
-
-        <dd>
-            <a href="@Html.DisplayFor(model => model.PublisherWebsite)" target="_blank">@Html.DisplayFor(model => model.PublisherWebsite)</a>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorsWithPublisher)
-        </dt>
-        @foreach (var item in Model.AuthorsWithPublisher)
-        {
             <dd>
-                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(model => model.PublisherId)
             </dd>
 
-        }
-        <dt>
-            @Html.DisplayNameFor(model => model.BookTitles)
-        </dt>
-        @foreach (var item in Model.BookTitles)
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => item.Title)
-            </dd>
-        }
+            <dt>
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.PublisherName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PublisherWebsite)
+            </dt>
+
+            <dd>
+                <a href="@Html.DisplayFor(model => model.PublisherWebsite)" target="_blank">@Html.DisplayFor(model => model.PublisherWebsite)</a>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorsWithPublisher)
+            </dt>
+            <dd>
+                @foreach (var item in Model.AuthorsWithPublisher)
+                {
+                    <p>@Html.DisplayFor(modelItem => item.LastName), @Html.DisplayFor(modelItem => item.FirstName)</p>
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BookTitles)
+            </dt>
+            <dd>
+                @foreach (var item in Model.BookTitles)
+                {
+                    @Html.DisplayFor(modelItem => item.Title) <br />
+                }
+            </dd>
+        </dl>
+    </div>
 </div>
-<p>
+
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit Publisher", "Edit", "Publisher", new { id = Model.PublisherId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Delete Publisher", "Delete", "Publisher", new { id = Model.PublisherId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Back to Publisher List", "Index", "Publisher", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+        </div>
+    </div>
     <br />
-    <br />
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherId }) |
-    @Html.ActionLink("Back to List", "Index") <br />
-    @Html.ActionLink("Add Authors to Publisher", "AddAuthors", "AuthorPublisher", new { id = Model.PublisherId }, null) |
-    @Html.ActionLink("Remove Authors from Publisher", "RemoveAuthors", "AuthorPublisher", new { id = Model.PublisherId }, null) <br />
-    @Html.ActionLink("Add Books to Publisher", "AddBooks", "BookPublisher", new { id = Model.PublisherId }, null) |
-    @Html.ActionLink("Remove Books from Publisher", "RemoveBooks", "BookPublisher", new { id = Model.PublisherId }, null)
-</p>
+</div>
+<br />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @Html.ActionLink("Add Authors to Publisher", "AddAuthors", "AuthorPublisher", new { id = Model.PublisherId }, null) |
+        @Html.ActionLink("Remove Authors from Publisher", "RemoveAuthors", "AuthorPublisher", new { id = Model.PublisherId }, null) <br />
+        @Html.ActionLink("Add Books to Publisher", "AddBooks", "BookPublisher", new { id = Model.PublisherId }, null) |
+        @Html.ActionLink("Remove Books from Publisher", "RemoveBooks", "BookPublisher", new { id = Model.PublisherId }, null)
+    </div>
+</div>

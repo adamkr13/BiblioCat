@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<BiblioCat.Models.Book.BookListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Book List";
 }
 
-<h2>Book Index</h2>
+<h2>Book List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Book", "Create", "Book", null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
 </p>
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -19,10 +19,7 @@
     </div>
 }
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BookId)
-        </th>
+    <tr>        
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -43,10 +40,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookId)
-            </td>
+        <tr>            
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>

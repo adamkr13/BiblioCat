@@ -23,7 +23,7 @@ namespace BiblioCat.WebMVC
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-readable.css",
                       "~/Content/site.css"));
         }
     }

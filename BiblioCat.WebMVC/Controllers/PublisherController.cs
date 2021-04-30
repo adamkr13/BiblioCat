@@ -53,6 +53,25 @@ namespace BiblioCat.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePublisherService();
+            var detail = service.GetPublisherById(id);
+
+            var model =
+                new PublisherEdit
+                {
+                    PublisherId = detail.PublisherId,
+                    PublisherName = detail.PublisherName,
+                    Address = detail.Address,
+                    PublisherWebsite = detail.PublisherWebsite
+                };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PublisherEdit model)
         {
             if (!ModelState.IsValid) return View(model);

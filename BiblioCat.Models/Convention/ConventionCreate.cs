@@ -21,11 +21,11 @@ namespace BiblioCat.Models.Convention
         public string State { get; set; }
 
         [Required]
-        [DisplayName("Start")]
+        [DisplayName("Start Date")]
         public DateTime StartDate { get; set; }
 
         [Required]
-        [DisplayName("End")]
+        [DisplayName("End Date")]
         public DateTime EndDate { get; set; }
 
         public string Hotel { get; set; }

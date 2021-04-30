@@ -1,68 +1,80 @@
 ﻿@model BiblioCat.Models.Series.SeriesDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Series Details";
 }
 
 <h2>Details</h2>
 
-<div>
-    <h4>SeriesDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SeriesId)
-        </dt>
+<hr />
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SeriesId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SeriesId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SeriesName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SeriesName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SeriesDescription)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SeriesDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorsInSeries)
-        </dt>
-        @foreach (var item in Model.AuthorsInSeries)
-        {
             <dd>
-                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(model => model.SeriesId)
             </dd>
 
-        }
-        <dt>
-            @Html.DisplayNameFor(model => model.BooksInSeries)
-        </dt>
-        @foreach (var item in Model.BooksInSeries)
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => item.Title)
-            </dd>
-        }
+            <dt>
+                @Html.DisplayNameFor(model => model.SeriesName)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.SeriesName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SeriesDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SeriesDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorsInSeries)
+            </dt>
+            <dd>
+                @foreach (var item in Model.AuthorsInSeries)
+                {
+                    <p>@Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)</p>
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BooksInSeries)
+            </dt>
+            <dd>
+                @foreach (var item in Model.BooksInSeries)
+                {
+                    @Html.DisplayFor(modelItem => item.Title)<br />
+                }
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit Series", "Edit", "Series", new { id = Model.SeriesId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Delete Series", "Delete", "Series", routeValues: new { id = Model.SeriesId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Back to Series List", "Index", "Series", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+        </div>
+    </div>
+    <br />
 </div>
 <br />
-<br />
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SeriesId }) |
-    @Html.ActionLink("Back to List", "Index") <br />
-    @Html.ActionLink("Add Authors to Series", "AddAuthors", "SeriesAuthor", new { id = Model.SeriesId }, null) |
-    @Html.ActionLink("Remove Authors from Series", "RemoveAuthors", "SeriesAuthor", new { id = Model.SeriesId }, null) <br />
-    @Html.ActionLink("Add Books to Series", "AddBooks", "SeriesBook", new { id = Model.SeriesId }, null) |
-    @Html.ActionLink("Remove Books from Series", "RemoveBooks", "SeriesBook", new { id = Model.SeriesId }, null)
-</p>
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        @Html.ActionLink("Add Authors to Series", "AddAuthors", "SeriesAuthor", new { id = Model.SeriesId }, null) |
+        @Html.ActionLink("Remove Authors from Series", "RemoveAuthors", "SeriesAuthor", new { id = Model.SeriesId }, null) <br />
+        @Html.ActionLink("Add Books to Series", "AddBooks", "SeriesBook", new { id = Model.SeriesId }, null) |
+        @Html.ActionLink("Remove Books from Series", "RemoveBooks", "SeriesBook", new { id = Model.SeriesId }, null)
+    </div>
+</div>

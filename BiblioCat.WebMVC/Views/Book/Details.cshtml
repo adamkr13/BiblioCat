@@ -1,159 +1,184 @@
 ﻿@model BiblioCat.Models.Book.BookDetail
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Book Details";
 }
 
 <h2>Book Details</h2>
-
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
 <div>
-    <h4>BookDetail</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BookId)
-        </dt>
+    <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.BookId)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookId)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.BookId)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublicationDate)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PublicationDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublicationDate)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.PublicationDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ISBN)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ISBN)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ISBN)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ISBN)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GenreOfBook)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.GenreOfBook)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GenreOfBook)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.GenreOfBook)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FormatOfBook)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FormatOfBook)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FormatOfBook)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.FormatOfBook)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LoanedTo)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LoanedTo)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoanedTo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.LoanedTo)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Narrator)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Narrator)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Narrator)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Narrator)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Translator)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Translator)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Translator)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Translator)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Illustrator)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Illustrator)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Illustrator)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Illustrator)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsFirstEdition)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsFirstEdition)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsFirstEdition)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IsFirstEdition)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IHaveRead)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IHaveRead)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IHaveRead)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IHaveRead)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IOwn)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IOwn)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IOwn)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IOwn)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorsOfBook)
-        </dt>
-        @foreach (var item in Model.AuthorsOfBook)
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.AuthorsOfBook)
+                </dt>
 
-        }
-        <dt>
-            @Html.DisplayNameFor(model => model.SeriesOfBook)
-        </dt>
-        @foreach (var item in Model.SeriesOfBook)
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => item.SeriesName)
-            </dd>
-        }
-        <dt>
-            @Html.DisplayNameFor(model => model.PublishedBy)
-        </dt>
-        @foreach (var item in Model.PublishedBy)
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => item.PublisherName)
-            </dd>
-        }
+                <dd>
+                    @foreach (var item in Model.AuthorsOfBook)
+                    {
+                        <p>@Html.DisplayFor(modelItem => item.LastName),  @Html.DisplayFor(modelItem => item.FirstName)</p>
+                    }
+                </dd>
 
-    </dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SeriesOfBook)
+                </dt>
+
+                <dd>
+                    @foreach (var item in Model.SeriesOfBook)
+                    {
+                        @Html.DisplayFor(modelItem => item.SeriesName) <br />
+                    }
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PublishedBy)
+                </dt>
+
+                <dd>
+                    @foreach (var item in Model.PublishedBy)
+                    {
+                        @Html.DisplayFor(modelItem => item.PublisherName) <br />
+                    }
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            @Html.ActionLink("Edit Book", "Edit", "Book", new { id = Model.BookId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Delete Book", "Delete", "Book", new { id = Model.BookId }, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+            @Html.ActionLink("Back to Book List", "Index", "Book", routeValues: null, htmlAttributes: new { @class = "btn btn-default", @role = "button" })
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            @Html.ActionLink("Add Authors to Book", "AddAuthors", "AuthorBook", new { id = Model.BookId }, null) |
+            @Html.ActionLink("Remove Authors from Book", "RemoveAuthors", "AuthorBook", new { id = Model.BookId }, null) <br />
+            @Html.ActionLink("Add Publishers to Book", "AddPublishers", "BookPublisher", new { id = Model.BookId }, null) |
+            @Html.ActionLink("Remove Publishers from Book", "RemovePublishers", "BookPublisher", new { id = Model.BookId }, null) <br />
+            @Html.ActionLink("Add Series to Book", "AddSeries", "SeriesBook", new { id = Model.BookId }, null) |
+            @Html.ActionLink("Remove Series from Book", "RemoveSeries", "SeriesBook", new { id = Model.BookId }, null)
+        </div>
+    </div>
 </div>
-<br />
-<br />
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Add Authors to Book", "AddAuthors", "AuthorBook", new { id = Model.BookId }, null) |
-    @Html.ActionLink("Remove Authors from Book", "RemoveAuthors", "AuthorBook", new { id = Model.BookId }, null) <br />
-    @Html.ActionLink("Add Publishers to Book", "AddPublishers", "BookPublisher", new { id = Model.BookId }, null) |
-    @Html.ActionLink("Remove Publishers from Book", "RemovePublishers", "BookPublisher", new { id = Model.BookId }, null) <br />
-    @Html.ActionLink("Add Series to Book", "AddSeries", "SeriesBook", new { id = Model.BookId }, null) |
-    @Html.ActionLink("Remove Series from Book", "RemoveSeries", "SeriesBook", new { id = Model.BookId }, null)
-</p>
