@@ -65,24 +65,3 @@
         <div class="small-space"></div>
     }
 </div>
-@if (!User.Identity.IsAuthenticated)
-{
-
-    <div class="space"></div>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-4">
-            Welcome to BiblioCat, an application that will help you track and manage information about your favorite Books, Authors, Publishers, Series, and Conventions.
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-2"></div>
-        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-2"></div>
-        @Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
-    </div>
-}
