@@ -51,7 +51,7 @@ namespace BiblioCat.Services
                             }).ToList()
                         });
 
-                return query.ToArray();
+                return query.OrderBy(e => e.LastName).ToArray();                
             }
         }
 
