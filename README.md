@@ -50,11 +50,9 @@ If you are using a device with a narrower screen, you can reveal these NavBar op
 
 Here is an example of a list page.
 
-![Hamburger Menu](/BiblioCat.WebMVC/Content/Assets/ListPage.jpg)
+![List Page](/BiblioCat.WebMVC/Content/Assets/ListPage.jpg)
 
 Click on the Add (Author, Book, etc) Button and you will be taken to a page to enter the information for that item.
-
-![List Page](/BiblioCat.WebMVC/Content/Assets/ListPage.jpg)
 
 From that page, you can enter the information and click the Create Button to Create the new object or you can go back to the list page.
 
