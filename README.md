@@ -118,6 +118,10 @@ Similar to adding connections, if you want to remove books from an author, in th
 ## Known Issues
 
 - ### Adding and removing connections
+ It is currently possible to, for example, add books to an author that have already been added to that author. Doing this will cause an error.
+ Similarly, it is currently possible to remove books from an author that are not connected to that author. This will also cause an error.
  
-
-
+- ### Implementation of owner book properties
+ Currently, as mentioned in the introduction, this application is envisioned as a crowd sourced database. While properties for books include options for "I Have Read It" and "I Own It", there is not currently functionality to distinguish between individual users. So these fields will read the same for all users and be the values as applied during the creation of the book or during the most recent edit of the book properties.
+ 
+## Resources
