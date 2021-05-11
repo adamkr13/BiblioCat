@@ -21,3 +21,28 @@ There are not any installation requirements.
 Upon initially visiting the site, you will be taken to a page to register or login.
 
 ![Login page](/BiblioCat.WebMVC/Content/Assets/FrontPage.jpg)
+
+To Register, fill out the below fields. Your password must be at least six characters, contain an uppercase character, a lowercase character, a digit, and a non-alphanumeric character. The registration process automatically logs you in.
+
+![Register page](C:/BiblioCat.WebMVC/Content/Assets.RegisterPage.jpg)
+
+If you are returning to the site after already registering, go to the Log in Page and fill enter your information there.
+
+![Register page](C:/BiblioCat.WebMVC/Content/Assets.LoginPage.jpg)
+
+### Navigation
+
+Once logged in, you will be taken to the front page where you will have the option of using the navigation bar at the top
+
+![NavBar](C:/BiblioCat.WebMVC/Content/Assets.NavBar.jpg)
+
+or the buttons in the main section of the page
+
+![MainPage](C:/BiblioCat.WebMVC/Content/Assets.MainPage.jpg)
+
+to navigate to the Author, Book, Series, Publisher, and Convention pages where you will be able to manipulate those items.
+
+If you are using a device with a narrower screen, you can reveal these NavBar options by clicking on the hamburger menu on the top right of the screen.
+
+![MainPage](C:/BiblioCat.WebMVC/Content/Assets.HamburgerMenu.jpg)
+
