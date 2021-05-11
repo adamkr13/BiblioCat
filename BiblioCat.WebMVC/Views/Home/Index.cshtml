@@ -21,8 +21,15 @@
         <br />
         <div class="row">
             <div class="col-md-2"></div>
-            @Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })
+            <div class="col-md-2">@Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default btn-lg button-width", @role = "button" })</div>
+
+            <div class="col-md-2">
+                <div class="btn btn-default btn-lg button-width">
+                    <a href="~/Content/Assets/AboutBiblioCat.pdf" target="_blank">About BibliCat</a>
+                </div>
+            </div>
         </div>
+        
     }
 
     @if (User.Identity.IsAuthenticated)
