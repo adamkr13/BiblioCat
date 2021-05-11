@@ -34,15 +34,14 @@ If you are returning to the site after already registering, go to the Log in Pag
 
 Once logged in, you will be taken to the front page where you will have the option of using the navigation bar at the top
 
-![NavBar](/BiblioCat.WebMVC/Content/Assets.NavBar.jpg)
+![Login page](/BiblioCat.WebMVC/Content/Assets/NavBar.jpg)
 
 or the buttons in the main section of the page
 
-![MainPage](/BiblioCat.WebMVC/Content/Assets.MainPage.jpg)
+![Login page](/BiblioCat.WebMVC/Content/Assets/MainPage.jpg)
 
 to navigate to the Author, Book, Series, Publisher, and Convention pages where you will be able to manipulate those items.
 
 If you are using a device with a narrower screen, you can reveal these NavBar options by clicking on the hamburger menu on the top right of the screen.
 
-![MainPage](/BiblioCat.WebMVC/Content/Assets.HamburgerMenu.jpg)
-
+![Login page](/BiblioCat.WebMVC/Content/Assets/HamburgerMenu.jpg)
