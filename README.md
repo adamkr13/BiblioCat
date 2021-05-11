@@ -20,15 +20,15 @@ There are not any installation requirements.
 
 Upon initially visiting the site, you will be taken to a page to register or login.
 
-![Login page](/BiblioCat.WebMVC/Content/Assets/FrontPage.jpg)
+![FrontPage](/BiblioCat.WebMVC/Content/Assets/FrontPage.jpg)
 
 To Register, fill out the below fields. Your password must be at least six characters, contain an uppercase character, a lowercase character, a digit, and a non-alphanumeric character. The registration process automatically logs you in.
 
-![Register page](/BiblioCat.WebMVC/Content/Assets.RegisterPage.jpg)
+![Login page](/BiblioCat.WebMVC/Content/Assets/RegisterPage.jpg)
 
 If you are returning to the site after already registering, go to the Log in Page and fill enter your information there.
 
-![Register page](/BiblioCat.WebMVC/Content/Assets.LoginPage.jpg)
+![Login page](/BiblioCat.WebMVC/Content/Assets/LoginPage.jpg)
 
 ### Navigation
 
