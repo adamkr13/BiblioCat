@@ -20,29 +20,48 @@ There are not any installation requirements.
 
 Upon initially visiting the site, you will be taken to a page to register or login.
 
-![Login page](/BiblioCat.WebMVC/Content/Assets/FrontPage.jpg)
+![Front Page](/BiblioCat.WebMVC/Content/Assets/FrontPage.jpg)
 
 To Register, fill out the below fields. Your password must be at least six characters, contain an uppercase character, a lowercase character, a digit, and a non-alphanumeric character. The registration process automatically logs you in.
 
-![Register page](C:/BiblioCat.WebMVC/Content/Assets.RegisterPage.jpg)
+![Register Page](/BiblioCat.WebMVC/Content/Assets/RegisterPage.jpg)
 
 If you are returning to the site after already registering, go to the Log in Page and fill enter your information there.
 
-![Register page](C:/BiblioCat.WebMVC/Content/Assets.LoginPage.jpg)
+![Login page](/BiblioCat.WebMVC/Content/Assets/LoginPage.jpg)
 
 ### Navigation
 
 Once logged in, you will be taken to the front page where you will have the option of using the navigation bar at the top
 
-![NavBar](C:/BiblioCat.WebMVC/Content/Assets.NavBar.jpg)
+![Nav Bar](/BiblioCat.WebMVC/Content/Assets/NavBar.jpg)
 
 or the buttons in the main section of the page
 
-![MainPage](C:/BiblioCat.WebMVC/Content/Assets.MainPage.jpg)
+![Main Page](/BiblioCat.WebMVC/Content/Assets/MainPage.jpg)
 
 to navigate to the Author, Book, Series, Publisher, and Convention pages where you will be able to manipulate those items.
 
 If you are using a device with a narrower screen, you can reveal these NavBar options by clicking on the hamburger menu on the top right of the screen.
 
-![MainPage](C:/BiblioCat.WebMVC/Content/Assets.HamburgerMenu.jpg)
+![Hamburger Menu](/BiblioCat.WebMVC/Content/Assets/HamburgerMenu.jpg)
+
+### Adding an Author, Book, Series, Publisher, or Convention
+
+Here is an example of a list page.
+
+![Hamburger Menu](/BiblioCat.WebMVC/Content/Assets/ListPage.jpg)
+
+Click on the Add (Author, Book, etc) Button and you will be taken to a page to enter the information for that item.
+
+![List Page](/BiblioCat.WebMVC/Content/Assets/ListPage.jpg)
+
+From that page, you can enter the information and click the Create Button to Create the new object or you can go back to the list page.
+
+![Add Author](/BiblioCat.WebMVC/Content/Assets/AddAuthor.jpg)
+
+
+
+
+
 
