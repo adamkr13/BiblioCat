@@ -50,6 +50,14 @@ If you are using a device with a narrower screen, you can reveal these NavBar op
 
 ![Hamburger Menu](/BiblioCat.WebMVC/Content/Assets/HamburgerMenu.jpg)
 
+### Logout
+
+At any point, if you want to log out of BiblioCat, click on "Log Off" in the upper right portion of whichever page you are on.
+
+![Log off](/BiblioCat.WebMVC/Content/Assets/LogOff.jpg)
+
+Again, if you are on a narrower screen, the Log off option can be accessed by clicking on the hamburger menu as described above.
+
 ### Adding an Author, Book, Series, Publisher, or Convention
 
 Here is an example of a list page.
@@ -97,5 +105,19 @@ That will take you to a page where you may select from a list of all the books a
 
 ![Add Books To Author](/BiblioCat.WebMVC/Content/Assets/AddBooksToAuthor.jpg)
 
+#### Adding Publishers to Authors and Books
+
+In order to add Publishers to Authors or Books, it is necessary to go to the Author or Book Detail Page. From there, in the bottom menu, click "Add Publishers to Author (or Book)" and you will be taken to the page to add publishers similar to that described in the Connecting Objects section above.
+
+![Add Publishers To Author](/BiblioCat.WebMVC/Content/Assets/AddPublishers.jpg)
+
+### Removing Connections
+
+Similar to adding connections, if you want to remove books from an author, in the list page click on "Remove Books from Author", select the books that you want to remove, and click "Remove Books".
+
+## Known Issues
+
+- ### Adding and removing connections
+ 
 
 
