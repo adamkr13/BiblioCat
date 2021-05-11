@@ -86,16 +86,16 @@ On the list page, clicking on "Delete" takes you to the object delete page where
 
 ![Author Delete](/BiblioCat.WebMVC/Content/Assets/AuthorDelete.jpg)
 
+### Connecting Objects
+- For this example we will be adding books to an author. This process is the same for any of the connections that may be made with these objects with the exception of adding Publishers. 
 
+Once you have added, as an example, an author and a book, you may connect these two objects.
 
+On the list page, in the menu to the right of the object of interest, click on the thing you want to do. In this case, it is "Add Books".
 
+That will take you to a page where you may select from a list of all the books and add them to the author. Select the books you want to add by clicking on their check box and then click "Add Books" and they will be added to the Author.
 
-
-
-
-
-
-
+![Add Books To Author](/BiblioCat.WebMVC/Content/Assets/AddBooksToAuthor.jpg)
 
 
 
