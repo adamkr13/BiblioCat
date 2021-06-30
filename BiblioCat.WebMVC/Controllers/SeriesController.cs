@@ -23,7 +23,7 @@ namespace BiblioCat.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View(new SeriesCreate());
         }
 
         [HttpPost]

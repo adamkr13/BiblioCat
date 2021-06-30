@@ -20,7 +20,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             ViewBag.Books = books;
             ViewData["Publishers"] = publisherModel;
 
-            return View();
+            return View(new AddBooksCreate());
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace BiblioCat.WebMVC.Controllers.TableJunctions
             ViewBag.Publishers = publishers;
             ViewData["Books"] = bookModel;
 
-            return View();
+            return View(new AddPublishersCreate());
         }
 
         [HttpPost]
